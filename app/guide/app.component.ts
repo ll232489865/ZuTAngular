@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'zut-app',
-  template: '<h1>Zuting Angular</h1>'
+    template: `<router-outlet></router-outlet>`
 })
 export class AppComponent { }
+ 

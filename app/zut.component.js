@@ -9,17 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var ZutComponent = (function () {
+    function ZutComponent() {
     }
-    AppComponent = __decorate([
+    ZutComponent = __decorate([
         core_1.Component({
             selector: 'zut-app',
-            template: '<h1>Zuting Angular</h1>'
+            template: "\n      <router-outlet></router-outlet>\n  "
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], ZutComponent);
+    return ZutComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.ZutComponent = ZutComponent;
 //# sourceMappingURL=zut.component.js.map

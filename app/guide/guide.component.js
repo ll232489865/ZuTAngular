@@ -9,17 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var GuideComponent = (function () {
+    function GuideComponent() {
     }
-    AppComponent = __decorate([
+    GuideComponent = __decorate([
         core_1.Component({
-            selector: 'zut-app',
-            template: "<router-outlet></router-outlet>"
+            moduleId: module.id,
+            selector: 'zut-guide',
+            templateUrl: 'guide.component.html',
+            styleUrls: ['guide.component.css']
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], GuideComponent);
+    return GuideComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=zut.component.js.map
+exports.GuideComponent = GuideComponent;
+//# sourceMappingURL=guide.component.js.map

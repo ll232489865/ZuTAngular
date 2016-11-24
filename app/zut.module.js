@@ -11,20 +11,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
-var zut_component_1 = require('./guide/zut.component');
+var zut_component_1 = require('./zut.component');
+var guide_component_1 = require('./guide/guide.component');
 var mine_1 = require('./mine/mine'); //我的
 var login_service_1 = require('./mine/login.service');
 var login_1 = require('./mine/login');
-var AppModule = (function () {
-    function AppModule() {
+var ZutModule = (function () {
+    function ZutModule() {
     }
-    AppModule = __decorate([
+    ZutModule = __decorate([
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule,
                 router_1.RouterModule.forRoot([
                     {
                         path: '',
-                        component: mine_1.Mine
+                        component: guide_component_1.GuideComponent
                     },
                     {
                         path: 'login',
@@ -35,12 +36,12 @@ var AppModule = (function () {
             providers: [
                 login_service_1.LoginService
             ],
-            declarations: [zut_component_1.AppComponent, mine_1.Mine, login_1.LoginPage],
-            bootstrap: [zut_component_1.AppComponent]
+            declarations: [zut_component_1.ZutComponent, mine_1.Mine, login_1.LoginPage, guide_component_1.GuideComponent],
+            bootstrap: [zut_component_1.ZutComponent]
         }), 
         __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ], ZutModule);
+    return ZutModule;
 }());
-exports.AppModule = AppModule;
+exports.ZutModule = ZutModule;
 //# sourceMappingURL=zut.module.js.map

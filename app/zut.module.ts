@@ -2,11 +2,10 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule }   from '@angular/router';
 
-import { AppComponent }   from './guide/zut.component';
-
+import { ZutComponent }   from './zut.component';
+import { GuideComponent }   from './guide/guide.component';
 import {Mine} from './mine/mine';//我的
 import { LoginService }      from './mine/login.service';
-
 import {LoginPage} from './mine/login'
 
 @NgModule({
@@ -14,7 +13,7 @@ import {LoginPage} from './mine/login'
     RouterModule.forRoot([
         {
             path: '',
-            component: Mine
+            component: GuideComponent
         },
         {
           path:'login',
@@ -25,7 +24,7 @@ import {LoginPage} from './mine/login'
     providers: [
     LoginService
   ],
-  declarations: [ AppComponent,Mine,LoginPage],
-  bootstrap:[AppComponent]
+  declarations: [ ZutComponent,Mine,LoginPage,GuideComponent],
+  bootstrap:[ZutComponent]
 })
-export class AppModule { }
+export class ZutModule { }

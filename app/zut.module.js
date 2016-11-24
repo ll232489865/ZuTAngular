@@ -10,16 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-var zut_component_1 = require('./zut.component');
+var router_1 = require('@angular/router');
+var zut_component_1 = require('./guide/zut.component');
+var mine_1 = require('./mine/mine'); //我的
+var login_service_1 = require('./mine/login.service');
+var login_1 = require('./mine/login');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [
-                platform_browser_1.BrowserModule
+            imports: [platform_browser_1.BrowserModule,
+                router_1.RouterModule.forRoot([
+                    {
+                        path: '',
+                        component: mine_1.Mine
+                    },
+                    {
+                        path: 'login',
+                        component: login_1.LoginPage
+                    }
+                ])
             ],
-            declarations: [zut_component_1.AppComponent],
+            providers: [
+                login_service_1.LoginService
+            ],
+            declarations: [zut_component_1.AppComponent, mine_1.Mine, login_1.LoginPage],
             bootstrap: [zut_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

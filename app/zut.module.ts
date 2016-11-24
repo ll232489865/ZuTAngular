@@ -1,11 +1,31 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent }   from './zut.component';
+import { RouterModule }   from '@angular/router';
+
+import { AppComponent }   from './guide/zut.component';
+
+import {Mine} from './mine/mine';//我的
+import { LoginService }      from './mine/login.service';
+
+import {LoginPage} from './mine/login'
+
 @NgModule({
-  imports:      [ 
-      BrowserModule 
+  imports:      [ BrowserModule,
+    RouterModule.forRoot([
+        {
+            path: '',
+            component: Mine
+        },
+        {
+          path:'login',
+          component:LoginPage
+        }
+    ])
   ],
-  declarations: [ AppComponent ],
-  bootstrap:    [ AppComponent ]
+    providers: [
+    LoginService
+  ],
+  declarations: [ AppComponent,Mine,LoginPage],
+  bootstrap:[AppComponent]
 })
-export class AppModule { }   
+export class AppModule { }

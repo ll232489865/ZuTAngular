@@ -9,17 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var LoginPage = (function () {
+    function LoginPage() {
+        // this.ac="首页";
     }
-    AppComponent = __decorate([
+    LoginPage = __decorate([
         core_1.Component({
-            selector: 'zut-app',
-            template: "<router-outlet></router-outlet>"
+            moduleId: module.id,
+            selector: 'my-component',
+            templateUrl: 'login.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], LoginPage);
+    return LoginPage;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=zut.component.js.map
+exports.LoginPage = LoginPage;
+//# sourceMappingURL=login.js.map

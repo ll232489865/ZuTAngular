@@ -23,12 +23,12 @@ body{ height: 100%; overflow: hidden;}
     background-size: cover;
     transition: opacity 1s;
  }
- #index-0{ background-image: url(img/guide/01.jpg); z-index: 5;}
- #index-1{ background-image: url(img/guide/02.jpg); z-index: 4;}
- #index-2{ background-image: url(img/guide/03.jpg); z-index: 3;}
- #index-3{ background-image: url(img/guide/04.jpg); z-index: 2;}
- #index-4{ background-image: url(img/guide/05.jpg); z-index: 1;}
- #index-5{ background-image: url(img/guide/06.jpg); z-index: 0;}
+ #index-0{ background-image: url(../app/source/img/guide/01.jpg); z-index: 5;}
+ #index-1{ background-image: url(../app/source/img/guide/02.jpg); z-index: 4;}
+ #index-2{ background-image: url(../app/source/img/guide/03.jpg); z-index: 3;}
+ #index-3{ background-image: url(../app/source/img/guide/04.jpg); z-index: 2;}
+ #index-4{ background-image: url(../app/source/img/guide/05.jpg); z-index: 1;}
+ #index-5{ background-image: url(../app/source/img/guide/06.jpg); z-index: 0;}
  .kyAbs{ position: absolute; bottom: 4%; left: 0;  text-align: center; z-index: 11; width: 100%;}
  .kyBtn{background: #002147; color: #fff; border-radius: 5px; display: inline-block; width: 65%; line-height: 2.5rem; font-size: 16px; letter-spacing: 3px;}
  .circle{ width: 8px; height: 8px; border-radius: 4px; overflow: hidden; background: #fff; display: inline-block;}

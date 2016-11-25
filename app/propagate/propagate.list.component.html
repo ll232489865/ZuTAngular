@@ -1,0 +1,15 @@
+<h3>传道</h3>
+<ul class="propagate">
+    <li *ngFor="let propagate of propagateList">
+        <div class="item-">
+            <img class="item-pic" 
+                src={{propagate.livePicUrl}} alt="hello test"
+                (click)="onPropagateDetail(propagate)">
+        </div>
+        <div>{{propagate.liveNm}}</div>
+        <div>{{propagate.tchr}}</div>
+        <div>课程介绍:</div>
+        <div>{{propagate.liveIntr}}</div>
+        <button class="onShareModule" (click)="onShareClick()">分享</button>
+    </li>
+</ul>

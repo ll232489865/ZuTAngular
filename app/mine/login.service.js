@@ -22,7 +22,10 @@ var LoginService = (function () {
         var _this = this;
         if (account == password) {
             // code...
-            return Observable_1.Observable.of(true).delay(1000).do(function (val) { return _this.isLoggedIn = true; });
+            return Observable_1.Observable.of(true).delay(1000).do(function (val) {
+                _this.isLoggedIn = true;
+                _this._imgUrl = "./app/source/img/5.png";
+            });
         }
         else {
             return Observable_1.Observable.of(true).delay(1000).do(function (val) { return _this.isLoggedIn = false; });

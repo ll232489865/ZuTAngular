@@ -14,18 +14,15 @@ var router_1 = require('@angular/router');
 var app_component_1 = require('./guide/app.component');
 var mine_1 = require('./mine/mine'); //我的
 var login_service_1 = require('./mine/login.service');
-var login_1 = require('./mine/login');
-<<<<<<< HEAD
 var discovery_1 = require('./discovery/discovery');
 var bestList_1 = require('./discovery/bestList');
 var discoveryDeatil_1 = require('./discovery/discoveryDeatil');
-=======
+var login_1 = require('./mine/login');
 var myaccount_1 = require('./mine/myaccountF/myaccount');
 var mycourse_1 = require('./mine/mycourseF/mycourse');
 var mysetting_1 = require('./mine/mysettingF/mysetting');
 var myabout_1 = require('./mine/myaboutF/myabout');
 var myinfo_1 = require('./mine/myinfoF/myinfo');
->>>>>>> cf47b6e8121b507f34f8504a79b309087f6f3d79
 var AppModule = (function () {
     function AppModule() {
     }
@@ -42,7 +39,6 @@ var AppModule = (function () {
                         component: login_1.LoginPage
                     },
                     {
-<<<<<<< HEAD
                         path: '',
                         component: discovery_1.Discovery
                     },
@@ -53,9 +49,6 @@ var AppModule = (function () {
                     {
                         path: 'discoverydetail',
                         component: discoveryDeatil_1.Details
-=======
-                        path: 'myaccountpage',
-                        component: myaccount_1.MyAccountPage
                     },
                     {
                         path: 'mycoursepage',
@@ -72,18 +65,13 @@ var AppModule = (function () {
                     {
                         path: 'myinfopage',
                         component: myinfo_1.MyInfoPage
->>>>>>> cf47b6e8121b507f34f8504a79b309087f6f3d79
                     }
                 ])
             ],
             providers: [
                 login_service_1.LoginService
             ],
-<<<<<<< HEAD
-            declarations: [app_component_1.AppComponent, mine_1.Mine, login_1.LoginPage, discovery_1.Discovery, bestList_1.BestList, discoveryDeatil_1.Details],
-=======
-            declarations: [app_component_1.AppComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, mycourse_1.MyCoursePage, mysetting_1.MySettingPage, myabout_1.MyAboutPage, myinfo_1.MyInfoPage],
->>>>>>> cf47b6e8121b507f34f8504a79b309087f6f3d79
+            declarations: [app_component_1.AppComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, mycourse_1.MyCoursePage, mysetting_1.MySettingPage, myabout_1.MyAboutPage, myinfo_1.MyInfoPage, discovery_1.Discovery, bestList_1.BestList, discoveryDeatil_1.Details],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

@@ -1472,7 +1472,7 @@ footer .mui-icon-paperplane {
 }
 
 .mui-bar{ 
-	background: #fff;
+	background: #f7f7f7;
 	line-height: calc(4rem + 3px); 
 	height:4rem;
 	-webkit-user-select: none !important;
@@ -1482,7 +1482,7 @@ footer .mui-icon-paperplane {
 .mui-title {
 	font-family: '方正清刻本悦宋简体' !important;
 	font-size:1.6rem;
-    background: #fff;
+   /* background: #fff;*/
     color: #000;
     line-height: inherit;
     height: inherit;

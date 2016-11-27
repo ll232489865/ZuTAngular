@@ -8,6 +8,7 @@ import 'rxjs/add/operator/delay';
 @Injectable()
 export class LoginService {
   isLoggedIn: boolean = false;
+  _imgUrl:string;
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;
@@ -17,7 +18,10 @@ export class LoginService {
   login(account,password): Observable<boolean> {
       if(account==password) {
           // code...
-              return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
+              return Observable.of(true).delay(1000).do(val => 
+                  {this.isLoggedIn = true;
+                      this._imgUrl = "./app/source/img/5.png"}
+                     );
       }else{
           return Observable.of(true).delay(1000).do(val => this.isLoggedIn = false);
       }

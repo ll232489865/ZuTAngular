@@ -9,17 +9,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var login_service_1 = require('./login.service');
+var common_1 = require('@angular/common');
 var LoginPage = (function () {
-    function LoginPage() {
+    function LoginPage(loginService, router, location) {
+        this.loginService = loginService;
+        this.router = router;
+        this.location = location;
         // this.ac="首页";
     }
+    // ac:any;
+    LoginPage.prototype.ngOnInit = function () {
+        this.router.params.forEach(function (params) {
+            alert(JSON.stringify(params));
+        });
+        // alert(JSON.stringify(this.router.params))
+    };
+    LoginPage.prototype._login = function (account, password) {
+        var _this = this;
+        this.loginService.login(account, password).subscribe(function () {
+            if (_this.loginService.isLoggedIn) {
+                _this.location.back();
+            }
+        });
+    };
     LoginPage = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-component',
             templateUrl: 'login.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [login_service_1.LoginService, router_1.ActivatedRoute, common_1.Location])
     ], LoginPage);
     return LoginPage;
 }());

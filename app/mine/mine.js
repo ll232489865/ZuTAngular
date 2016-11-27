@@ -17,25 +17,36 @@ var Mine = (function () {
         this.router = router;
         this.loginStatus = this.loginService.isLoggedIn;
         this.loginAccount = this.loginService.str_account;
+        this.loginHeadImg = this.loginService._imgUrl;
         this.setMessage();
     }
     Mine.prototype._enterLogin = function (_num) {
         if (this.loginService.isLoggedIn) {
             // code...
             switch (_num) {
-                case "1":
+                case 1:
                     // code...
+                    this.router.navigateByUrl('/myaccountpage');
                     break;
-                case "2":
+                case 2:
+                    this.router.navigateByUrl('/mycoursepage');
                     break;
-                case "3":
+                case 3:
+                    this.router.navigateByUrl('/mysettingpage');
                     break;
-                case "4":
+                case 4:
+                    this.router.navigateByUrl('/myaboutpage');
                     break;
             }
         }
         else {
-            this.router.navigateByUrl('/login');
+            // this.router.navigateByUrl('/loginpage')
+            this.router.navigate(['/loginpage', { id: 1, name: 222 }]);
+        }
+    };
+    Mine.prototype._enterInfo = function () {
+        if (this.loginService.isLoggedIn) {
+            this.router.navigateByUrl('/myinfopage');
         }
     };
     Mine.prototype.setMessage = function () {

@@ -22,7 +22,7 @@ var LoginPage = (function () {
     // ac:any;
     LoginPage.prototype.ngOnInit = function () {
         this.router.params.forEach(function (params) {
-            alert(JSON.stringify(params));
+            // alert(JSON.stringify(params));
         });
         // alert(JSON.stringify(this.router.params))
     };

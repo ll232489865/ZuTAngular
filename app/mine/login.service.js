@@ -9,14 +9,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
 var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/observable/of');
 require('rxjs/add/operator/do');
 require('rxjs/add/operator/delay');
 var LoginService = (function () {
-    function LoginService() {
+    function LoginService(http) {
+        this.http = http;
         this.isLoggedIn = false;
         this.str_account = "account";
+        this.propagateUrl = 'http://192.168.1.10:9090/zuting_api/live/public/list';
     }
     LoginService.prototype.login = function (account, password) {
         var _this = this;
@@ -34,9 +38,19 @@ var LoginService = (function () {
     LoginService.prototype.logout = function () {
         this.isLoggedIn = false;
     };
+    LoginService.prototype._login = function () {
+        return this.http.get(this.propagateUrl)
+            .toPromise()
+            .then(function (response) { return response.json().result; })
+            .catch(this.handleError);
+    };
+    LoginService.prototype.handleError = function (error) {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    };
     LoginService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], LoginService);
     return LoginService;
 }());

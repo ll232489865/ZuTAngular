@@ -1,0 +1,104 @@
+
+<style type="text/css">
+	.img_channel{
+			width: 4.2rem;
+			height: 4.2rem;
+			border-radius: 2.1rem;
+		}
+		.not_first_row{
+			padding: 10px;
+			padding-top: 0px;
+		}
+		.img_article{
+			width: 100%;
+			height: 8rem;
+			border-radius: 0.8rem;
+		}
+		.Vert_Line{
+			width: 1px;
+			float: left;
+			height: 4.2rem;
+			-webkit-transform: scaleX(.4);
+			transform: scaleX(.4);
+			-webkit-transform: scaleY(.4);
+			transform: scaleY(.4);
+			background-color: #c8c7cc;
+		}
+</style>
+
+<div class="mui-content" style="background:#fff">
+<div class="mui-slider-item">
+	<img class="img_recommend" src="./app/source/img/titles.jpg" style="width: 100%">
+</div>
+
+<div id="channels" class="channel fix tc" style="font-family: '方正清刻本悦宋简体'">
+	
+			<div class="Grid_3" style="padding: 10px 0" *ngFor="let _img of _imgs">
+				<a class="ec-img-item" routerLink="/bestList">
+					<img class="img_channel" id="zhibo_img" src ="{{_img}}"/>
+					<!--<div>国学直播</div>-->
+				</a>				
+			</div>
+			
+</div>
+<div class="Line"></div>
+		<div id="sbj_title" style="padding: 10px; font-family: '方正清刻本悦宋简体'">
+		<span style="width:.3rem;height:2.5rem; background:#ff9100;float:left"></span>
+		<label style="line-height: 2.5rem; font-size: 1.4rem; margin-left: 1rem;">博学精选</label>
+			
+		</div> 
+<div class="Line"></div>
+
+<div id="grid" class="fix tc" style="font-family: '方正清刻本悦宋简体'; text-align: left; overflow-y: auto;">
+			 <div class="Grid_2 not_first_row">
+				<div class="boxue db pct100 nowrap">
+					<img class="img_article lazy" src="./app/source/img/1_02.png" routerLink="/discoveryDeatil"/>
+					<div class=" ell pct100">
+						<span class="icon-books icon-junior"></span>
+							第一章内容详情
+					</div>
+				</div>			
+			</div>
+			<div class="Grid_2 not_first_row">
+				<div class="boxue db pct100 nowrap">
+					<img src="./app/source/img/1_02.png" class="img_article"  />
+					<div class=" ell pct100">
+					<span class="icon-books icon-junior"></span>
+					第二章内容详情
+					</div>
+				</div>
+			</div>
+			<div class="Grid_2 not_first_row">
+				<div class="boxue db pct100 nowrap">
+					<img class="img_article lazy" src="./app/source/img/1_02.png"/>
+					<div class=" ell pct100">
+						<span class="icon-books icon-junior"></span>
+							第三章内容详情
+					</div>
+				</div>			
+			</div>
+			<div class="Grid_2 not_first_row">
+				<div class="boxue db pct100 nowrap">
+					<img class="img_article lazy" src="./app/source/img/1_02.png"/>
+					<div class=" ell pct100">
+						<span class="icon-books icon-junior"></span>
+							第四章内容详情
+					</div>
+				</div>			
+			</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

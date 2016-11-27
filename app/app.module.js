@@ -15,6 +15,9 @@ var app_component_1 = require('./guide/app.component');
 var mine_1 = require('./mine/mine'); //我的
 var login_service_1 = require('./mine/login.service');
 var login_1 = require('./mine/login');
+var discovery_1 = require('./discovery/discovery');
+var bestList_1 = require('./discovery/bestList');
+var discoveryDeatil_1 = require('./discovery/discoveryDeatil');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -23,19 +26,31 @@ var AppModule = (function () {
             imports: [platform_browser_1.BrowserModule,
                 router_1.RouterModule.forRoot([
                     {
-                        path: '',
+                        path: 'mine',
                         component: mine_1.Mine
                     },
                     {
                         path: 'login',
                         component: login_1.LoginPage
+                    },
+                    {
+                        path: '',
+                        component: discovery_1.Discovery
+                    },
+                    {
+                        path: 'bestList',
+                        component: bestList_1.BestList
+                    },
+                    {
+                        path: 'discoverydetail',
+                        component: discoveryDeatil_1.Details
                     }
                 ])
             ],
             providers: [
                 login_service_1.LoginService
             ],
-            declarations: [app_component_1.AppComponent, mine_1.Mine, login_1.LoginPage],
+            declarations: [app_component_1.AppComponent, mine_1.Mine, login_1.LoginPage, discovery_1.Discovery, bestList_1.BestList, discoveryDeatil_1.Details],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

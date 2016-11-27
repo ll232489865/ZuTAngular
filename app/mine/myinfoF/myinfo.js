@@ -10,39 +10,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var login_service_1 = require('./login.service');
 var common_1 = require('@angular/common');
-var LoginPage = (function () {
-    function LoginPage(loginService, router, location) {
-        this.loginService = loginService;
+var MyInfoPage = (function () {
+    function MyInfoPage(router, location) {
         this.router = router;
         this.location = location;
         // this.ac="首页";
     }
-    // ac:any;
-    LoginPage.prototype.ngOnInit = function () {
-        this.router.params.forEach(function (params) {
-            alert(JSON.stringify(params));
-        });
-        // alert(JSON.stringify(this.router.params))
-    };
-    LoginPage.prototype._login = function (account, password) {
-        var _this = this;
-        this.loginService.login(account, password).subscribe(function () {
-            if (_this.loginService.isLoggedIn) {
-                _this.location.back();
-            }
-        });
-    };
-    LoginPage = __decorate([
+    MyInfoPage = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-component',
-            templateUrl: 'login.html'
+            templateUrl: 'myinfo.html'
         }), 
-        __metadata('design:paramtypes', [login_service_1.LoginService, router_1.ActivatedRoute, common_1.Location])
-    ], LoginPage);
-    return LoginPage;
+        __metadata('design:paramtypes', [router_1.Router, common_1.Location])
+    ], MyInfoPage);
+    return MyInfoPage;
 }());
-exports.LoginPage = LoginPage;
-//# sourceMappingURL=login.js.map
+exports.MyInfoPage = MyInfoPage;
+//# sourceMappingURL=myinfo.js.map

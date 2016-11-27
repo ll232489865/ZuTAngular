@@ -22,31 +22,43 @@ export class Mine {
 
   loginAccount=this.loginService.str_account;
 
+  loginHeadImg=this.loginService._imgUrl;
+
   _enterLogin(_num) {
+
     if(this.loginService.isLoggedIn) {
       // code...
       switch (_num) {
-        case "1":
+        case 1:
           // code...
+          this.router.navigateByUrl('/myaccountpage')
         break;
-        case "2":
+        case 2:
+                  this.router.navigateByUrl('/mycoursepage')
 
         break;
-        case "3":
+        case 3:
+                  this.router.navigateByUrl('/mysettingpage')
 
         break;
-        case "4":
+        case 4:
+                  this.router.navigateByUrl('/myaboutpage')
 
         break;
       }
     }else{
-          this.router.navigateByUrl('/login')
+          // this.router.navigateByUrl('/loginpage')
+
+          this.router.navigate(['/loginpage',{id:1,name:222}])
     }
 
     }
 
-
-
+    _enterInfo(){
+      if(this.loginService.isLoggedIn) {
+        this.router.navigateByUrl('/myinfopage')
+      }
+    }
 
 
 

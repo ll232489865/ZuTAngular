@@ -5,6 +5,11 @@ import {HttpModule} from '@angular/http';
 
 import { ZutComponent }   from './zut.component';
 import { GuideComponent }   from './guide/guide.component';
+import { AdvComponent }   from './advertisement/adv.component';
+import { PropagateFirstComponent }   from './propagate/propagate-first.component';
+
+import { ZutHeadComponent }   from './component/ts/zut-head.component';
+import { ZutFootComponent }   from './component/ts/zut-foot.component';
 
 
 import {PropagateListComponent} from './propagate/propagate-list.component';
@@ -27,8 +32,8 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
   imports:      [ BrowserModule, HttpModule,
     RouterModule.forRoot([
         // {
-        //   path:'login',
-        //   component:LoginPage
+        //     path: '',
+        //     component: GuideComponent
         // },
         // {
         //     path:'',
@@ -66,7 +71,16 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
           path:'myinfopage',
           component:MyInfoPage
         }
-
+        ,
+        {
+            path: 'adv',
+            component: AdvComponent
+        }
+        ,
+        {
+            path: 'propagate-first',
+            component: PropagateFirstComponent
+        }
     ])
   ],
     providers: [

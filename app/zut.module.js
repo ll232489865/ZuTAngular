@@ -14,6 +14,8 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var zut_component_1 = require('./zut.component');
 var guide_component_1 = require('./guide/guide.component');
+var adv_component_1 = require('./advertisement/adv.component');
+var propagate_first_component_1 = require('./propagate/propagate-first.component');
 var propagate_list_component_1 = require('./propagate/propagate-list.component');
 var propagate_service_1 = require('./propagate/propagate.service');
 var live_detail_component_1 = require('./propagate/live-detail.component');
@@ -33,8 +35,8 @@ var ZutModule = (function () {
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule,
                 router_1.RouterModule.forRoot([
                     // {
-                    //   path:'login',
-                    //   component:LoginPage
+                    //     path: '',
+                    //     component: GuideComponent
                     // },
                     // {
                     //     path:'',
@@ -70,6 +72,14 @@ var ZutModule = (function () {
                     {
                         path: 'myinfopage',
                         component: myinfo_1.MyInfoPage
+                    },
+                    {
+                        path: 'adv',
+                        component: adv_component_1.AdvComponent
+                    },
+                    {
+                        path: 'propagate-first',
+                        component: propagate_first_component_1.PropagateFirstComponent
                     }
                 ])
             ],

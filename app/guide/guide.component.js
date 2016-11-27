@@ -9,9 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var GuideComponent = (function () {
-    function GuideComponent() {
+    function GuideComponent(router) {
+        this.router = router;
     }
+    GuideComponent.prototype.ngOnInit = function () {
+        slider.init(document.getElementById('slider'), document.getElementById('absText'), document.querySelectorAll('#slider li'), document.querySelector('.m-slider'), document.getElementById('icons'));
+    };
+    GuideComponent.prototype.goAdv = function () {
+        this.router.navigate(['/adv']);
+    };
     GuideComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -19,7 +27,7 @@ var GuideComponent = (function () {
             templateUrl: 'guide.component.html',
             styleUrls: ['guide.component.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router])
     ], GuideComponent);
     return GuideComponent;
 }());

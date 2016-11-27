@@ -26,7 +26,7 @@ export class LoginPage {
 
     ngOnInit(): void {
       this.router.params.forEach((params:Params)=>{
-alert(JSON.stringify(params));
+// alert(JSON.stringify(params));
 
       })
 

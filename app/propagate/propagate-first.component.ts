@@ -6,8 +6,6 @@ import { ZutHeadComponent }   from '../component/ts/zut-head.component';
 @Component({
   selector: 'propagate-first',
   template: `
-      <zut-head></zut-head>
-      <zut-foot></zut-foot>
   `
 })
 export class PropagateFirstComponent implements OnInit{     
@@ -16,4 +14,5 @@ export class PropagateFirstComponent implements OnInit{
        
    }
 }
- 
+      //  <zut-head></zut-head>
+      // <zut-foot></zut-foot>

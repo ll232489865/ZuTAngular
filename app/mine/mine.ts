@@ -15,14 +15,11 @@ export class Mine {
   message: string;
 
   constructor(public loginService: LoginService, public router: Router) {
-    this.setMessage();
   }
 
   loginStatus=this.loginService.isLoggedIn;
 
   loginAccount=this.loginService.str_account;
-
-  loginHeadImg=this.loginService._imgUrl;
 
   _enterLogin(_num) {
 
@@ -47,9 +44,9 @@ export class Mine {
         break;
       }
     }else{
-          // this.router.navigateByUrl('/loginpage')
+          this.router.navigateByUrl('/loginpage')
 
-          this.router.navigate(['/loginpage',{id:1,name:222}])
+          // this.router.navigate(['/loginpage',{id:1,name:222}])
     }
 
     }
@@ -61,40 +58,7 @@ export class Mine {
     }
 
 
-
-
-
-  setMessage() {
-    this.message = 'Logged ' + (this.loginService.isLoggedIn ? 'in' : 'out');
-  }
-
-  login() {
-    this.message = 'Trying to log in ...';
-
-    this.loginService.login("a","b").subscribe(() => {
-      this.setMessage();
-      if (this.loginService.isLoggedIn) {
-        // Get the redirect URL from our auth service
-        // If no redirect has been set, use the default
-        let redirect = this.loginService.redirectUrl ? this.loginService.redirectUrl : '/admin';
-
-        // Set our navigation extras object
-        // that passes on our global query params and fragment
-
-
-        // let navigationExtras: NavigationExtras = {
-        //   preserveQueryParams: true,
-        //   preserveFragment: true
-        // };
-
-        // // Redirect the user
-        // this.router.navigate([redirect], navigationExtras);
-      }
-    });
-  }
-
   logout() {
     this.loginService.logout();
-    this.setMessage();
   }
 }

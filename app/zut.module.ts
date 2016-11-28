@@ -16,7 +16,8 @@ import {PropagateListComponent} from './propagate/propagate-list.component';
 import {PropagateService} from './propagate/propagate.service';
 import {LiveDetailComponent} from './propagate/live-detail.component';
 
-import {Mine} from './mine/mine';//我的
+/*我的*/
+import {Mine} from './mine/mine';
 import { LoginService }      from './mine/login.service';
 
 import {LoginPage} from './mine/login'
@@ -38,7 +39,8 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
         // {
         //     path:'',
         //     component: PropagateListComponent
-        // },{
+        // },
+        // {
         //     path:'live/:id',
         //     component:LiveDetailComponent
         // }
@@ -87,7 +89,7 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
     LoginService,
     PropagateService
   ],
-  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage],
+  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage,AdvComponent,PropagateFirstComponent],
   bootstrap:[ZutComponent]
 })
 export class ZutModule { }

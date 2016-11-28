@@ -17,8 +17,6 @@ var Mine = (function () {
         this.router = router;
         this.loginStatus = this.loginService.isLoggedIn;
         this.loginAccount = this.loginService.str_account;
-        this.loginHeadImg = this.loginService._imgUrl;
-        this.setMessage();
     }
     Mine.prototype._enterLogin = function (_num) {
         if (this.loginService.isLoggedIn) {
@@ -40,8 +38,7 @@ var Mine = (function () {
             }
         }
         else {
-            // this.router.navigateByUrl('/loginpage')
-            this.router.navigate(['/loginpage', { id: 1, name: 222 }]);
+            this.router.navigateByUrl('/loginpage');
         }
     };
     Mine.prototype._enterInfo = function () {
@@ -49,24 +46,8 @@ var Mine = (function () {
             this.router.navigateByUrl('/myinfopage');
         }
     };
-    Mine.prototype.setMessage = function () {
-        this.message = 'Logged ' + (this.loginService.isLoggedIn ? 'in' : 'out');
-    };
-    Mine.prototype.login = function () {
-        var _this = this;
-        this.message = 'Trying to log in ...';
-        this.loginService.login("a", "b").subscribe(function () {
-            _this.setMessage();
-            if (_this.loginService.isLoggedIn) {
-                // Get the redirect URL from our auth service
-                // If no redirect has been set, use the default
-                var redirect = _this.loginService.redirectUrl ? _this.loginService.redirectUrl : '/admin';
-            }
-        });
-    };
     Mine.prototype.logout = function () {
         this.loginService.logout();
-        this.setMessage();
     };
     Mine = __decorate([
         core_1.Component({

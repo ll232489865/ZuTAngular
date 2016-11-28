@@ -42,18 +42,6 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
 @NgModule({
   imports:      [ BrowserModule, HttpModule,
     RouterModule.forRoot([
-        // {
-        //     path: '',
-        //     component: GuideComponent
-        // },
-        // {
-        //     path:'',
-        //     component: PropagateListComponent
-        // },
-        // {
-        //     path:'live/:id',
-        //     component:LiveDetailComponent
-        // }
 
         {
             path: '',
@@ -119,7 +107,7 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
     LoginService,
     PropagateService
   ],
-  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage,AdvComponent,PropagateFirstComponent],
+  declarations: [ ZutComponent,GuideComponent,SociletyListComponent,ZutHeadComponent, ZutFootComponent,PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,DiscoveryFirstComponent,MyInfoPage,MySettingPage,AdvComponent,PropagateFirstComponent],
   bootstrap:[ZutComponent]
 })
 export class ZutModule { }

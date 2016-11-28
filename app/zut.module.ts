@@ -26,8 +26,8 @@ import {DiscoveryFirstComponent} from './discovery/discovery-first.component';
 import {SociletyListComponent} from './society/socilety-list.component';
 
 
-
-import {Mine} from './mine/mine';//我的
+/*我的*/
+import {Mine} from './mine/mine';
 import { LoginService }      from './mine/login.service';
 
 import {LoginPage} from './mine/login'
@@ -42,6 +42,18 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
 @NgModule({
   imports:      [ BrowserModule, HttpModule,
     RouterModule.forRoot([
+        // {
+        //     path: '',
+        //     component: GuideComponent
+        // },
+        // {
+        //     path:'',
+        //     component: PropagateListComponent
+        // },
+        // {
+        //     path:'live/:id',
+        //     component:LiveDetailComponent
+        // }
 
         {
             path: '',
@@ -107,7 +119,7 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
     LoginService,
     PropagateService
   ],
-  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage,AdvComponent,DiscoveryFirstComponent,SociletyListComponent,ZutHeadComponent,ZutFootComponent],
+  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage,AdvComponent,PropagateFirstComponent],
   bootstrap:[ZutComponent]
 })
 export class ZutModule { }

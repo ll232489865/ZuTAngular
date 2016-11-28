@@ -18,17 +18,17 @@ var zut_component_1 = require('./zut.component');
 var guide_component_1 = require('./guide/guide.component');
 //广告
 var adv_component_1 = require('./advertisement/adv.component');
+//传道
+var propagate_first_component_1 = require('./propagate/propagate-first.component');
 var propagate_list_component_1 = require('./propagate/propagate-list.component');
 var propagate_service_1 = require('./propagate/propagate.service');
 var live_detail_component_1 = require('./propagate/live-detail.component');
-//头部以及底部
-var zut_head_component_1 = require('./component/ts/zut-head.component');
-var zut_foot_component_1 = require('./component/ts/zut-foot.component');
 //论道
 var discovery_first_component_1 = require('./discovery/discovery-first.component');
 //学社列表
 var socilety_list_component_1 = require('./society/socilety-list.component');
-var mine_1 = require('./mine/mine'); //我的
+/*我的*/
+var mine_1 = require('./mine/mine');
 var login_service_1 = require('./mine/login.service');
 var login_1 = require('./mine/login');
 var myaccount_1 = require('./mine/myaccountF/myaccount');
@@ -43,6 +43,18 @@ var ZutModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule,
                 router_1.RouterModule.forRoot([
+                    // {
+                    //     path: '',
+                    //     component: GuideComponent
+                    // },
+                    // {
+                    //     path:'',
+                    //     component: PropagateListComponent
+                    // },
+                    // {
+                    //     path:'live/:id',
+                    //     component:LiveDetailComponent
+                    // }
                     {
                         path: '',
                         component: guide_component_1.GuideComponent // 引导
@@ -105,7 +117,7 @@ var ZutModule = (function () {
                 login_service_1.LoginService,
                 propagate_service_1.PropagateService
             ],
-            declarations: [zut_component_1.ZutComponent, guide_component_1.GuideComponent, propagate_list_component_1.PropagateListComponent, live_detail_component_1.LiveDetailComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, myabout_1.MyAboutPage, mycourse_1.MyCoursePage, myinfo_1.MyInfoPage, mysetting_1.MySettingPage, adv_component_1.AdvComponent, discovery_first_component_1.DiscoveryFirstComponent, socilety_list_component_1.SociletyListComponent, zut_head_component_1.ZutHeadComponent, zut_foot_component_1.ZutFootComponent],
+            declarations: [zut_component_1.ZutComponent, guide_component_1.GuideComponent, propagate_list_component_1.PropagateListComponent, live_detail_component_1.LiveDetailComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, myabout_1.MyAboutPage, mycourse_1.MyCoursePage, myinfo_1.MyInfoPage, mysetting_1.MySettingPage, adv_component_1.AdvComponent, propagate_first_component_1.PropagateFirstComponent],
             bootstrap: [zut_component_1.ZutComponent]
         }), 
         __metadata('design:paramtypes', [])

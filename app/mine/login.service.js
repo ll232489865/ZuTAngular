@@ -10,43 +10,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
-require('rxjs/add/operator/toPromise');
-var Observable_1 = require('rxjs/Observable');
 require('rxjs/add/observable/of');
 require('rxjs/add/operator/do');
 require('rxjs/add/operator/delay');
+require('rxjs/add/operator/toPromise');
 var LoginService = (function () {
     function LoginService(http) {
         this.http = http;
+        this.Url_handshake = 'http://192.168.1.10:9090/zuting_api/handshake';
+        this.Url_login = 'http://192.168.1.10:9090/zuting_api/login';
         this.isLoggedIn = false;
         this.str_account = "account";
-        this.propagateUrl = 'http://192.168.1.10:9090/zuting_api/live/public/list';
     }
+    // login(account,password): Promise<PropagateInfo []> {
     LoginService.prototype.login = function (account, password) {
         var _this = this;
+        this.handshakeRequest()
+            .then(function (model) { return _this.model_handshake = model; });
+        console.log(JSON.stringify(this.model_handshake));
+        this.http.post(this.Url_login, {})
+            .toPromise()
+            .then()
+            .catch(this.handleError);
         if (account == password) {
-            // code...
-            return Observable_1.Observable.of(true).delay(1000).do(function (val) {
-                _this.isLoggedIn = true;
-                _this._imgUrl = "./app/source/img/5.png";
-            });
+            this.isLoggedIn = true;
         }
         else {
-            return Observable_1.Observable.of(true).delay(1000).do(function (val) { return _this.isLoggedIn = false; });
+            this.isLoggedIn = false;
         }
     };
-    LoginService.prototype.logout = function () {
-        this.isLoggedIn = false;
-    };
-    LoginService.prototype._login = function () {
-        return this.http.get(this.propagateUrl)
+    LoginService.prototype.handshakeRequest = function () {
+        var params = new http_1.URLSearchParams();
+        params.set("greeting", "1");
+        return this.http.get(this.Url_handshake, { search: params })
             .toPromise()
-            .then(function (response) { return response.json().result; })
+            .then(function (response) {
+            // {
+            // console.log(JSON.stringify(response.json()));
+            return response.json().result;
+        })
             .catch(this.handleError);
     };
     LoginService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
+    };
+    LoginService.prototype.logout = function () {
+        this.isLoggedIn = false;
     };
     LoginService = __decorate([
         core_1.Injectable(), 

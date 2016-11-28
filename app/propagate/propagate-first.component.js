@@ -15,11 +15,13 @@ var PropagateFirstComponent = (function () {
     PropagateFirstComponent = __decorate([
         core_1.Component({
             selector: 'propagate-first',
-            template: "\n      <zut-head></zut-head>\n       <div class=\"mui-content\">\n              <h3>\n                 propagate-first\n              </h3>\n          </div>\n      <zut-foot></zut-foot>\n  "
+            template: "\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], PropagateFirstComponent);
     return PropagateFirstComponent;
 }());
 exports.PropagateFirstComponent = PropagateFirstComponent;
+//  <zut-head></zut-head>
+// <zut-foot></zut-foot>
 //# sourceMappingURL=propagate-first.component.js.map

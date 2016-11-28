@@ -1,7 +1,5 @@
 import { Component} from '@angular/core';
 import {Router} from '@angular/router';
-import { ZutFootComponent }   from '../component/ts/zut-foot.component';
-import { ZutHeadComponent }   from '../component/ts/zut-head.component';
 
 @Component({
   selector: 'propagate-first',

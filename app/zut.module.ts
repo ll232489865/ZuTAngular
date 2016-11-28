@@ -11,14 +11,10 @@ import { GuideComponent }   from './guide/guide.component';
 import { AdvComponent }   from './advertisement/adv.component';
 //传道
 import { PropagateFirstComponent }   from './propagate/propagate-first.component';
+
 import {PropagateListComponent} from './propagate/propagate-list.component';
 import {PropagateService} from './propagate/propagate.service';
 import {LiveDetailComponent} from './propagate/live-detail.component';
-
-//我的
-import {Mine} from './mine/mine';
-import { LoginService }      from './mine/login.service';
-import {LoginPage} from './mine/login';
 
 //头部以及底部
 import { ZutHeadComponent }   from './component/ts/zut-head.component';
@@ -30,12 +26,34 @@ import {DiscoveryFirstComponent} from './discovery/discovery-first.component';
 import {SociletyListComponent} from './society/socilety-list.component';
 
 
+
+import {Mine} from './mine/mine';//我的
+import { LoginService }      from './mine/login.service';
+
+import {LoginPage} from './mine/login'
+import {MyAccountPage} from './mine/myaccountF/myaccount'
+import {MyCoursePage} from './mine/mycourseF/mycourse'
+import {MySettingPage} from './mine/mysettingF/mysetting'
+import {MyAboutPage} from './mine/myaboutF/myabout'
+import {MyInfoPage} from './mine/myinfoF/myinfo'
+
+
+
 @NgModule({
   imports:      [ BrowserModule, HttpModule,
     RouterModule.forRoot([
+
         {
             path: '',
             component: GuideComponent   // 引导
+        },
+        {
+            path: 'discovery-first',
+            component: DiscoveryFirstComponent   // 论道
+        },
+         {
+            path: 'socilety-list',
+            component: SociletyListComponent   // 学社
         },
         {
           path:'login',
@@ -46,40 +64,50 @@ import {SociletyListComponent} from './society/socilety-list.component';
           component:Mine   //登录
         },
         {
-            path:'',
+          path:'adv',
+          component:AdvComponent   //登录
+        },
+        {
+            path:'propagate-list',
             component: PropagateListComponent  //传道列表
-        },{
+        },
+        {
             path:'live/:id',
             component:LiveDetailComponent   //传道的直播页面
-        }
-        ,
+          }
+          ,
         {
-            path: 'adv',  
-            component: AdvComponent   //广告
-        }
-        ,
+          path:'loginpage',
+          component:LoginPage
+        },
         {
-            path: 'propagate-first',
-            component: PropagateFirstComponent  //传道首页
-        }
-        ,
+          path:'myaccountpage',
+          component:MyAccountPage
+        },
         {
-            path: 'society',
-            component: SociletyListComponent  //学社列表首页
-        }
-        ,
+          path:'mycoursepage',
+          component:MyCoursePage
+        },
         {
-            path: 'discovery-first',
-            component: DiscoveryFirstComponent  //论道首页
-        }
-
-    ])
-  ],
-    providers: [
+          path:'mysettingpage',
+          component:MySettingPage
+        },
+        {
+          path:'myaboutpage',
+          component:MyAboutPage
+        },
+        {
+          path:'myinfopage',
+          component:MyInfoPage
+         }
+         ])
+    ]
+    ,
+      providers: [
     LoginService,
     PropagateService
   ],
-  declarations: [ ZutComponent,Mine,LoginPage,GuideComponent,AdvComponent,PropagateFirstComponent,ZutHeadComponent,ZutFootComponent,PropagateListComponent,LiveDetailComponent,SociletyListComponent,DiscoveryFirstComponent],
+  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage,AdvComponent,DiscoveryFirstComponent,SociletyListComponent,ZutHeadComponent,ZutFootComponent],
   bootstrap:[ZutComponent]
 })
 export class ZutModule { }

@@ -18,15 +18,9 @@ var zut_component_1 = require('./zut.component');
 var guide_component_1 = require('./guide/guide.component');
 //广告
 var adv_component_1 = require('./advertisement/adv.component');
-//传道
-var propagate_first_component_1 = require('./propagate/propagate-first.component');
 var propagate_list_component_1 = require('./propagate/propagate-list.component');
 var propagate_service_1 = require('./propagate/propagate.service');
 var live_detail_component_1 = require('./propagate/live-detail.component');
-//我的
-var mine_1 = require('./mine/mine');
-var login_service_1 = require('./mine/login.service');
-var login_1 = require('./mine/login');
 //头部以及底部
 var zut_head_component_1 = require('./component/ts/zut-head.component');
 var zut_foot_component_1 = require('./component/ts/zut-foot.component');
@@ -34,6 +28,14 @@ var zut_foot_component_1 = require('./component/ts/zut-foot.component');
 var discovery_first_component_1 = require('./discovery/discovery-first.component');
 //学社列表
 var socilety_list_component_1 = require('./society/socilety-list.component');
+var mine_1 = require('./mine/mine'); //我的
+var login_service_1 = require('./mine/login.service');
+var login_1 = require('./mine/login');
+var myaccount_1 = require('./mine/myaccountF/myaccount');
+var mycourse_1 = require('./mine/mycourseF/mycourse');
+var mysetting_1 = require('./mine/mysettingF/mysetting');
+var myabout_1 = require('./mine/myaboutF/myabout');
+var myinfo_1 = require('./mine/myinfoF/myinfo');
 var ZutModule = (function () {
     function ZutModule() {
     }
@@ -46,6 +48,14 @@ var ZutModule = (function () {
                         component: guide_component_1.GuideComponent // 引导
                     },
                     {
+                        path: 'discovery-first',
+                        component: discovery_first_component_1.DiscoveryFirstComponent // 论道
+                    },
+                    {
+                        path: 'socilety-list',
+                        component: socilety_list_component_1.SociletyListComponent // 学社
+                    },
+                    {
                         path: 'login',
                         component: login_1.LoginPage //登录
                     },
@@ -54,27 +64,40 @@ var ZutModule = (function () {
                         component: mine_1.Mine //登录
                     },
                     {
-                        path: '',
+                        path: 'adv',
+                        component: adv_component_1.AdvComponent //登录
+                    },
+                    {
+                        path: 'propagate-list',
                         component: propagate_list_component_1.PropagateListComponent //传道列表
-                    }, {
+                    },
+                    {
                         path: 'live/:id',
                         component: live_detail_component_1.LiveDetailComponent //传道的直播页面
                     },
                     {
-                        path: 'adv',
-                        component: adv_component_1.AdvComponent //广告
+                        path: 'loginpage',
+                        component: login_1.LoginPage
                     },
                     {
-                        path: 'propagate-first',
-                        component: propagate_first_component_1.PropagateFirstComponent //传道首页
+                        path: 'myaccountpage',
+                        component: myaccount_1.MyAccountPage
                     },
                     {
-                        path: 'society',
-                        component: socilety_list_component_1.SociletyListComponent //学社列表首页
+                        path: 'mycoursepage',
+                        component: mycourse_1.MyCoursePage
                     },
                     {
-                        path: 'discovery-first',
-                        component: discovery_first_component_1.DiscoveryFirstComponent //论道首页
+                        path: 'mysettingpage',
+                        component: mysetting_1.MySettingPage
+                    },
+                    {
+                        path: 'myaboutpage',
+                        component: myabout_1.MyAboutPage
+                    },
+                    {
+                        path: 'myinfopage',
+                        component: myinfo_1.MyInfoPage
                     }
                 ])
             ],
@@ -82,7 +105,7 @@ var ZutModule = (function () {
                 login_service_1.LoginService,
                 propagate_service_1.PropagateService
             ],
-            declarations: [zut_component_1.ZutComponent, mine_1.Mine, login_1.LoginPage, guide_component_1.GuideComponent, adv_component_1.AdvComponent, propagate_first_component_1.PropagateFirstComponent, zut_head_component_1.ZutHeadComponent, zut_foot_component_1.ZutFootComponent, propagate_list_component_1.PropagateListComponent, live_detail_component_1.LiveDetailComponent, socilety_list_component_1.SociletyListComponent, discovery_first_component_1.DiscoveryFirstComponent],
+            declarations: [zut_component_1.ZutComponent, guide_component_1.GuideComponent, propagate_list_component_1.PropagateListComponent, live_detail_component_1.LiveDetailComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, myabout_1.MyAboutPage, mycourse_1.MyCoursePage, myinfo_1.MyInfoPage, mysetting_1.MySettingPage, adv_component_1.AdvComponent, discovery_first_component_1.DiscoveryFirstComponent, socilety_list_component_1.SociletyListComponent, zut_head_component_1.ZutHeadComponent, zut_foot_component_1.ZutFootComponent],
             bootstrap: [zut_component_1.ZutComponent]
         }), 
         __metadata('design:paramtypes', [])

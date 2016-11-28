@@ -9,14 +9,14 @@ export const TabsList: Tabs[] = [
   {
       iconSrc: '../app/source/img/3.png', 
       iconSrcOn: '../app/source/img/3.png',
-      lineHref: 'propagate-first',
+      lineHref: 'propagate-list',
       text:'传道'
   }
   ,
   {
       iconSrc: '../app/source/img/2.png', 
       iconSrcOn: '../app/source/img/2.png',
-      lineHref: 'society',
+      lineHref: 'socilety-list',
       text:'学苑'
   }
   ,

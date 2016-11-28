@@ -8,6 +8,7 @@ import { LoginService }      from './login.service';
     moduleId:module.id,
     selector: 'my-component',
     templateUrl: 'mine.html'
+    
 })
 
 

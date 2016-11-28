@@ -9,22 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ZutHeadComponent = (function () {
-    function ZutHeadComponent() {
+var mock_tabs_1 = require('./mock-tabs');
+var TabsService = (function () {
+    function TabsService() {
+        this.tabOnCont = 0;
     }
-    ZutHeadComponent.prototype.tabsgo = function () {
-        alert(123);
+    TabsService.prototype.getTabs = function () {
+        return Promise.resolve(mock_tabs_1.TabsList);
     };
-    ZutHeadComponent.prototype.ngOnInit = function () {
-    };
-    ZutHeadComponent = __decorate([
-        core_1.Component({
-            selector: 'zut-head',
-            template: "\n      <header class=\"mui-bar mui-bar-nav\">\n        <h1 class=\"mui-title\" id=\"title\">\u8BBA\u9053</h1>\n    </header>\n  "
-        }), 
+    TabsService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], ZutHeadComponent);
-    return ZutHeadComponent;
+    ], TabsService);
+    return TabsService;
 }());
-exports.ZutHeadComponent = ZutHeadComponent;
-//# sourceMappingURL=zut-head.component.js.map
+exports.TabsService = TabsService;
+//# sourceMappingURL=tabs.service.js.map

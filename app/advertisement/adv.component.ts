@@ -21,7 +21,7 @@ export class AdvComponent implements OnInit{
         this.cont --;
         if(this.cont < 0) {
           clearInterval(this.time);
-          this.router.navigate(['/propagate-first']);
+          this.router.navigate(['/discovery-first']);
         }
     }
     ngOnInit(){

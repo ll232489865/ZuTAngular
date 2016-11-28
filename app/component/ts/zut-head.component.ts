@@ -10,7 +10,10 @@ import {Router} from '@angular/router';
     </header>
   `
 })
-export class ZutHeadComponent implements OnInit{     
+export class ZutHeadComponent implements OnInit{
+   tabsgo():void{
+       alert(123);
+   }     
    ngOnInit(){
 
    }

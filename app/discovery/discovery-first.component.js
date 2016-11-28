@@ -9,22 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var ZutHeadComponent = (function () {
-    function ZutHeadComponent() {
+var DiscoveryFirstComponent = (function () {
+    function DiscoveryFirstComponent() {
     }
-    ZutHeadComponent.prototype.tabsgo = function () {
-        alert(123);
-    };
-    ZutHeadComponent.prototype.ngOnInit = function () {
-    };
-    ZutHeadComponent = __decorate([
+    DiscoveryFirstComponent = __decorate([
         core_1.Component({
-            selector: 'zut-head',
-            template: "\n      <header class=\"mui-bar mui-bar-nav\">\n        <h1 class=\"mui-title\" id=\"title\">\u8BBA\u9053</h1>\n    </header>\n  "
+            selector: 'discovery-list',
+            template: "\n        <zut-head></zut-head>\n          <div class=\"mui-content\">\n              <h3>\n                 discovery first\n              </h3>\n          </div>\n          <zut-foot></zut-foot>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], ZutHeadComponent);
-    return ZutHeadComponent;
+    ], DiscoveryFirstComponent);
+    return DiscoveryFirstComponent;
 }());
-exports.ZutHeadComponent = ZutHeadComponent;
-//# sourceMappingURL=zut-head.component.js.map
+exports.DiscoveryFirstComponent = DiscoveryFirstComponent;
+//# sourceMappingURL=discovery-first.component.js.map

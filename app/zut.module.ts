@@ -25,6 +25,10 @@ import {MyCoursePage} from './mine/mycourseF/mycourse'
 import {MySettingPage} from './mine/mysettingF/mysetting'
 import {MyAboutPage} from './mine/myaboutF/myabout'
 import {MyInfoPage} from './mine/myinfoF/myinfo'
+import {Discovery} from './discovery/discovery'
+import {BestList} from './discovery/bestList';
+import {Details} from './discovery/discoveryDeatil';
+
 
 
 
@@ -45,7 +49,7 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
 
         {
             path: '',
-            component: Mine
+            component: GuideComponent
         },
         {
           path:'loginpage',
@@ -80,6 +84,18 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
         {
             path: 'propagate-first',
             component: PropagateFirstComponent
+        },
+        {
+            path: 'discovery',
+            component: Discovery
+        },
+        {
+          path:'bestList',
+          component:BestList
+        },
+        {
+          path:'discoverydetail',
+          component:Details
         }
     ])
   ],
@@ -87,7 +103,8 @@ import {MyInfoPage} from './mine/myinfoF/myinfo'
     LoginService,
     PropagateService
   ],
-  declarations: [ ZutComponent,GuideComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage],
+
+  declarations: [ ZutComponent,Discovery,BestList,Details,GuideComponent,ZutHeadComponent,ZutFootComponent,AdvComponent,PropagateFirstComponent, PropagateListComponent, LiveDetailComponent,Mine,LoginPage,MyAccountPage,MyAboutPage,MyCoursePage,MyInfoPage,MySettingPage],
   bootstrap:[ZutComponent]
 })
 export class ZutModule { }

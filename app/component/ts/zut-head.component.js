@@ -12,12 +12,10 @@ var core_1 = require('@angular/core');
 var ZutHeadComponent = (function () {
     function ZutHeadComponent() {
     }
-    ZutHeadComponent.prototype.ngOnInit = function () {
-    };
     ZutHeadComponent = __decorate([
         core_1.Component({
             selector: 'zut-head',
-            template: "\n      <header class=\"mui-bar mui-bar-nav\">\n        <h1 class=\"mui-title\" id=\"title\">\u8BBA\u9053</h1>\n    </header>\n  "
+            template: "\n     <header class=\"mui-bar mui-bar-nav\">\n        <h1 class=\"mui-title\" id=\"title\">\u8BBA\u9053</h1>\n    </header>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], ZutHeadComponent);

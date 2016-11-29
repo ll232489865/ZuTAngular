@@ -1,5 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+// import {}
 declare var slider;
 
 
@@ -21,7 +22,8 @@ export class AdvComponent implements OnInit{
         this.cont --;
         if(this.cont < 0) {
           clearInterval(this.time);
-          this.router.navigate(['/propagate-first']);
+          // this.router.navigate(['/propagate-first']);
+          this.router.navigate(['/discovery']);
         }
     }
     ngOnInit(){

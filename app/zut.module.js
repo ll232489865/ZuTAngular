@@ -16,16 +16,8 @@ var zut_component_1 = require('./zut.component');
 var guide_component_1 = require('./guide/guide.component');
 var adv_component_1 = require('./advertisement/adv.component');
 var propagate_first_component_1 = require('./propagate/propagate-first.component');
-<<<<<<< HEAD
-var mine_1 = require('./mine/mine'); //我的
-var login_service_1 = require('./mine/login.service');
-var login_1 = require('./mine/login');
 var zut_head_component_1 = require('./component/ts/zut-head.component');
 var zut_foot_component_1 = require('./component/ts/zut-foot.component');
-var propagate_list_component_1 = require('./propagate/propagate-list.component');
-var propagate_service_1 = require('./propagate/propagate.service');
-var live_detail_component_1 = require('./propagate/live-detail.component');
-=======
 var propagate_list_component_1 = require('./propagate/propagate-list.component');
 var propagate_service_1 = require('./propagate/propagate.service');
 var live_detail_component_1 = require('./propagate/live-detail.component');
@@ -37,7 +29,9 @@ var mycourse_1 = require('./mine/mycourseF/mycourse');
 var mysetting_1 = require('./mine/mysettingF/mysetting');
 var myabout_1 = require('./mine/myaboutF/myabout');
 var myinfo_1 = require('./mine/myinfoF/myinfo');
->>>>>>> b6787e037be985382f464f9f8e5c7fb567b683cf
+var discovery_1 = require('./discovery/discovery');
+var bestList_1 = require('./discovery/bestList');
+var discoveryDeatil_1 = require('./discovery/discoveryDeatil');
 var ZutModule = (function () {
     function ZutModule() {
     }
@@ -58,18 +52,9 @@ var ZutModule = (function () {
                     // }
                     {
                         path: '',
-                        component: mine_1.Mine
+                        component: guide_component_1.GuideComponent
                     },
                     {
-<<<<<<< HEAD
-                        path: '',
-                        component: propagate_list_component_1.PropagateListComponent
-                    }, {
-                        path: 'live/:id',
-                        component: live_detail_component_1.LiveDetailComponent
-                    },
-                    {
-=======
                         path: 'loginpage',
                         component: login_1.LoginPage
                     },
@@ -94,13 +79,24 @@ var ZutModule = (function () {
                         component: myinfo_1.MyInfoPage
                     },
                     {
->>>>>>> b6787e037be985382f464f9f8e5c7fb567b683cf
                         path: 'adv',
                         component: adv_component_1.AdvComponent
                     },
                     {
                         path: 'propagate-first',
                         component: propagate_first_component_1.PropagateFirstComponent
+                    },
+                    {
+                        path: 'discovery',
+                        component: discovery_1.Discovery
+                    },
+                    {
+                        path: 'bestList',
+                        component: bestList_1.BestList
+                    },
+                    {
+                        path: 'discoverydetail',
+                        component: discoveryDeatil_1.Details
                     }
                 ])
             ],
@@ -108,11 +104,7 @@ var ZutModule = (function () {
                 login_service_1.LoginService,
                 propagate_service_1.PropagateService
             ],
-<<<<<<< HEAD
-            declarations: [zut_component_1.ZutComponent, mine_1.Mine, login_1.LoginPage, guide_component_1.GuideComponent, adv_component_1.AdvComponent, propagate_first_component_1.PropagateFirstComponent, zut_head_component_1.ZutHeadComponent, zut_foot_component_1.ZutFootComponent],
-=======
-            declarations: [zut_component_1.ZutComponent, guide_component_1.GuideComponent, propagate_list_component_1.PropagateListComponent, live_detail_component_1.LiveDetailComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, myabout_1.MyAboutPage, mycourse_1.MyCoursePage, myinfo_1.MyInfoPage, mysetting_1.MySettingPage],
->>>>>>> b6787e037be985382f464f9f8e5c7fb567b683cf
+            declarations: [zut_component_1.ZutComponent, discovery_1.Discovery, bestList_1.BestList, discoveryDeatil_1.Details, guide_component_1.GuideComponent, zut_head_component_1.ZutHeadComponent, zut_foot_component_1.ZutFootComponent, adv_component_1.AdvComponent, propagate_first_component_1.PropagateFirstComponent, propagate_list_component_1.PropagateListComponent, live_detail_component_1.LiveDetailComponent, mine_1.Mine, login_1.LoginPage, myaccount_1.MyAccountPage, myabout_1.MyAboutPage, mycourse_1.MyCoursePage, myinfo_1.MyInfoPage, mysetting_1.MySettingPage],
             bootstrap: [zut_component_1.ZutComponent]
         }), 
         __metadata('design:paramtypes', [])

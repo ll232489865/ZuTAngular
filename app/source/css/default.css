@@ -1501,10 +1501,10 @@ footer .mui-icon-paperplane {
 
 
 
-.mui-bar-tab ~ .mui-content {
+.mui-content {
     padding-bottom: 4rem;
 }
-.mui-bar-nav ~ .mui-content {
+.mui-content {
     padding-top: 4rem;;
 }
 .mui-table-view{

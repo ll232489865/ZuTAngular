@@ -12,16 +12,22 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
+//入口
 var zut_component_1 = require('./zut.component');
+//引导
 var guide_component_1 = require('./guide/guide.component');
+//广告
 var adv_component_1 = require('./advertisement/adv.component');
+//传道
 var propagate_first_component_1 = require('./propagate/propagate-first.component');
-var zut_head_component_1 = require('./component/ts/zut-head.component');
-var zut_foot_component_1 = require('./component/ts/zut-foot.component');
 var propagate_list_component_1 = require('./propagate/propagate-list.component');
 var propagate_service_1 = require('./propagate/propagate.service');
 var live_detail_component_1 = require('./propagate/live-detail.component');
-var mine_1 = require('./mine/mine'); //我的
+//头部以及底部
+var zut_head_component_1 = require('./component/ts/zut-head.component');
+var zut_foot_component_1 = require('./component/ts/zut-foot.component');
+/*我的*/
+var mine_1 = require('./mine/mine');
 var login_service_1 = require('./mine/login.service');
 var login_1 = require('./mine/login');
 var myaccount_1 = require('./mine/myaccountF/myaccount');
@@ -39,20 +45,25 @@ var ZutModule = (function () {
         core_1.NgModule({
             imports: [platform_browser_1.BrowserModule, http_1.HttpModule,
                 router_1.RouterModule.forRoot([
-                    // {
-                    //     path: '',
-                    //     component: GuideComponent
-                    // },
-                    // {
-                    //     path:'',
-                    //     component: PropagateListComponent
-                    // },{
-                    //     path:'live/:id',
-                    //     component:LiveDetailComponent
-                    // }
                     {
                         path: '',
                         component: guide_component_1.GuideComponent
+                    },
+                    {
+                        path: 'mine',
+                        component: mine_1.Mine //登录
+                    },
+                    {
+                        path: 'adv',
+                        component: adv_component_1.AdvComponent //登录
+                    },
+                    {
+                        path: 'propagate-list',
+                        component: propagate_list_component_1.PropagateListComponent //传道列表
+                    },
+                    {
+                        path: 'live/:id',
+                        component: live_detail_component_1.LiveDetailComponent //传道的直播页面
                     },
                     {
                         path: 'loginpage',

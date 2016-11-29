@@ -9,19 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PropagateFirstComponent = (function () {
-    function PropagateFirstComponent() {
+var mock_tabs_1 = require('./mock-tabs');
+var TabsService = (function () {
+    function TabsService() {
+        this.tabOnCont = 0;
     }
-    PropagateFirstComponent = __decorate([
-        core_1.Component({
-            selector: 'propagate-first',
-            template: "\n  "
-        }), 
+    TabsService.prototype.getTabs = function () {
+        return Promise.resolve(mock_tabs_1.TabsList);
+    };
+    TabsService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], PropagateFirstComponent);
-    return PropagateFirstComponent;
+    ], TabsService);
+    return TabsService;
 }());
-exports.PropagateFirstComponent = PropagateFirstComponent;
-//  <zut-head></zut-head>
-// <zut-foot></zut-foot>
-//# sourceMappingURL=propagate-first.component.js.map
+exports.TabsService = TabsService;
+//# sourceMappingURL=tabs.service.js.map

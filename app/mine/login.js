@@ -19,20 +19,16 @@ var LoginPage = (function () {
         this.location = location;
         // this.ac="首页";
     }
-    // ac:any;
     LoginPage.prototype.ngOnInit = function () {
         this.router.params.forEach(function (params) {
-            // alert(JSON.stringify(params));
         });
-        // alert(JSON.stringify(this.router.params))
     };
     LoginPage.prototype._login = function (account, password) {
-        var _this = this;
-        this.loginService.login(account, password).subscribe(function () {
-            if (_this.loginService.isLoggedIn) {
-                _this.location.back();
-            }
-        });
+        this.loginService
+            .login(account, password);
+        if (this.loginService.isLoggedIn) {
+            this.location.back();
+        }
     };
     LoginPage = __decorate([
         core_1.Component({

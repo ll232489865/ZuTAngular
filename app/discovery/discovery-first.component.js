@@ -9,19 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var PropagateFirstComponent = (function () {
-    function PropagateFirstComponent() {
+var DiscoveryFirstComponent = (function () {
+    function DiscoveryFirstComponent() {
     }
-    PropagateFirstComponent = __decorate([
+    DiscoveryFirstComponent = __decorate([
         core_1.Component({
-            selector: 'propagate-first',
-            template: "\n  "
+            selector: 'discovery-list',
+            template: "\n        <zut-head></zut-head>\n          <div class=\"mui-content\">\n              <h3>\n                 discovery first\n              </h3>\n          </div>\n          <zut-foot></zut-foot>\n    "
         }), 
         __metadata('design:paramtypes', [])
-    ], PropagateFirstComponent);
-    return PropagateFirstComponent;
+    ], DiscoveryFirstComponent);
+    return DiscoveryFirstComponent;
 }());
-exports.PropagateFirstComponent = PropagateFirstComponent;
-//  <zut-head></zut-head>
-// <zut-foot></zut-foot>
-//# sourceMappingURL=propagate-first.component.js.map
+exports.DiscoveryFirstComponent = DiscoveryFirstComponent;
+//# sourceMappingURL=discovery-first.component.js.map

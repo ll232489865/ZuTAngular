@@ -20,34 +20,20 @@ export class LoginPage {
      ){
         // this.ac="首页";
     }
-    // ac:any;
-
-
 
     ngOnInit(): void {
       this.router.params.forEach((params:Params)=>{
-// alert(JSON.stringify(params));
 
       })
-
-
-      // alert(JSON.stringify(this.router.params))
 }
 
 
-
-
-
-
-
-
     _login(account,password){
-        this.loginService.login(account,password).subscribe(()=>{
-                  if (this.loginService.isLoggedIn) {
-                      this.location.back();
-                  }
-
-
-        })
-    }
+        this.loginService
+        .login(account,password);
+        
+        if(this.loginService.isLoggedIn) { 
+          this.location.back();
+        } 
+      }
 }

@@ -1,60 +1,81 @@
 import { Injectable } from '@angular/core';
-import {Headers, Http} from '@angular/http';
-
-import 'rxjs/add/operator/toPromise';
-
-import {PropagateInfo} from '../propagate/propagate-info'
-
-
+import {Headers, Http,Jsonp,URLSearchParams} from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 
+import 'rxjs/add/operator/toPromise';
+
+//model
+import {LoginHandshakeModel} from './login-model'
+
+
+
+
 @Injectable()
 export class LoginService {
+      private Url_handshake ='http://192.168.1.10:9090/zuting_api/handshake';
+    private Url_login = 'http://192.168.1.10:9090/zuting_api/login';
+
   isLoggedIn: boolean = false;
-  _imgUrl:string;
-
-  // store the URL so we can redirect after logging in
-  redirectUrl: string;
-
   str_account:string="account";
 
-  login(account,password): Observable<boolean> {
-      if(account==password) {
-          // code...
-              return Observable.of(true).delay(1000).do(val => 
-                  {this.isLoggedIn = true;
-                      this._imgUrl = "./app/source/img/5.png"}
-                     );
-      }else{
-          return Observable.of(true).delay(1000).do(val => this.isLoggedIn = false);
-      }
-  }
-
-  logout(): void {
-    this.isLoggedIn = false;
-  }
-
-
-    private propagateUrl = 'http://192.168.1.10:9090/zuting_api/live/public/list';
+  model_handshake:LoginHandshakeModel;
 
     constructor(private http: Http) {}
 
-    _login(): Promise<PropagateInfo []> {
-      return this.http.get(this.propagateUrl)
-                .toPromise()
-                .then(response => response.json().result as PropagateInfo[])
-                .catch(this.handleError);
+    // login(account,password): Promise<PropagateInfo []> {
+
+
+      login(account,password){
+
+        this.handshakeRequest()
+    .then(model => this.model_handshake=model);
+
+    console.log(JSON.stringify(this.model_handshake));
+
+    this.http.post(this.Url_login,{})
+    .toPromise()
+    .then()
+    .catch(this.handleError);
+
+    if(account==password) { 
+      this.isLoggedIn=true;
+    } else{
+      this.isLoggedIn=false;
     }
+}
+
+
+
+handshakeRequest():Promise<LoginHandshakeModel>{
+
+  let params=new URLSearchParams();
+  params.set("greeting","1");
+
+  return this.http.get(this.Url_handshake,{search:params})
+      .toPromise()
+      .then(response => 
+      // {
+                // console.log(JSON.stringify(response.json()));
+        response.json().result as LoginHandshakeModel
+      // }
+      )
+      .catch(this.handleError);
+}
+
 
     private handleError(error: any): Promise<any> {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 
+
+      logout(): void {
+    this.isLoggedIn = false;
+  }
 }
 
 

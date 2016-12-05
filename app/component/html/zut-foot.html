@@ -1,0 +1,8 @@
+<nav class="foot mui-bar mui-bar-tab"> 
+    <span *ngFor="let tabs of tabLists ; let dx = index" 
+    (click)="onSelect(tabs,dx)" [class.selected]="tabs === selectedTabs" [class.selected]="dx === selectCont"
+    class="mui-tab-item ">
+        <span title="{{dx}}"><img class="tap-image" src="{{tabs.iconSrc}}">
+        <div class="tap-text" > {{tabs.text}}</div></span>
+    </span>
+</nav>

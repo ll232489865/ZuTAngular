@@ -1,0 +1,72 @@
+<ion-header >
+    <ion-navbar>
+        <ion-title>
+            我的
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+    <div class="mui-content">
+
+        <div class="login_banner" style="background: url(source/img/titles.jpg); background-size:100% 100%; position: relative; height: 150px">
+            <div class="tc">
+                <img id="login_picture" class="hotpost" src={{loginImg}} width="50" style="margin-top:3rem; border-radius: 25px;"
+                    height="50" alt="" (click)="_enterInfo()" />
+            </div>
+
+            <div id="login_bn_info" class="login_bn_info" >
+                <span *ngIf="loginStatus" class="login_txt" (click)="_enterInfo()"> 您好，{{loginAccount}}<br/>三人行,必有我师'</span>
+                <span *ngIf="!loginStatus" class="login_btn" (click)="_enterLogin(0)">登录   /   注册</span>
+
+            </div>
+        </div>
+        <div class="List_area">
+            <div class="fix List_box" id="my_balance" (click)="_enterLogin(1)">
+                <div class="List_l">
+                    <span class="u2 u211"></span>
+                </div>
+                <div class='List_r'>
+                    <div class="List_title">
+                        我的账户
+                    </div>
+                    <div class="Line"></div>
+                </div>
+            </div>
+            <div class="fix List_box" id="my_courses" (click)="_enterLogin(2)">
+                <div class="List_l">
+                    <span class="u2 u221"></span>
+                </div>
+                <div class='List_r'>
+                    <div class="List_title">
+                        我的课程
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="List_area mt10">
+            <div class="fix List_box" id="setting" (click)="_enterLogin(3)">
+                <div class="List_l">
+                    <span class="u2 u231"></span>
+                </div>
+                <div class='List_r'>
+                    <div class="List_title">
+                        设置
+                    </div>
+                    <div class="Line"></div>
+                </div>
+            </div>
+            <div class="fix List_box" id="about" (click)="_enterLogin(4)">
+                <div class="List_l">
+                    <span class="u2 u241"></span>
+                </div>
+                <div class='List_r'>
+                    <div class="List_title">
+                        关于
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>

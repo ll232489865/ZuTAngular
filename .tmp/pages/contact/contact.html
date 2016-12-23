@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item class="item-center" *ngIf="loginStatus"  (click)="onLoginClick()">
+    已登陆，无数据？
+  </ion-item>
+
+  <ion-item *ngIf="!loginStatus" >
+    先登录
+  </ion-item>
+
+  <ion-list *ngIf="!loginStatus && liveInfo && liveInfo.length > 0">
+    <li *ngFor="let item of liveInfo">
+      
+      <ion-item (click)="openNavDetailsPage(item)">
+      <ion-avatar item-left>
+        <img src={{item.grpAvatarUrl}}>
+      </ion-avatar>
+      <h2>{{item.grpNm}}</h2>
+      <h3>Don't Know What To Do!</h3>
+      <p>I've had a pretty messed up day. If we just...</p>
+    </ion-item>
+    </li>
+  </ion-list>
+</ion-content>

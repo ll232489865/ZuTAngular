@@ -32,11 +32,8 @@
     <feature name="Keyboard">
         <param name="ios-package" onload="true" value="IonicKeyboard" />
     </feature>
-    <feature name="Camera">
-        <param name="ios-package" value="CDVCamera" />
-    </feature>
-    <feature name="ImagePicker">
-        <param name="ios-package" value="SOSPicker" />
+    <feature name="Istudy">
+        <param name="ios-package" value="CDVIstudy" />
     </feature>
     <name>ZuTIonic</name>
     <description>An awesome Ionic/Cordova app.</description>
@@ -66,7 +63,6 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    <preference name="CameraUsesGeolocation" value="false" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="android-minSdkVersion" value="16" />

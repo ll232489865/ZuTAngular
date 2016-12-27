@@ -6,6 +6,9 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
+import { Storage } from '@ionic/storage';
+
+
 //server
 import { LoginService } from '../pages/mine/login.service';
 
@@ -33,6 +36,8 @@ import {BestList} from '../pages/about/bestList';
 import {Details} from '../pages/about/discoveryDeatil';
 
 
+import {UnlessDirective} from '../providers/unless.directive'
+
 @NgModule({
   declarations: [
     MyApp,
@@ -53,7 +58,12 @@ import {Details} from '../pages/about/discoveryDeatil';
     MySettingPage,
 
     BestList,
-    Details
+    Details,
+
+
+    UnlessDirective
+
+
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -81,7 +91,6 @@ import {Details} from '../pages/about/discoveryDeatil';
     Details
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  PropagateService,LiveService,
-  LoginService]
+  PropagateService,LiveService,LoginService,Storage]
 })
 export class AppModule {}

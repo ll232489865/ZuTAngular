@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Http, URLSearchParams, RequestOptions, Headers } from '@angular/http';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
@@ -7,84 +7,149 @@ import 'rxjs/add/operator/delay';
 
 import 'rxjs/add/operator/toPromise';
 
-//model
-import { LoginHandshakeModel } from './login-model'
+import { Storage } from '@ionic/storage'
 
-import { Device } from 'ionic-native';
+
+//model
+import { LoginHandshakeModel, model_loginResult } from './login-model'
+//plugin
+import { Device, Istudy } from 'ionic-native';
 
 //md5
 declare var md5_obj;
-
 
 @Injectable()
 export class LoginService {
   private Url_handshake = 'http://192.168.1.10:9090/zuting_api/handshake';
   private Url_login = 'http://192.168.1.10:9090/zuting_api/login';
+  private Url_accountInfo = 'http://192.168.1.10:9090/zuting_api/account/info';
+  //	accountInfo:{url:env.apiURL + '/account/info',type:"get",path:'/account/info'},
 
   isLoggedIn: boolean = false;
-  str_account: string = "account";
 
   model_handshake: LoginHandshakeModel;
+  constructor(
+    private http: Http,
+    public storage: Storage
+  ) { }
 
-  constructor(private http: Http) { }
+  //登录
+  login(account, passwordv, callBack) {
+    var str_random = Math.random().toString();
 
-  login(account, password) {
+    this.handshakeRequest(str_random)
+      .then(model => {
+        this.model_handshake = model;
+        //greeting:'clientGreeting+&+serverGreeting
+        var verifyParams = { serverGreeting: str_random + "&" + this.model_handshake.serverGreeting, serverSign: this.model_handshake.serverSign };
 
-    this.handshakeRequest()
-      .then(model => this.model_handshake = model);
+        Istudy.verify(verifyParams).then(succ => {
 
-    console.log(JSON.stringify(this.model_handshake));
+          if (succ) {//验签通过
+            var str_handshakeCodeRandom = Math.random().toString();
 
-    this.http.post(this.Url_login, {})
-      .toPromise()
-      .then()
-      .catch(this.handleError);
+            var str_handshakeparams = this.model_handshake.serverGreeting + "&" + str_handshakeCodeRandom;
 
+            Istudy.encrypt(str_handshakeparams)
+              .then(result => {//handshakeCode
 
-//  var hash = md5_obj.hex_md5("123dafd");
+                this.storage.get("DEVICE_ID")
+                  .then((val) => {//DEVICE_ID                    
+                    Istudy.generateMd5(passwordv)
+                      .then(passwordMd5 => {
+                        var passwordCode = passwordMd5 + "&" + this.model_handshake.serverGreeting;
 
+                        Istudy.encrypt(passwordCode)
+                          .then(pass => {//password
 
-// console.log(hash);
+                            var params = "mobile=" + account + "&password=" + encodeURIComponent(pass) + "&handshakeCode=" + encodeURIComponent(result) + "&appSrc=" + "STUDENT" + "&deviceID=" + val;
 
+                            let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+                            let options = new RequestOptions({ headers: headers });
 
-// console.log('Device UUID is: ' + Device.device.uuid);
+                            this.http.post(this.Url_login, params, options)
+                              .toPromise()
+                              .then(res => {//登录成功
 
+                                if (res.json().resultCode == 0) {
+                                  this.isLoggedIn = true;
+                                  callBack(res.json().result as model_loginResult);
 
-
-    if (account == password) {
-      this.isLoggedIn = true;
-    } else {
-      this.isLoggedIn = false;
-    }
+                                } else {
+                                  console.log(res.json().resultCode);
+                                }
+                              })
+                              .catch(this.handleError);
+                          });
+                      });
+                  });
+              });
+          }
+        });
+      });
   }
 
-
-
-  handshakeRequest(): Promise<LoginHandshakeModel> {
-
+  //获取 handshake
+  handshakeRequest(str_random): Promise<LoginHandshakeModel> {
     let params = new URLSearchParams();
-    params.set("greeting", "1");
+    params.set("greeting", str_random);
 
     return this.http.get(this.Url_handshake, { search: params })
       .toPromise()
-      .then(response =>
+      .then(
+      response =>
         // {
-        // console.log(JSON.stringify(response.json()));
-        response.json().result as LoginHandshakeModel
+        //console.log(JSON.stringify(response.json()));
+        (response.json().result as LoginHandshakeModel)
       // }
       )
       .catch(this.handleError);
   }
 
+  //获取 用户信息
+  getAccountInfo(callBack) {
+        this.getSession().then(session => {  
+        console.log("session" + JSON.stringify(session));
+
+        if (session) {
+          Istudy.getHeader({ session: session, path: "/account/info", headers: {}, params: {} })
+            .then(head => {
+
+              let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+              let options = new RequestOptions({ headers: head });
+
+              this.http.get(this.Url_accountInfo, options)
+                .toPromise()
+                .then(result => {
+                  callBack(result.json().result)
+                })
+                .catch(this.handleError);
+
+            })
+        }
+      });
+  }
+
+  //获取 session 登录后的信息  请求头
+  getSession(): Promise<any> {
+    return this.storage.get("SESSION")
+      .then(result => {
+        return result;
+      });
+  }
+
+
+  //登出
+  logout(): void {
+    this.isLoggedIn = false;
+    this.storage.remove("SESSION");
+  }
+
+
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
-  }
-
-
-  logout(): void {
-    this.isLoggedIn = false;
   }
 }
 

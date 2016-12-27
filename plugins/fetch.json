@@ -47,16 +47,13 @@
         "is_top_level": true,
         "variables": {}
     },
-    "cordova-plugin-camera": {
+    "cordova-plugin-file": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-camera"
+            "id": "cordova-plugin-file"
         },
-        "is_top_level": true,
-        "variables": {
-            "CAMERA_USAGE_DESCRIPTION": " ",
-            "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
-        }
+        "is_top_level": false,
+        "variables": {}
     },
     "cordova-plugin-compat": {
         "source": {
@@ -66,11 +63,10 @@
         "is_top_level": false,
         "variables": {}
     },
-    "com.synconset.imagepicker": {
+    "cordova-plugin-istudy": {
         "source": {
-            "type": "git",
-            "url": "https://github.com/Telerik-Verified-Plugins/ImagePicker",
-            "subdir": "."
+            "type": "local",
+            "path": "/Users/renlei/Desktop/cordova-plugin-istudy"
         },
         "is_top_level": true,
         "variables": {}

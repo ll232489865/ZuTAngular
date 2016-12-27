@@ -8,6 +8,8 @@ import {LiveDetail} from './live-detail';
 
 import { LoginService } from '../mine/login.service';
 
+import {LoginPage} from '../mine/login'
+
 @Component({
   selector: 'page-contact',
   templateUrl: 'contact.html'
@@ -18,14 +20,15 @@ export class ContactPage implements OnInit, DoCheck,
   liveInfo: LiveInfo[];
   item;
   loginCheck:string;
-  private htmlElement:HTMLElement;
+  public htmlElement:HTMLElement;
   loginStatus;
 
   constructor(public navCtrl: NavController,
-    private liveService:LiveService,
-    private params: NavParams,
-    private app: App,
-    private loginService: LoginService) {
+    public liveService:LiveService,
+    public params: NavParams,
+    public app: App,
+    public loginService: LoginService,
+       ) {
       // this.item = params.data.item;
       // this.loginCheck = 'hello';
       console.log('-----console----' + this.loginCheck);
@@ -67,5 +70,18 @@ export class ContactPage implements OnInit, DoCheck,
 
     this.app.getRootNav().push(LiveDetail, { item: item });
   }
+
+
+
+testpush(){
+  this.app.getRootNav().push(LoginPage);
+}
+
+
+testdl(tel,pwd){
+  console.log(tel+'ttttttt'+pwd);
+  
+}
+
 
 }

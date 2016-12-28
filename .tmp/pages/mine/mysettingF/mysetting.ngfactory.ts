@@ -216,6 +216,7 @@ class _View_MySettingPage0 extends import1.AppView<import0.MySettingPage> {
     this._el_37 = this.renderer.createElement(this._el_35,'span',(null as any));
     this.renderer.setElementAttribute(this._el_37,'class','Btn Btn_middle Btn_white Btn_radiusI');
     this.renderer.setElementAttribute(this._el_37,'id','quit_app');
+    this.renderer.setElementAttribute(this._el_37,'tappable','');
     this._text_38 = this.renderer.createText(this._el_37,'退出登录',(null as any));
     this._text_39 = this.renderer.createText(this._el_35,'\n        ',(null as any));
     this._text_40 = this.renderer.createText((null as any),'\n\n',(null as any));

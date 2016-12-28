@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, PopoverController } from 'ionic-angular';
+import { NavController, PopoverController, App } from 'ionic-angular';
 import { PropagateService } from './propagate.service';
-import { ThirdShare } from '../third_share/third-share';
+import { LoginPage } from '../mine/login';
 export var HomePage = (function () {
-    function HomePage(navCtrl, propagateService, popoverCtrl) {
+    function HomePage(navCtrl, propagateService, popoverCtrl, app) {
         this.navCtrl = navCtrl;
         this.propagateService = propagateService;
         this.popoverCtrl = popoverCtrl;
+        this.app = app;
     }
     HomePage.prototype.ngOnInit = function () {
         this.getPropagateList();
@@ -29,8 +30,9 @@ export var HomePage = (function () {
     };
     HomePage.prototype.onShareClick = function (item) {
         // alert("-----onShareClick:" + JSON.stringify(item));
-        var popover = this.popoverCtrl.create(ThirdShare);
-        popover.present();
+        // let popover = this.popoverCtrl.create(ThirdShare);
+        // popover.present();
+        this.app.getRootNav().push(LoginPage);
     };
     HomePage.prototype.onLogForm = function () {
     };
@@ -45,6 +47,7 @@ export var HomePage = (function () {
         { type: NavController, },
         { type: PropagateService, },
         { type: PopoverController, },
+        { type: App, },
     ];
     return HomePage;
 }());

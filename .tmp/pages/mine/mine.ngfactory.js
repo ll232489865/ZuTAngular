@@ -19,26 +19,30 @@ import * as import9 from 'ionic-angular/navigation/nav-controller';
 import * as import10 from 'ionic-angular/navigation/view-controller';
 import * as import11 from 'ionic-angular/components/app/app';
 import * as import12 from 'ionic-angular/components/modal/modal';
-import * as import13 from '@angular/core/src/linker/element_ref';
-import * as import14 from '@angular/core/src/linker/compiler';
+import * as import13 from '@angular/core/src/linker/compiler';
+import * as import14 from '@ionic/storage/es2015/storage';
 import * as import15 from '@angular/core/src/metadata/view';
 import * as import16 from '@angular/core/src/linker/component_factory';
 import * as import17 from '../../node_modules/ionic-angular/components/toolbar/toolbar.ngfactory';
 import * as import18 from '../../node_modules/ionic-angular/components/navbar/navbar.ngfactory';
 import * as import19 from '../../node_modules/ionic-angular/components/toolbar/toolbar-title.ngfactory';
 import * as import20 from '../../node_modules/ionic-angular/components/content/content.ngfactory';
-import * as import21 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
-import * as import22 from 'ionic-angular/config/config';
-import * as import23 from 'ionic-angular/components/toolbar/toolbar';
-import * as import24 from 'ionic-angular/util/keyboard';
-import * as import25 from '@angular/core/src/zone/ng_zone';
-import * as import26 from 'ionic-angular/components/tabs/tabs';
-import * as import27 from '@angular/core/src/linker/template_ref';
-import * as import28 from 'ionic-angular/components/toolbar/toolbar-title';
-import * as import29 from 'ionic-angular/components/navbar/navbar';
-import * as import30 from '@angular/common/src/directives/ng_if';
-import * as import31 from 'ionic-angular/components/content/content';
-import * as import32 from '@angular/core/src/security';
+import * as import21 from '../../node_modules/ionic-angular/components/img/img.ngfactory';
+import * as import22 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
+import * as import23 from 'ionic-angular/config/config';
+import * as import24 from '@angular/core/src/linker/element_ref';
+import * as import25 from 'ionic-angular/components/toolbar/toolbar';
+import * as import26 from 'ionic-angular/util/keyboard';
+import * as import27 from '@angular/core/src/zone/ng_zone';
+import * as import28 from 'ionic-angular/components/tabs/tabs';
+import * as import29 from 'ionic-angular/platform/platform';
+import * as import30 from '@angular/core/src/linker/template_ref';
+import * as import31 from 'ionic-angular/components/toolbar/toolbar-title';
+import * as import32 from 'ionic-angular/components/navbar/navbar';
+import * as import33 from 'ionic-angular/components/img/img';
+import * as import34 from '@angular/common/src/directives/ng_if';
+import * as import35 from 'ionic-angular/components/content/content';
+import * as import36 from '@angular/core/src/security';
 export var Wrapper_MinePage = (function () {
     function Wrapper_MinePage(p0, p1, p2, p3, p4, p5, p6) {
         this.changed = false;
@@ -51,7 +55,6 @@ export var Wrapper_MinePage = (function () {
             if ((view.numberOfChecks === 0)) {
                 this.context.ngOnInit();
             }
-            this.context.ngDoCheck();
         }
         return changed;
     };
@@ -67,7 +70,7 @@ var _View_MinePage_Host0 = (function (_super) {
         this._el_0 = this.selectOrCreateHostElement('page_mine', rootSelector, null);
         this._appEl_0 = new import3.AppElement(0, null, this, this._el_0);
         var compView_0 = viewFactory_MinePage0(this.viewUtils, this.injector(0), this._appEl_0);
-        this._MinePage_0_4 = new Wrapper_MinePage(this.parentInjector.get(import8.LoginService), this.parentInjector.get(import9.NavController), this.parentInjector.get(import10.ViewController), this.parentInjector.get(import11.App), this.parentInjector.get(import12.ModalController), new import13.ElementRef(this._el_0), this.parentInjector.get(import14.Compiler));
+        this._MinePage_0_4 = new Wrapper_MinePage(this.parentInjector.get(import8.LoginService), this.parentInjector.get(import9.NavController), this.parentInjector.get(import10.ViewController), this.parentInjector.get(import11.App), this.parentInjector.get(import12.ModalController), this.parentInjector.get(import13.Compiler), this.parentInjector.get(import14.Storage));
         this._appEl_0.initComponent(this._MinePage_0_4.context, [], compView_0);
         compView_0.create(this._MinePage_0_4.context, this.projectableNodes, null);
         this.init([].concat([this._el_0]), [this._el_0], [], []);
@@ -83,9 +86,6 @@ var _View_MinePage_Host0 = (function (_super) {
         this._MinePage_0_4.detectChangesInternal(this, this._el_0, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         if (!throwOnChange) {
-            if ((this.numberOfChecks === 0)) {
-                this._MinePage_0_4.context.ngAfterContentInit();
-            }
             this._MinePage_0_4.context.ngAfterContentChecked();
         }
         this.detectViewChildrenChanges(throwOnChange);
@@ -93,11 +93,7 @@ var _View_MinePage_Host0 = (function (_super) {
             if ((this.numberOfChecks === 0)) {
                 this._MinePage_0_4.context.ngAfterViewInit();
             }
-            this._MinePage_0_4.context.ngAfterViewChecked();
         }
-    };
-    _View_MinePage_Host0.prototype.destroyInternal = function () {
-        this._MinePage_0_4.context.ngOnDestroy();
     };
     return _View_MinePage_Host0;
 }(import1.AppView));
@@ -118,19 +114,19 @@ var _View_MinePage0 = (function (_super) {
     _View_MinePage0.prototype.createInternal = function (rootSelector) {
         var parentRenderNode = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
         this._el_0 = this.renderer.createElement(parentRenderNode, 'ion-header', null);
-        this._Header_0_3 = new import17.Wrapper_Header(this.parentInjector.get(import22.Config), new import13.ElementRef(this._el_0), this.renderer, this.parentInjector.get(import10.ViewController, null));
+        this._Header_0_3 = new import17.Wrapper_Header(this.parentInjector.get(import23.Config), new import24.ElementRef(this._el_0), this.renderer, this.parentInjector.get(import10.ViewController, null));
         this._text_1 = this.renderer.createText(this._el_0, '\n    ', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'ion-navbar', null);
         this.renderer.setElementAttribute(this._el_2, 'class', 'toolbar');
         this._appEl_2 = new import3.AppElement(2, 0, this, this._el_2);
         var compView_2 = import18.viewFactory_Navbar0(this.viewUtils, this.injector(2), this._appEl_2);
-        this._Navbar_2_4 = new import18.Wrapper_Navbar(this.parentInjector.get(import11.App), this.parentInjector.get(import10.ViewController, null), this.parentInjector.get(import9.NavController, null), this.parentInjector.get(import22.Config), new import13.ElementRef(this._el_2), this.renderer);
+        this._Navbar_2_4 = new import18.Wrapper_Navbar(this.parentInjector.get(import11.App), this.parentInjector.get(import10.ViewController, null), this.parentInjector.get(import9.NavController, null), this.parentInjector.get(import23.Config), new import24.ElementRef(this._el_2), this.renderer);
         this._appEl_2.initComponent(this._Navbar_2_4.context, [], compView_2);
         this._text_3 = this.renderer.createText(null, '\n        ', null);
         this._el_4 = this.renderer.createElement(null, 'ion-title', null);
         this._appEl_4 = new import3.AppElement(4, 2, this, this._el_4);
         var compView_4 = import19.viewFactory_ToolbarTitle0(this.viewUtils, this.injector(4), this._appEl_4);
-        this._ToolbarTitle_4_4 = new import19.Wrapper_ToolbarTitle(this.parentInjector.get(import22.Config), new import13.ElementRef(this._el_4), this.renderer, this.parentInjector.get(import23.Toolbar, null), this._Navbar_2_4.context);
+        this._ToolbarTitle_4_4 = new import19.Wrapper_ToolbarTitle(this.parentInjector.get(import23.Config), new import24.ElementRef(this._el_4), this.renderer, this.parentInjector.get(import25.Toolbar, null), this._Navbar_2_4.context);
         this._appEl_4.initComponent(this._ToolbarTitle_4_4.context, [], compView_4);
         this._text_5 = this.renderer.createText(null, '\n            我的\n        ', null);
         compView_4.create(this._ToolbarTitle_4_4.context, [[].concat([this._text_5])], null);
@@ -150,7 +146,7 @@ var _View_MinePage0 = (function (_super) {
         this._el_9 = this.renderer.createElement(parentRenderNode, 'ion-content', null);
         this._appEl_9 = new import3.AppElement(9, null, this, this._el_9);
         var compView_9 = import20.viewFactory_Content0(this.viewUtils, this.injector(9), this._appEl_9);
-        this._Content_9_4 = new import20.Wrapper_Content(this.parentInjector.get(import22.Config), new import13.ElementRef(this._el_9), this.renderer, this.parentInjector.get(import11.App), this.parentInjector.get(import24.Keyboard), this.parentInjector.get(import25.NgZone), this.parentInjector.get(import10.ViewController, null), this.parentInjector.get(import26.Tabs, null));
+        this._Content_9_4 = new import20.Wrapper_Content(this.parentInjector.get(import23.Config), new import24.ElementRef(this._el_9), this.renderer, this.parentInjector.get(import11.App), this.parentInjector.get(import26.Keyboard), this.parentInjector.get(import27.NgZone), this.parentInjector.get(import10.ViewController, null), this.parentInjector.get(import28.Tabs, null));
         this._appEl_9.initComponent(this._Content_9_4.context, [], compView_9);
         this._text_10 = this.renderer.createText(null, '\n\n    ', null);
         this._el_11 = this.renderer.createElement(null, 'div', null);
@@ -163,144 +159,162 @@ var _View_MinePage0 = (function (_super) {
         this._el_15 = this.renderer.createElement(this._el_13, 'div', null);
         this.renderer.setElementAttribute(this._el_15, 'class', 'tc');
         this._text_16 = this.renderer.createText(this._el_15, '\n                ', null);
-        this._el_17 = this.renderer.createElement(this._el_15, 'img', null);
-        this.renderer.setElementAttribute(this._el_17, 'alt', '');
-        this.renderer.setElementAttribute(this._el_17, 'class', 'hotpost');
-        this.renderer.setElementAttribute(this._el_17, 'height', '50');
-        this.renderer.setElementAttribute(this._el_17, 'id', 'login_picture');
-        this.renderer.setElementAttribute(this._el_17, 'style', 'margin-top:3rem; border-radius: 25px;');
-        this.renderer.setElementAttribute(this._el_17, 'width', '50');
-        this._text_18 = this.renderer.createText(this._el_15, '\n            ', null);
-        this._text_19 = this.renderer.createText(this._el_13, '\n\n            ', null);
-        this._el_20 = this.renderer.createElement(this._el_13, 'div', null);
-        this.renderer.setElementAttribute(this._el_20, 'class', 'login_bn_info');
-        this.renderer.setElementAttribute(this._el_20, 'id', 'login_bn_info');
-        this._text_21 = this.renderer.createText(this._el_20, '\n                ', null);
-        this._anchor_22 = this.renderer.createTemplateAnchor(this._el_20, null);
-        this._appEl_22 = new import3.AppElement(22, 20, this, this._anchor_22);
-        this._TemplateRef_22_5 = new import27.TemplateRef_(this._appEl_22, viewFactory_MinePage1);
-        this._NgIf_22_6 = new import21.Wrapper_NgIf(this._appEl_22.vcRef, this._TemplateRef_22_5);
-        this._text_23 = this.renderer.createText(this._el_20, '\n                ', null);
-        this._anchor_24 = this.renderer.createTemplateAnchor(this._el_20, null);
-        this._appEl_24 = new import3.AppElement(24, 20, this, this._anchor_24);
-        this._TemplateRef_24_5 = new import27.TemplateRef_(this._appEl_24, viewFactory_MinePage2);
-        this._NgIf_24_6 = new import21.Wrapper_NgIf(this._appEl_24.vcRef, this._TemplateRef_24_5);
-        this._text_25 = this.renderer.createText(this._el_20, '\n\n            ', null);
-        this._text_26 = this.renderer.createText(this._el_13, '\n        ', null);
-        this._text_27 = this.renderer.createText(this._el_11, '\n        ', null);
-        this._el_28 = this.renderer.createElement(this._el_11, 'div', null);
-        this.renderer.setElementAttribute(this._el_28, 'class', 'List_area');
-        this._text_29 = this.renderer.createText(this._el_28, '\n            ', null);
-        this._el_30 = this.renderer.createElement(this._el_28, 'div', null);
-        this.renderer.setElementAttribute(this._el_30, 'class', 'fix List_box');
-        this.renderer.setElementAttribute(this._el_30, 'id', 'my_balance');
-        this._text_31 = this.renderer.createText(this._el_30, '\n                ', null);
-        this._el_32 = this.renderer.createElement(this._el_30, 'div', null);
-        this.renderer.setElementAttribute(this._el_32, 'class', 'List_l');
-        this._text_33 = this.renderer.createText(this._el_32, '\n                    ', null);
-        this._el_34 = this.renderer.createElement(this._el_32, 'span', null);
-        this.renderer.setElementAttribute(this._el_34, 'class', 'u2 u211');
-        this._text_35 = this.renderer.createText(this._el_32, '\n                ', null);
-        this._text_36 = this.renderer.createText(this._el_30, '\n                ', null);
-        this._el_37 = this.renderer.createElement(this._el_30, 'div', null);
-        this.renderer.setElementAttribute(this._el_37, 'class', 'List_r');
+        this._text_17 = this.renderer.createText(this._el_15, '\n                    ', null);
+        this._el_18 = this.renderer.createElement(this._el_15, 'div', null);
+        this.renderer.setElementAttribute(this._el_18, 'style', 'display: inline-block; vertical-align: top;  margin-top:3rem; ');
+        this._text_19 = this.renderer.createText(this._el_18, '\n                        ', null);
+        this._el_20 = this.renderer.createElement(this._el_18, 'ion-img', null);
+        this.renderer.setElementAttribute(this._el_20, 'alt', '');
+        this.renderer.setElementAttribute(this._el_20, 'class', 'hotpost ');
+        this.renderer.setElementAttribute(this._el_20, 'height', '50');
+        this.renderer.setElementAttribute(this._el_20, 'id', 'login_picture');
+        this.renderer.setElementAttribute(this._el_20, 'style', 'border-radius: 25px; ');
+        this.renderer.setElementAttribute(this._el_20, 'tappable', '');
+        this.renderer.setElementAttribute(this._el_20, 'width', '50');
+        this._appEl_20 = new import3.AppElement(20, 18, this, this._el_20);
+        var compView_20 = import21.viewFactory_Img0(this.viewUtils, this.injector(20), this._appEl_20);
+        this._Img_20_4 = new import21.Wrapper_Img(new import24.ElementRef(this._el_20), this.parentInjector.get(import29.Platform), this.parentInjector.get(import27.NgZone));
+        this._appEl_20.initComponent(this._Img_20_4.context, [], compView_20);
+        this._text_21 = this.renderer.createText(null, '  ', null);
+        compView_20.create(this._Img_20_4.context, [], null);
+        this._text_22 = this.renderer.createText(this._el_18, '\n                    ', null);
+        this._text_23 = this.renderer.createText(this._el_15, '\n\n            ', null);
+        this._text_24 = this.renderer.createText(this._el_13, '\n\n            ', null);
+        this._el_25 = this.renderer.createElement(this._el_13, 'div', null);
+        this.renderer.setElementAttribute(this._el_25, 'class', 'login_bn_info');
+        this.renderer.setElementAttribute(this._el_25, 'id', 'login_bn_info');
+        this._text_26 = this.renderer.createText(this._el_25, '\n                ', null);
+        this._anchor_27 = this.renderer.createTemplateAnchor(this._el_25, null);
+        this._appEl_27 = new import3.AppElement(27, 25, this, this._anchor_27);
+        this._TemplateRef_27_5 = new import30.TemplateRef_(this._appEl_27, viewFactory_MinePage1);
+        this._NgIf_27_6 = new import22.Wrapper_NgIf(this._appEl_27.vcRef, this._TemplateRef_27_5);
+        this._text_28 = this.renderer.createText(this._el_25, '\n                \n                ', null);
+        this._anchor_29 = this.renderer.createTemplateAnchor(this._el_25, null);
+        this._appEl_29 = new import3.AppElement(29, 25, this, this._anchor_29);
+        this._TemplateRef_29_5 = new import30.TemplateRef_(this._appEl_29, viewFactory_MinePage2);
+        this._NgIf_29_6 = new import22.Wrapper_NgIf(this._appEl_29.vcRef, this._TemplateRef_29_5);
+        this._text_30 = this.renderer.createText(this._el_25, '\n\n            ', null);
+        this._text_31 = this.renderer.createText(this._el_13, '\n        ', null);
+        this._text_32 = this.renderer.createText(this._el_11, '\n        ', null);
+        this._el_33 = this.renderer.createElement(this._el_11, 'div', null);
+        this.renderer.setElementAttribute(this._el_33, 'class', 'List_area');
+        this._text_34 = this.renderer.createText(this._el_33, '\n            ', null);
+        this._el_35 = this.renderer.createElement(this._el_33, 'div', null);
+        this.renderer.setElementAttribute(this._el_35, 'class', 'fix List_box');
+        this.renderer.setElementAttribute(this._el_35, 'id', 'my_balance');
+        this.renderer.setElementAttribute(this._el_35, 'tappable', '');
+        this._text_36 = this.renderer.createText(this._el_35, '\n                ', null);
+        this._el_37 = this.renderer.createElement(this._el_35, 'div', null);
+        this.renderer.setElementAttribute(this._el_37, 'class', 'List_l');
         this._text_38 = this.renderer.createText(this._el_37, '\n                    ', null);
-        this._el_39 = this.renderer.createElement(this._el_37, 'div', null);
-        this.renderer.setElementAttribute(this._el_39, 'class', 'List_title');
-        this._text_40 = this.renderer.createText(this._el_39, '\n                        我的账户\n                    ', null);
-        this._text_41 = this.renderer.createText(this._el_37, '\n                    ', null);
-        this._el_42 = this.renderer.createElement(this._el_37, 'div', null);
-        this.renderer.setElementAttribute(this._el_42, 'class', 'Line');
-        this._text_43 = this.renderer.createText(this._el_37, '\n                ', null);
-        this._text_44 = this.renderer.createText(this._el_30, '\n            ', null);
-        this._text_45 = this.renderer.createText(this._el_28, '\n            ', null);
-        this._el_46 = this.renderer.createElement(this._el_28, 'div', null);
-        this.renderer.setElementAttribute(this._el_46, 'class', 'fix List_box');
-        this.renderer.setElementAttribute(this._el_46, 'id', 'my_courses');
-        this._text_47 = this.renderer.createText(this._el_46, '\n                ', null);
-        this._el_48 = this.renderer.createElement(this._el_46, 'div', null);
-        this.renderer.setElementAttribute(this._el_48, 'class', 'List_l');
-        this._text_49 = this.renderer.createText(this._el_48, '\n                    ', null);
-        this._el_50 = this.renderer.createElement(this._el_48, 'span', null);
-        this.renderer.setElementAttribute(this._el_50, 'class', 'u2 u221');
-        this._text_51 = this.renderer.createText(this._el_48, '\n                ', null);
-        this._text_52 = this.renderer.createText(this._el_46, '\n                ', null);
-        this._el_53 = this.renderer.createElement(this._el_46, 'div', null);
-        this.renderer.setElementAttribute(this._el_53, 'class', 'List_r');
+        this._el_39 = this.renderer.createElement(this._el_37, 'span', null);
+        this.renderer.setElementAttribute(this._el_39, 'class', 'u2 u211');
+        this._text_40 = this.renderer.createText(this._el_37, '\n                ', null);
+        this._text_41 = this.renderer.createText(this._el_35, '\n                ', null);
+        this._el_42 = this.renderer.createElement(this._el_35, 'div', null);
+        this.renderer.setElementAttribute(this._el_42, 'class', 'List_r');
+        this._text_43 = this.renderer.createText(this._el_42, '\n                    ', null);
+        this._el_44 = this.renderer.createElement(this._el_42, 'div', null);
+        this.renderer.setElementAttribute(this._el_44, 'class', 'List_title');
+        this._text_45 = this.renderer.createText(this._el_44, '\n                        我的账户\n                    ', null);
+        this._text_46 = this.renderer.createText(this._el_42, '\n                    ', null);
+        this._el_47 = this.renderer.createElement(this._el_42, 'div', null);
+        this.renderer.setElementAttribute(this._el_47, 'class', 'Line');
+        this._text_48 = this.renderer.createText(this._el_42, '\n                ', null);
+        this._text_49 = this.renderer.createText(this._el_35, '\n            ', null);
+        this._text_50 = this.renderer.createText(this._el_33, '\n            ', null);
+        this._el_51 = this.renderer.createElement(this._el_33, 'div', null);
+        this.renderer.setElementAttribute(this._el_51, 'class', 'fix List_box');
+        this.renderer.setElementAttribute(this._el_51, 'id', 'my_courses');
+        this.renderer.setElementAttribute(this._el_51, 'tappable', '');
+        this._text_52 = this.renderer.createText(this._el_51, '\n                ', null);
+        this._el_53 = this.renderer.createElement(this._el_51, 'div', null);
+        this.renderer.setElementAttribute(this._el_53, 'class', 'List_l');
         this._text_54 = this.renderer.createText(this._el_53, '\n                    ', null);
-        this._el_55 = this.renderer.createElement(this._el_53, 'div', null);
-        this.renderer.setElementAttribute(this._el_55, 'class', 'List_title');
-        this._text_56 = this.renderer.createText(this._el_55, '\n                        我的课程\n                    ', null);
-        this._text_57 = this.renderer.createText(this._el_53, '\n                ', null);
-        this._text_58 = this.renderer.createText(this._el_46, '\n            ', null);
-        this._text_59 = this.renderer.createText(this._el_28, '\n        ', null);
-        this._text_60 = this.renderer.createText(this._el_11, '\n        ', null);
-        this._el_61 = this.renderer.createElement(this._el_11, 'div', null);
-        this.renderer.setElementAttribute(this._el_61, 'class', 'List_area mt10');
-        this._text_62 = this.renderer.createText(this._el_61, '\n            ', null);
-        this._el_63 = this.renderer.createElement(this._el_61, 'div', null);
-        this.renderer.setElementAttribute(this._el_63, 'class', 'fix List_box');
-        this.renderer.setElementAttribute(this._el_63, 'id', 'setting');
-        this._text_64 = this.renderer.createText(this._el_63, '\n                ', null);
-        this._el_65 = this.renderer.createElement(this._el_63, 'div', null);
-        this.renderer.setElementAttribute(this._el_65, 'class', 'List_l');
-        this._text_66 = this.renderer.createText(this._el_65, '\n                    ', null);
-        this._el_67 = this.renderer.createElement(this._el_65, 'span', null);
-        this.renderer.setElementAttribute(this._el_67, 'class', 'u2 u231');
-        this._text_68 = this.renderer.createText(this._el_65, '\n                ', null);
-        this._text_69 = this.renderer.createText(this._el_63, '\n                ', null);
-        this._el_70 = this.renderer.createElement(this._el_63, 'div', null);
-        this.renderer.setElementAttribute(this._el_70, 'class', 'List_r');
+        this._el_55 = this.renderer.createElement(this._el_53, 'span', null);
+        this.renderer.setElementAttribute(this._el_55, 'class', 'u2 u221');
+        this._text_56 = this.renderer.createText(this._el_53, '\n                ', null);
+        this._text_57 = this.renderer.createText(this._el_51, '\n                ', null);
+        this._el_58 = this.renderer.createElement(this._el_51, 'div', null);
+        this.renderer.setElementAttribute(this._el_58, 'class', 'List_r');
+        this._text_59 = this.renderer.createText(this._el_58, '\n                    ', null);
+        this._el_60 = this.renderer.createElement(this._el_58, 'div', null);
+        this.renderer.setElementAttribute(this._el_60, 'class', 'List_title');
+        this._text_61 = this.renderer.createText(this._el_60, '\n                        我的课程\n                    ', null);
+        this._text_62 = this.renderer.createText(this._el_58, '\n                ', null);
+        this._text_63 = this.renderer.createText(this._el_51, '\n            ', null);
+        this._text_64 = this.renderer.createText(this._el_33, '\n        ', null);
+        this._text_65 = this.renderer.createText(this._el_11, '\n        ', null);
+        this._el_66 = this.renderer.createElement(this._el_11, 'div', null);
+        this.renderer.setElementAttribute(this._el_66, 'class', 'List_area mt10');
+        this._text_67 = this.renderer.createText(this._el_66, '\n            ', null);
+        this._el_68 = this.renderer.createElement(this._el_66, 'div', null);
+        this.renderer.setElementAttribute(this._el_68, 'class', 'fix List_box');
+        this.renderer.setElementAttribute(this._el_68, 'id', 'setting');
+        this.renderer.setElementAttribute(this._el_68, 'tappable', '');
+        this._text_69 = this.renderer.createText(this._el_68, '\n                ', null);
+        this._el_70 = this.renderer.createElement(this._el_68, 'div', null);
+        this.renderer.setElementAttribute(this._el_70, 'class', 'List_l');
         this._text_71 = this.renderer.createText(this._el_70, '\n                    ', null);
-        this._el_72 = this.renderer.createElement(this._el_70, 'div', null);
-        this.renderer.setElementAttribute(this._el_72, 'class', 'List_title');
-        this._text_73 = this.renderer.createText(this._el_72, '\n                        设置\n                    ', null);
-        this._text_74 = this.renderer.createText(this._el_70, '\n                    ', null);
-        this._el_75 = this.renderer.createElement(this._el_70, 'div', null);
-        this.renderer.setElementAttribute(this._el_75, 'class', 'Line');
-        this._text_76 = this.renderer.createText(this._el_70, '\n                ', null);
-        this._text_77 = this.renderer.createText(this._el_63, '\n            ', null);
-        this._text_78 = this.renderer.createText(this._el_61, '\n            ', null);
-        this._el_79 = this.renderer.createElement(this._el_61, 'div', null);
-        this.renderer.setElementAttribute(this._el_79, 'class', 'fix List_box');
-        this.renderer.setElementAttribute(this._el_79, 'id', 'about');
-        this._text_80 = this.renderer.createText(this._el_79, '\n                ', null);
-        this._el_81 = this.renderer.createElement(this._el_79, 'div', null);
-        this.renderer.setElementAttribute(this._el_81, 'class', 'List_l');
-        this._text_82 = this.renderer.createText(this._el_81, '\n                    ', null);
-        this._el_83 = this.renderer.createElement(this._el_81, 'span', null);
-        this.renderer.setElementAttribute(this._el_83, 'class', 'u2 u241');
-        this._text_84 = this.renderer.createText(this._el_81, '\n                ', null);
-        this._text_85 = this.renderer.createText(this._el_79, '\n                ', null);
-        this._el_86 = this.renderer.createElement(this._el_79, 'div', null);
-        this.renderer.setElementAttribute(this._el_86, 'class', 'List_r');
+        this._el_72 = this.renderer.createElement(this._el_70, 'span', null);
+        this.renderer.setElementAttribute(this._el_72, 'class', 'u2 u231');
+        this._text_73 = this.renderer.createText(this._el_70, '\n                ', null);
+        this._text_74 = this.renderer.createText(this._el_68, '\n                ', null);
+        this._el_75 = this.renderer.createElement(this._el_68, 'div', null);
+        this.renderer.setElementAttribute(this._el_75, 'class', 'List_r');
+        this._text_76 = this.renderer.createText(this._el_75, '\n                    ', null);
+        this._el_77 = this.renderer.createElement(this._el_75, 'div', null);
+        this.renderer.setElementAttribute(this._el_77, 'class', 'List_title');
+        this._text_78 = this.renderer.createText(this._el_77, '\n                        设置\n                    ', null);
+        this._text_79 = this.renderer.createText(this._el_75, '\n                    ', null);
+        this._el_80 = this.renderer.createElement(this._el_75, 'div', null);
+        this.renderer.setElementAttribute(this._el_80, 'class', 'Line');
+        this._text_81 = this.renderer.createText(this._el_75, '\n                ', null);
+        this._text_82 = this.renderer.createText(this._el_68, '\n            ', null);
+        this._text_83 = this.renderer.createText(this._el_66, '\n            ', null);
+        this._el_84 = this.renderer.createElement(this._el_66, 'div', null);
+        this.renderer.setElementAttribute(this._el_84, 'class', 'fix List_box');
+        this.renderer.setElementAttribute(this._el_84, 'id', 'about');
+        this.renderer.setElementAttribute(this._el_84, 'tappable', '');
+        this._text_85 = this.renderer.createText(this._el_84, '\n                ', null);
+        this._el_86 = this.renderer.createElement(this._el_84, 'div', null);
+        this.renderer.setElementAttribute(this._el_86, 'class', 'List_l');
         this._text_87 = this.renderer.createText(this._el_86, '\n                    ', null);
-        this._el_88 = this.renderer.createElement(this._el_86, 'div', null);
-        this.renderer.setElementAttribute(this._el_88, 'class', 'List_title');
-        this._text_89 = this.renderer.createText(this._el_88, '\n                        关于\n                    ', null);
-        this._text_90 = this.renderer.createText(this._el_86, '\n                ', null);
-        this._text_91 = this.renderer.createText(this._el_79, '\n            ', null);
-        this._text_92 = this.renderer.createText(this._el_61, '\n        ', null);
-        this._text_93 = this.renderer.createText(this._el_11, '\n    ', null);
-        this._text_94 = this.renderer.createText(null, '\n', null);
+        this._el_88 = this.renderer.createElement(this._el_86, 'span', null);
+        this.renderer.setElementAttribute(this._el_88, 'class', 'u2 u241');
+        this._text_89 = this.renderer.createText(this._el_86, '\n                ', null);
+        this._text_90 = this.renderer.createText(this._el_84, '\n                ', null);
+        this._el_91 = this.renderer.createElement(this._el_84, 'div', null);
+        this.renderer.setElementAttribute(this._el_91, 'class', 'List_r');
+        this._text_92 = this.renderer.createText(this._el_91, '\n                    ', null);
+        this._el_93 = this.renderer.createElement(this._el_91, 'div', null);
+        this.renderer.setElementAttribute(this._el_93, 'class', 'List_title');
+        this._text_94 = this.renderer.createText(this._el_93, '\n                        关于\n                    ', null);
+        this._text_95 = this.renderer.createText(this._el_91, '\n                ', null);
+        this._text_96 = this.renderer.createText(this._el_84, '\n            ', null);
+        this._text_97 = this.renderer.createText(this._el_66, '\n        ', null);
+        this._text_98 = this.renderer.createText(this._el_11, '\n    ', null);
+        this._text_99 = this.renderer.createText(null, '\n', null);
         compView_9.create(this._Content_9_4.context, [
             [],
             [].concat([
                 this._text_10,
                 this._el_11,
-                this._text_94
+                this._text_99
             ]),
             []
         ], null);
+        this._text_100 = this.renderer.createText(parentRenderNode, '\n\n', null);
         this._expr_0 = import7.UNINITIALIZED;
         this._expr_1 = import7.UNINITIALIZED;
         this._expr_2 = import7.UNINITIALIZED;
-        this._expr_4 = import7.UNINITIALIZED;
-        var disposable_0 = this.renderer.listen(this._el_17, 'click', this.eventHandler(this._handle_click_17_0.bind(this)));
-        var disposable_1 = this.renderer.listen(this._el_30, 'click', this.eventHandler(this._handle_click_30_0.bind(this)));
-        var disposable_2 = this.renderer.listen(this._el_46, 'click', this.eventHandler(this._handle_click_46_0.bind(this)));
-        var disposable_3 = this.renderer.listen(this._el_63, 'click', this.eventHandler(this._handle_click_63_0.bind(this)));
-        var disposable_4 = this.renderer.listen(this._el_79, 'click', this.eventHandler(this._handle_click_79_0.bind(this)));
+        var disposable_0 = this.renderer.listen(this._el_20, 'click', this.eventHandler(this._handle_click_20_0.bind(this)));
+        this._expr_8 = import7.UNINITIALIZED;
+        this._expr_9 = import7.UNINITIALIZED;
+        var disposable_1 = this.renderer.listen(this._el_35, 'click', this.eventHandler(this._handle_click_35_0.bind(this)));
+        var disposable_2 = this.renderer.listen(this._el_51, 'click', this.eventHandler(this._handle_click_51_0.bind(this)));
+        var disposable_3 = this.renderer.listen(this._el_68, 'click', this.eventHandler(this._handle_click_68_0.bind(this)));
+        var disposable_4 = this.renderer.listen(this._el_84, 'click', this.eventHandler(this._handle_click_84_0.bind(this)));
         this.init([], [
             this._el_0,
             this._text_1,
@@ -319,25 +333,25 @@ var _View_MinePage0 = (function (_super) {
             this._text_14,
             this._el_15,
             this._text_16,
-            this._el_17,
-            this._text_18,
+            this._text_17,
+            this._el_18,
             this._text_19,
             this._el_20,
             this._text_21,
-            this._anchor_22,
+            this._text_22,
             this._text_23,
-            this._anchor_24,
-            this._text_25,
+            this._text_24,
+            this._el_25,
             this._text_26,
-            this._text_27,
-            this._el_28,
-            this._text_29,
-            this._el_30,
+            this._anchor_27,
+            this._text_28,
+            this._anchor_29,
+            this._text_30,
             this._text_31,
-            this._el_32,
-            this._text_33,
-            this._el_34,
-            this._text_35,
+            this._text_32,
+            this._el_33,
+            this._text_34,
+            this._el_35,
             this._text_36,
             this._el_37,
             this._text_38,
@@ -346,31 +360,31 @@ var _View_MinePage0 = (function (_super) {
             this._text_41,
             this._el_42,
             this._text_43,
-            this._text_44,
+            this._el_44,
             this._text_45,
-            this._el_46,
-            this._text_47,
-            this._el_48,
+            this._text_46,
+            this._el_47,
+            this._text_48,
             this._text_49,
-            this._el_50,
-            this._text_51,
+            this._text_50,
+            this._el_51,
             this._text_52,
             this._el_53,
             this._text_54,
             this._el_55,
             this._text_56,
             this._text_57,
-            this._text_58,
+            this._el_58,
             this._text_59,
-            this._text_60,
-            this._el_61,
+            this._el_60,
+            this._text_61,
             this._text_62,
-            this._el_63,
+            this._text_63,
             this._text_64,
-            this._el_65,
-            this._text_66,
-            this._el_67,
-            this._text_68,
+            this._text_65,
+            this._el_66,
+            this._text_67,
+            this._el_68,
             this._text_69,
             this._el_70,
             this._text_71,
@@ -379,24 +393,30 @@ var _View_MinePage0 = (function (_super) {
             this._text_74,
             this._el_75,
             this._text_76,
-            this._text_77,
+            this._el_77,
             this._text_78,
-            this._el_79,
-            this._text_80,
-            this._el_81,
+            this._text_79,
+            this._el_80,
+            this._text_81,
             this._text_82,
-            this._el_83,
-            this._text_84,
+            this._text_83,
+            this._el_84,
             this._text_85,
             this._el_86,
             this._text_87,
             this._el_88,
             this._text_89,
             this._text_90,
-            this._text_91,
+            this._el_91,
             this._text_92,
-            this._text_93,
-            this._text_94
+            this._el_93,
+            this._text_94,
+            this._text_95,
+            this._text_96,
+            this._text_97,
+            this._text_98,
+            this._text_99,
+            this._text_100
         ], [
             disposable_0,
             disposable_1,
@@ -407,28 +427,31 @@ var _View_MinePage0 = (function (_super) {
         return null;
     };
     _View_MinePage0.prototype.injectorGetInternal = function (token, requestNodeIndex, notFoundResult) {
-        if (((token === import28.ToolbarTitle) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
+        if (((token === import31.ToolbarTitle) && ((4 <= requestNodeIndex) && (requestNodeIndex <= 5)))) {
             return this._ToolbarTitle_4_4.context;
         }
-        if (((token === import29.Navbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 6)))) {
+        if (((token === import32.Navbar) && ((2 <= requestNodeIndex) && (requestNodeIndex <= 6)))) {
             return this._Navbar_2_4.context;
         }
-        if (((token === import23.Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 7)))) {
+        if (((token === import25.Header) && ((0 <= requestNodeIndex) && (requestNodeIndex <= 7)))) {
             return this._Header_0_3.context;
         }
-        if (((token === import27.TemplateRef) && (22 === requestNodeIndex))) {
-            return this._TemplateRef_22_5;
+        if (((token === import33.Img) && ((20 <= requestNodeIndex) && (requestNodeIndex <= 21)))) {
+            return this._Img_20_4.context;
         }
-        if (((token === import30.NgIf) && (22 === requestNodeIndex))) {
-            return this._NgIf_22_6.context;
+        if (((token === import30.TemplateRef) && (27 === requestNodeIndex))) {
+            return this._TemplateRef_27_5;
         }
-        if (((token === import27.TemplateRef) && (24 === requestNodeIndex))) {
-            return this._TemplateRef_24_5;
+        if (((token === import34.NgIf) && (27 === requestNodeIndex))) {
+            return this._NgIf_27_6.context;
         }
-        if (((token === import30.NgIf) && (24 === requestNodeIndex))) {
-            return this._NgIf_24_6.context;
+        if (((token === import30.TemplateRef) && (29 === requestNodeIndex))) {
+            return this._TemplateRef_29_5;
         }
-        if (((token === import31.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 94)))) {
+        if (((token === import34.NgIf) && (29 === requestNodeIndex))) {
+            return this._NgIf_29_6.context;
+        }
+        if (((token === import35.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 99)))) {
             return this._Content_9_4.context;
         }
         return notFoundResult;
@@ -442,12 +465,23 @@ var _View_MinePage0 = (function (_super) {
         if (this._Content_9_4.detectChangesInternal(this, this._el_9, throwOnChange)) {
             this._appEl_9.componentView.markAsCheckOnce();
         }
-        var currVal_5 = this.context.loginStatus;
-        this._NgIf_22_6.check_ngIf(currVal_5, throwOnChange, false);
-        this._NgIf_22_6.detectChangesInternal(this, this._anchor_22, throwOnChange);
-        var currVal_6 = !this.context.loginStatus;
-        this._NgIf_24_6.check_ngIf(currVal_6, throwOnChange, false);
-        this._NgIf_24_6.detectChangesInternal(this, this._anchor_24, throwOnChange);
+        var currVal_4 = import4.interpolate(1, '', this.context.loginImg, '');
+        this._Img_20_4.check_src(currVal_4, throwOnChange, false);
+        var currVal_5 = '50';
+        this._Img_20_4.check_width(currVal_5, throwOnChange, false);
+        var currVal_6 = '50';
+        this._Img_20_4.check_height(currVal_6, throwOnChange, false);
+        var currVal_7 = '';
+        this._Img_20_4.check_alt(currVal_7, throwOnChange, false);
+        if (this._Img_20_4.detectChangesInternal(this, this._el_20, throwOnChange)) {
+            this._appEl_20.componentView.markAsCheckOnce();
+        }
+        var currVal_10 = this.context.loginStatus;
+        this._NgIf_27_6.check_ngIf(currVal_10, throwOnChange, false);
+        this._NgIf_27_6.detectChangesInternal(this, this._anchor_27, throwOnChange);
+        var currVal_11 = !this.context.loginStatus;
+        this._NgIf_29_6.check_ngIf(currVal_11, throwOnChange, false);
+        this._NgIf_29_6.detectChangesInternal(this, this._anchor_29, throwOnChange);
         this.detectContentChildrenChanges(throwOnChange);
         var currVal_0 = this._Navbar_2_4.context._hidden;
         if (import4.checkBinding(throwOnChange, this._expr_0, currVal_0)) {
@@ -464,10 +498,15 @@ var _View_MinePage0 = (function (_super) {
             this.renderer.setElementClass(this._el_9, 'statusbar-padding', currVal_2);
             this._expr_2 = currVal_2;
         }
-        var currVal_4 = import4.interpolate(1, '', this.context.loginImg, '');
-        if (import4.checkBinding(throwOnChange, this._expr_4, currVal_4)) {
-            this.renderer.setElementProperty(this._el_17, 'src', this.viewUtils.sanitizer.sanitize(import32.SecurityContext.URL, currVal_4));
-            this._expr_4 = currVal_4;
+        var currVal_8 = this._Img_20_4.context._width;
+        if (import4.checkBinding(throwOnChange, this._expr_8, currVal_8)) {
+            this.renderer.setElementStyle(this._el_20, 'width', ((this.viewUtils.sanitizer.sanitize(import36.SecurityContext.STYLE, currVal_8) == null) ? null : this.viewUtils.sanitizer.sanitize(import36.SecurityContext.STYLE, currVal_8).toString()));
+            this._expr_8 = currVal_8;
+        }
+        var currVal_9 = this._Img_20_4.context._height;
+        if (import4.checkBinding(throwOnChange, this._expr_9, currVal_9)) {
+            this.renderer.setElementStyle(this._el_20, 'height', ((this.viewUtils.sanitizer.sanitize(import36.SecurityContext.STYLE, currVal_9) == null) ? null : this.viewUtils.sanitizer.sanitize(import36.SecurityContext.STYLE, currVal_9).toString()));
+            this._expr_9 = currVal_9;
         }
         this.detectViewChildrenChanges(throwOnChange);
         if (!throwOnChange) {
@@ -479,27 +518,27 @@ var _View_MinePage0 = (function (_super) {
     _View_MinePage0.prototype.destroyInternal = function () {
         this._Content_9_4.context.ngOnDestroy();
     };
-    _View_MinePage0.prototype._handle_click_17_0 = function ($event) {
+    _View_MinePage0.prototype._handle_click_20_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         var pd_0 = (this.context._enterInfo() !== false);
         return (true && pd_0);
     };
-    _View_MinePage0.prototype._handle_click_30_0 = function ($event) {
+    _View_MinePage0.prototype._handle_click_35_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         var pd_0 = (this.context._enterLogin(1) !== false);
         return (true && pd_0);
     };
-    _View_MinePage0.prototype._handle_click_46_0 = function ($event) {
+    _View_MinePage0.prototype._handle_click_51_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         var pd_0 = (this.context._enterLogin(2) !== false);
         return (true && pd_0);
     };
-    _View_MinePage0.prototype._handle_click_63_0 = function ($event) {
+    _View_MinePage0.prototype._handle_click_68_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         var pd_0 = (this.context._enterLogin(3) !== false);
         return (true && pd_0);
     };
-    _View_MinePage0.prototype._handle_click_79_0 = function ($event) {
+    _View_MinePage0.prototype._handle_click_84_0 = function ($event) {
         this.markPathToRootAsCheckOnce();
         var pd_0 = (this.context._enterLogin(4) !== false);
         return (true && pd_0);
@@ -520,6 +559,7 @@ var _View_MinePage1 = (function (_super) {
     _View_MinePage1.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'span', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'login_txt');
+        this.renderer.setElementAttribute(this._el_0, 'tappable', '');
         this._text_1 = this.renderer.createText(this._el_0, '', null);
         this._el_2 = this.renderer.createElement(this._el_0, 'br', null);
         this._text_3 = this.renderer.createText(this._el_0, '三人行,必有我师\'', null);
@@ -560,6 +600,7 @@ var _View_MinePage2 = (function (_super) {
     _View_MinePage2.prototype.createInternal = function (rootSelector) {
         this._el_0 = this.renderer.createElement(null, 'span', null);
         this.renderer.setElementAttribute(this._el_0, 'class', 'login_btn');
+        this.renderer.setElementAttribute(this._el_0, 'tappable', '');
         this._text_1 = this.renderer.createText(this._el_0, '登录   /   注册', null);
         var disposable_0 = this.renderer.listen(this._el_0, 'click', this.eventHandler(this._handle_click_0_0.bind(this)));
         this.init([].concat([this._el_0]), [

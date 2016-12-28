@@ -5,6 +5,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { Storage } from '@ionic/storage';
 import { LoginService } from '../pages/mine/login.service';
 import { PropagateService } from '../pages/home/propagate.service';
 import { ThirdShare } from '../pages/third_share/third-share';
@@ -20,6 +21,7 @@ import { MyInfoPage } from '../pages/mine/myinfoF/myinfo';
 import { MySettingPage } from '../pages/mine/mysettingF/mysetting';
 import { BestList } from '../pages/about/bestList';
 import { Details } from '../pages/about/discoveryDeatil';
+import { UnlessDirective } from '../providers/unless.directive';
 export var AppModule = (function () {
     function AppModule() {
     }
@@ -42,7 +44,8 @@ export var AppModule = (function () {
                         MyInfoPage,
                         MySettingPage,
                         BestList,
-                        Details
+                        Details,
+                        UnlessDirective
                     ],
                     imports: [
                         IonicModule.forRoot(MyApp)
@@ -68,8 +71,7 @@ export var AppModule = (function () {
                         Details
                     ],
                     providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler },
-                        PropagateService, LiveService,
-                        LoginService]
+                        PropagateService, LiveService, LoginService, Storage]
                 },] },
     ];
     /** @nocollapse */

@@ -143,6 +143,7 @@ export class LoginService {
   logout(): void {
     this.isLoggedIn = false;
     this.storage.remove("SESSION");
+    this.storage.remove("ACCOUNTINFO");
   }
 
 

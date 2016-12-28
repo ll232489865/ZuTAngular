@@ -138,6 +138,7 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
   _TemplateRef_15_5:any;
   _NgIf_15_6:import19.Wrapper_NgIf;
   _text_16:any;
+  _text_17:any;
   /*private*/ _expr_0:any;
   /*private*/ _expr_1:any;
   /*private*/ _expr_2:any;
@@ -214,6 +215,7 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
       ([] as any[])
     ]
     ,(null as any));
+    this._text_17 = this.renderer.createText(parentRenderNode,'\n',(null as any));
     this._expr_0 = import7.UNINITIALIZED;
     this._expr_1 = import7.UNINITIALIZED;
     this._expr_2 = import7.UNINITIALIZED;
@@ -234,7 +236,8 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
       this._anchor_13,
       this._text_14,
       this._anchor_15,
-      this._text_16
+      this._text_16,
+      this._text_17
     ]
     ,([] as any[]),([] as any[]));
     return (null as any);

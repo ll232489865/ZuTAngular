@@ -1,5 +1,7 @@
-import { Component, ElementRef, Compiler } from '@angular/core';
+import { Component, Compiler } from '@angular/core';
 import { ViewController, NavController, App, ModalController } from 'ionic-angular';
+import { Storage } from "@ionic/storage";
+import { Istudy } from 'ionic-native';
 import { LoginPage } from './login';
 import { LoginService } from './login.service';
 import { MyAccountPage } from './myaccountF/myaccount';
@@ -8,21 +10,18 @@ import { MyCoursePage } from './mycourseF/mycourse';
 import { MySettingPage } from './mysettingF/mysetting';
 import { MyInfoPage } from './myinfoF/myinfo';
 export var MinePage = (function () {
-    function MinePage(loginService, navCtrl, viewCtrl, app, modalCtrl, el, _clearCache) {
+    function MinePage(loginService, navCtrl, viewCtrl, app, modalCtrl, _clearCache, storage) {
         this.loginService = loginService;
         this.navCtrl = navCtrl;
         this.viewCtrl = viewCtrl;
         this.app = app;
         this.modalCtrl = modalCtrl;
         this._clearCache = _clearCache;
-        this.el = el.nativeElement;
+        this.storage = storage;
+        this.loginImg = "source/img/logo.png";
+        this.deviceId = "DEVICE_ID";
     }
-    // updateLeft() {
-    //   var a = this.el.ownerDocument.querySelector('.app-root').innerHTML;
-    //   console.log(this.el.ownerDocument.getElementById('xxx') instanceof HTMLSpanElement);
-    // }
     MinePage.prototype._enterLogin = function (_num) {
-        console.log(this.loginService.isLoggedIn);
         if (_num == 4) {
             // this.navCtrl.push(MyAboutPage);
             this.app.getRootNav().push(MyAboutPage);
@@ -61,30 +60,49 @@ export var MinePage = (function () {
         this.loginService.logout();
     };
     MinePage.prototype.ngOnInit = function () {
-        console.log("-ngOnInit------" + this.loginService.isLoggedIn);
-        this.loginImg = "source/img/logo.png";
-    };
-    MinePage.prototype.ngDoCheck = function () {
-        console.log("--ngDoCheck------" + this.loginService.isLoggedIn);
-    };
-    MinePage.prototype.ngAfterContentInit = function () {
-        // this.updateLeft();
-        console.log("---ngAfterContentInit------" + this.loginService.isLoggedIn);
-    };
-    MinePage.prototype.ngAfterContentChecked = function () {
-        console.log("----ngAfterContentChecked------" + this.loginService.isLoggedIn);
-        this.loginStatus = this.loginService.isLoggedIn;
-        this.loginAccount = this.loginService.str_account;
-        this.loginImg = this.loginService.isLoggedIn ? "source/img/5.png" : "source/img/logo.png";
     };
     MinePage.prototype.ngAfterViewInit = function () {
-        console.log("------ngAfterViewInit------" + this.loginService.isLoggedIn);
     };
-    MinePage.prototype.ngAfterViewChecked = function () {
-        console.log("------ngAfterViewInit------" + this.loginService.isLoggedIn);
+    MinePage.prototype.ngAfterContentChecked = function () {
     };
-    MinePage.prototype.ngOnDestroy = function () {
-        console.log("-------ngOnDestroy------" + this.loginService.isLoggedIn);
+    MinePage.prototype.ionViewWillEnter = function () {
+        console.log("-------------------------------------ionViewWillEnter");
+        var _self = this;
+        if (this.loginService.isLoggedIn) {
+            this.loginService.getAccountInfo(callBack);
+        }
+        else {
+            this.loginImg = "source/img/logo.png";
+        }
+        function callBack(result) {
+            _self.storage.get("ACCOUNTINFO").then(function (value) {
+                if (JSON.stringify(result) == JSON.stringify(value)) {
+                    console.log("somesomesomesomesomesome");
+                }
+                else {
+                    console.log("diffdiffdiffdiffdiffdiffdiffdiffdiffdiffdiff");
+                    _self.loginStatus = _self.loginService.isLoggedIn;
+                    _self.storage.set("ACCOUNTINFO", result);
+                    _self.loginImg = _self.loginService.isLoggedIn ? result.avatar : "source/img/logo.png";
+                    _self.loginAccount = result.nicknm;
+                }
+            });
+            // 9999999999{"uuid":"a88121420d3d4e3383b65311e21334eb","nicknm":"白菜","gndr":0,"avatar":"http://oaa4szy4p.bkt.clouddn.com/FhyK08sdUwkl71bnBldyNGVN-HnP","rongyunToken":"2xxsm1gRsgvXb7PYgmgXz8O5+C6ckYlUzJczja0eV/fEwT2alkUXQhz6F2TdTcc6ETFdE8o1uaup75AdGRLX13qGCwVyvaEKdnG1bfZBz54VErwbhRmBZrzXWBYiN10MHGCAan28C20="}
+        }
+    };
+    MinePage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        console.log("-------------------------------------ionViewDidLoad");
+        this.storage.get(this.deviceId)
+            .then(function (result) {
+            if (!result) {
+                Istudy.getDeviceInfo().then(function (result) {
+                    _this.storage.set(_this.deviceId, result.devId);
+                });
+            }
+        });
+    };
+    MinePage.prototype.ionViewDidEnter = function () {
     };
     MinePage.decorators = [
         { type: Component, args: [{
@@ -99,8 +117,8 @@ export var MinePage = (function () {
         { type: ViewController, },
         { type: App, },
         { type: ModalController, },
-        { type: ElementRef, },
         { type: Compiler, },
+        { type: Storage, },
     ];
     return MinePage;
 }());

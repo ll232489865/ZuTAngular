@@ -185,6 +185,7 @@ var _View_ContactPage0 = (function (_super) {
             ]),
             []
         ], null);
+        this._text_17 = this.renderer.createText(parentRenderNode, '\n', null);
         this._expr_0 = import7.UNINITIALIZED;
         this._expr_1 = import7.UNINITIALIZED;
         this._expr_2 = import7.UNINITIALIZED;
@@ -205,7 +206,8 @@ var _View_ContactPage0 = (function (_super) {
             this._anchor_13,
             this._text_14,
             this._anchor_15,
-            this._text_16
+            this._text_16,
+            this._text_17
         ], [], []);
         return null;
     };

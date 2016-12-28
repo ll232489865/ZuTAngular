@@ -27,12 +27,11 @@ export class MinePage implements OnInit, AfterContentChecked, AfterViewInit {
 
   //AfterViewInit,AfterViewChecked,DoCheck,OnDestroy,AfterContentInit
   message: string;
-  private el: HTMLElement;
   loginStatus: boolean;
   loginAccount: string;
-  loginImg: string;
+  loginImg: string = "source/img/logo.png";
   age: number;
-  deviceId: string;
+  deviceId: string = "DEVICE_ID";
 
 
   constructor(
@@ -94,47 +93,64 @@ export class MinePage implements OnInit, AfterContentChecked, AfterViewInit {
   }
 
   ngOnInit(): void {
-
-    this.loginImg = "source/img/logo.png";
-
-    Istudy.getDeviceInfo().then(result => {
-
-      this.deviceId = "DEVICE_ID";
-
-      this.storage.set(this.deviceId, result.devId);
-
-    });
-
   }
 
   ngAfterViewInit(): void {
+  }
 
-    if (this.loginService.isLoggedIn) {
-      this.loginService.getAccountInfo(callBack)
-    }
+  ngAfterContentChecked(): void {
+  }
+
+  ionViewWillEnter() {
+
+    console.log("-------------------------------------ionViewWillEnter");
 
     let _self = this;
 
+    if (this.loginService.isLoggedIn) {
+      this.loginService.getAccountInfo(callBack)
+    } else {
+      this.loginImg = "source/img/logo.png";
+    }
+
     function callBack(result) {
+      _self.storage.get("ACCOUNTINFO").then(value => {
 
-      _self.loginStatus = _self.loginService.isLoggedIn;
+        if (JSON.stringify(result) == JSON.stringify(value)) {
+          console.log("somesomesomesomesomesome");
 
-      _self.loginImg = _self.loginService.isLoggedIn ? result.avatar : "source/img/logo.png";
+        } else {
+          console.log("diffdiffdiffdiffdiffdiffdiffdiffdiffdiffdiff");
 
-      _self.loginAccount = result.nicknm;
+          _self.loginStatus = _self.loginService.isLoggedIn;
 
+          _self.storage.set("ACCOUNTINFO", result);
 
+          _self.loginImg = _self.loginService.isLoggedIn ? result.avatar : "source/img/logo.png";
+
+          _self.loginAccount = result.nicknm
+        }
+      });
       // 9999999999{"uuid":"a88121420d3d4e3383b65311e21334eb","nicknm":"白菜","gndr":0,"avatar":"http://oaa4szy4p.bkt.clouddn.com/FhyK08sdUwkl71bnBldyNGVN-HnP","rongyunToken":"2xxsm1gRsgvXb7PYgmgXz8O5+C6ckYlUzJczja0eV/fEwT2alkUXQhz6F2TdTcc6ETFdE8o1uaup75AdGRLX13qGCwVyvaEKdnG1bfZBz54VErwbhRmBZrzXWBYiN10MHGCAan28C20="}
-
-
-
     }
   }
 
+  ionViewDidLoad() {
+    console.log("-------------------------------------ionViewDidLoad");
+    this.storage.get(this.deviceId)
+      .then(result => {//获取 DeviceInfo
 
+        if (!result) {
+          Istudy.getDeviceInfo().then(result => {
+            this.storage.set(this.deviceId, result.devId);
+          });
+        }
+      })
+  }
 
-  ngAfterContentChecked(): void {
+  ionViewDidEnter() {
 
   }
+
 
 }

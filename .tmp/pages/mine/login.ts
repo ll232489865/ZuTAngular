@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
 
+import { NavController, ViewController } from 'ionic-angular';
+
+import { Storage } from '@ionic/storage'
+
+//model
+import { model_loginResult } from './login-model'
+
 import { LoginService } from './login.service';
 
-import { Location } from '@angular/common';
-
-import { ViewController, NavController } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs'
 
 
 @Component({
@@ -15,22 +20,24 @@ import { ViewController, NavController } from 'ionic-angular';
 export class LoginPage {
     constructor(
         public loginService: LoginService,
-        public location: Location,
-        public viewCtrl: ViewController,
-        public navCtrl: NavController
+        public navCtrl: NavController,
+        public storage: Storage
     ) { }
 
-
-
     _login(account, password) {
-        this.loginService
-            .login(account, password);
+        this.loginService.login(account, password, callBack)
 
-        if (this.loginService.isLoggedIn) {
+        let _self = this;
+        function callBack(result) {
 
-            this.navCtrl.pop();
+            _self.storage.set("SESSION", result);
 
-            //   this.viewCtrl.dismiss();
+            if (_self.loginService.isLoggedIn) {
+                // _self.navCtrl.pop();
+                _self.navCtrl.setRoot(TabsPage, {userParams:3});
+                //   _self.viewCtrl.dismiss();
+            }
         }
+
     }
 }

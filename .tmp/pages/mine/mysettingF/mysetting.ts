@@ -1,8 +1,11 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 import { NavController } from 'ionic-angular';
 
-import { LoginService }      from '../login.service';
+import { LoginService } from '../login.service';
+
+import { TabsPage } from '../../tabs/tabs'
+
 
 @Component({
     selector: 'my-component',
@@ -10,16 +13,17 @@ import { LoginService }      from '../login.service';
 })
 export class MySettingPage {
     constructor(
-     public loginService: LoginService,
-     public navCtrl: NavController
-     ){
-        // this.ac="首页";
-    }
-    // ac:any;
+        public loginService: LoginService,
+        public navCtrl: NavController
+    ) {
 
-    _quitApp(){
+    }
+
+    _quitApp() {
         this.loginService.logout();
 
-        this.navCtrl.pop();
+        // this.navCtrl.pop();
+        this.navCtrl.setRoot(TabsPage, { userParams: 3 });
+
     }
 }

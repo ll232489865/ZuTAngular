@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NavController, PopoverController } from 'ionic-angular';
+import { NavController, PopoverController ,App} from 'ionic-angular';
 
 import {PropagateService} from './propagate.service';
 import {PropagateInfo} from './propagate-info';
 import {ThirdShare} from '../third_share/third-share';
+
+import {LoginPage} from '../mine/login'
+
 
 @Component({
   selector: 'page-home',
@@ -16,7 +19,9 @@ export class HomePage implements OnInit{
 
   constructor(public navCtrl: NavController,
   private propagateService: PropagateService,
-  public popoverCtrl: PopoverController) {
+  public popoverCtrl: PopoverController,
+  public app:App
+) {
 
   }
 
@@ -46,8 +51,11 @@ export class HomePage implements OnInit{
   onShareClick(item: string) {
     // alert("-----onShareClick:" + JSON.stringify(item));
 
-    let popover = this.popoverCtrl.create(ThirdShare);
-    popover.present();
+    // let popover = this.popoverCtrl.create(ThirdShare);
+    // popover.present();
+
+
+    this.app.getRootNav().push(LoginPage);
   }
 
   onLogForm() {

@@ -3,6 +3,7 @@ import { NavController, NavParams, App } from 'ionic-angular';
 import { LiveService } from './live.service';
 import { LiveDetail } from './live-detail';
 import { LoginService } from '../mine/login.service';
+import { LoginPage } from '../mine/login';
 export var ContactPage = (function () {
     function ContactPage(navCtrl, liveService, params, app, loginService) {
         this.navCtrl = navCtrl;
@@ -41,6 +42,12 @@ export var ContactPage = (function () {
     };
     ContactPage.prototype.openNavDetailsPage = function (item) {
         this.app.getRootNav().push(LiveDetail, { item: item });
+    };
+    ContactPage.prototype.testpush = function () {
+        this.app.getRootNav().push(LoginPage);
+    };
+    ContactPage.prototype.testdl = function (tel, pwd) {
+        console.log(tel + 'ttttttt' + pwd);
     };
     ContactPage.decorators = [
         { type: Component, args: [{

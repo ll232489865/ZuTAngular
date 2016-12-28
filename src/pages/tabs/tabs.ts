@@ -39,18 +39,14 @@ export class TabsPage {
 
   }
 
+
+
   ionViewDidEnter() {
-    console.log('-----didEnter' + this.tabCurrent);
     if (this.tabCurrent != 999) {
       this.tabs.select(this.tabCurrent);
+      this.tabCurrent =999;
     }
   }
-
-
-
-
-
-
 
 
   onClassClick() {

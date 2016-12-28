@@ -13,17 +13,17 @@ import * as import5 from '@angular/core/src/di/injector';
 import * as import6 from '@angular/core/src/linker/view_type';
 import * as import7 from '@angular/core/src/change_detection/change_detection';
 import * as import8 from './login.service';
-import * as import9 from '@angular/common/src/location/location';
-import * as import10 from 'ionic-angular/navigation/view-controller';
-import * as import11 from 'ionic-angular/navigation/nav-controller';
-import * as import12 from '@angular/core/src/metadata/view';
-import * as import13 from '@angular/core/src/linker/component_factory';
-import * as import14 from '../../node_modules/ionic-angular/components/toolbar/toolbar.ngfactory';
-import * as import15 from '../../node_modules/ionic-angular/components/navbar/navbar.ngfactory';
-import * as import16 from '../../node_modules/ionic-angular/components/toolbar/toolbar-title.ngfactory';
-import * as import17 from '../../node_modules/ionic-angular/components/content/content.ngfactory';
-import * as import18 from 'ionic-angular/config/config';
-import * as import19 from '@angular/core/src/linker/element_ref';
+import * as import9 from 'ionic-angular/navigation/nav-controller';
+import * as import10 from '@ionic/storage/es2015/storage';
+import * as import11 from '@angular/core/src/metadata/view';
+import * as import12 from '@angular/core/src/linker/component_factory';
+import * as import13 from '../../node_modules/ionic-angular/components/toolbar/toolbar.ngfactory';
+import * as import14 from '../../node_modules/ionic-angular/components/navbar/navbar.ngfactory';
+import * as import15 from '../../node_modules/ionic-angular/components/toolbar/toolbar-title.ngfactory';
+import * as import16 from '../../node_modules/ionic-angular/components/content/content.ngfactory';
+import * as import17 from 'ionic-angular/config/config';
+import * as import18 from '@angular/core/src/linker/element_ref';
+import * as import19 from 'ionic-angular/navigation/view-controller';
 import * as import20 from 'ionic-angular/components/app/app';
 import * as import21 from 'ionic-angular/components/toolbar/toolbar';
 import * as import22 from 'ionic-angular/util/keyboard';
@@ -35,9 +35,9 @@ import * as import27 from 'ionic-angular/components/content/content';
 export class Wrapper_LoginPage {
   context:import0.LoginPage;
   changed:boolean;
-  constructor(p0:any,p1:any,p2:any,p3:any) {
+  constructor(p0:any,p1:any,p2:any) {
     this.changed = false;
-    this.context = new import0.LoginPage(p0,p1,p2,p3);
+    this.context = new import0.LoginPage(p0,p1,p2);
   }
   detectChangesInternal(view:import1.AppView<any>,el:any,throwOnChange:boolean):boolean {
     var changed:any = this.changed;
@@ -57,7 +57,7 @@ class _View_LoginPage_Host0 extends import1.AppView<any> {
     this._el_0 = this.selectOrCreateHostElement('my-component',rootSelector,(null as any));
     this._appEl_0 = new import3.AppElement(0,(null as any),this,this._el_0);
     var compView_0:any = viewFactory_LoginPage0(this.viewUtils,this.injector(0),this._appEl_0);
-    this._LoginPage_0_4 = new Wrapper_LoginPage(this.parentInjector.get(import8.LoginService),this.parentInjector.get(import9.Location),this.parentInjector.get(import10.ViewController),this.parentInjector.get(import11.NavController));
+    this._LoginPage_0_4 = new Wrapper_LoginPage(this.parentInjector.get(import8.LoginService),this.parentInjector.get(import9.NavController),this.parentInjector.get(import10.Storage));
     this._appEl_0.initComponent(this._LoginPage_0_4.context,([] as any[]),compView_0);
     compView_0.create(this._LoginPage_0_4.context,this.projectableNodes,(null as any));
     this.init(([] as any[]).concat([this._el_0]),[this._el_0],([] as any[]),([] as any[]));
@@ -74,31 +74,31 @@ class _View_LoginPage_Host0 extends import1.AppView<any> {
   }
 }
 function viewFactory_LoginPage_Host0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<any> {
-  if ((renderType_LoginPage_Host === (null as any))) { (renderType_LoginPage_Host = viewUtils.createRenderComponentType('',0,import12.ViewEncapsulation.None,([] as any[]),{})); }
+  if ((renderType_LoginPage_Host === (null as any))) { (renderType_LoginPage_Host = viewUtils.createRenderComponentType('',0,import11.ViewEncapsulation.None,([] as any[]),{})); }
   return new _View_LoginPage_Host0(viewUtils,parentInjector,declarationEl);
 }
-export const LoginPageNgFactory:import13.ComponentFactory<import0.LoginPage> = new import13.ComponentFactory<import0.LoginPage>('my-component',viewFactory_LoginPage_Host0,import0.LoginPage);
+export const LoginPageNgFactory:import12.ComponentFactory<import0.LoginPage> = new import12.ComponentFactory<import0.LoginPage>('my-component',viewFactory_LoginPage_Host0,import0.LoginPage);
 const styles_LoginPage:any[] = ['.custom-del-tel[_ngcontent-%COMP%] + span[_ngcontent-%COMP%]{\n                line-height: 50px;\n            }\n            .custom-del-psw[_ngcontent-%COMP%] + span[_ngcontent-%COMP%]{\n                line-height: 35px;\n            }'];
 var renderType_LoginPage:import2.RenderComponentType = (null as any);
 class _View_LoginPage0 extends import1.AppView<import0.LoginPage> {
   _text_0:any;
   _el_1:any;
-  _Header_1_3:import14.Wrapper_Header;
+  _Header_1_3:import13.Wrapper_Header;
   _text_2:any;
   _el_3:any;
   /*private*/ _appEl_3:import3.AppElement;
-  _Navbar_3_4:import15.Wrapper_Navbar;
+  _Navbar_3_4:import14.Wrapper_Navbar;
   _text_4:any;
   _el_5:any;
   /*private*/ _appEl_5:import3.AppElement;
-  _ToolbarTitle_5_4:import16.Wrapper_ToolbarTitle;
+  _ToolbarTitle_5_4:import15.Wrapper_ToolbarTitle;
   _text_6:any;
   _text_7:any;
   _text_8:any;
   _text_9:any;
   _el_10:any;
   /*private*/ _appEl_10:import3.AppElement;
-  _Content_10_4:import17.Wrapper_Content;
+  _Content_10_4:import16.Wrapper_Content;
   _text_11:any;
   _text_12:any;
   _el_13:any;
@@ -145,19 +145,19 @@ class _View_LoginPage0 extends import1.AppView<import0.LoginPage> {
     const parentRenderNode:any = this.renderer.createViewRoot(this.declarationAppElement.nativeElement);
     this._text_0 = this.renderer.createText(parentRenderNode,' ',(null as any));
     this._el_1 = this.renderer.createElement(parentRenderNode,'ion-header',(null as any));
-    this._Header_1_3 = new import14.Wrapper_Header(this.parentInjector.get(import18.Config),new import19.ElementRef(this._el_1),this.renderer,this.parentInjector.get(import10.ViewController,(null as any)));
+    this._Header_1_3 = new import13.Wrapper_Header(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_1),this.renderer,this.parentInjector.get(import19.ViewController,(null as any)));
     this._text_2 = this.renderer.createText(this._el_1,'\n  ',(null as any));
     this._el_3 = this.renderer.createElement(this._el_1,'ion-navbar',(null as any));
     this.renderer.setElementAttribute(this._el_3,'class','toolbar');
     this._appEl_3 = new import3.AppElement(3,1,this,this._el_3);
-    var compView_3:any = import15.viewFactory_Navbar0(this.viewUtils,this.injector(3),this._appEl_3);
-    this._Navbar_3_4 = new import15.Wrapper_Navbar(this.parentInjector.get(import20.App),this.parentInjector.get(import10.ViewController,(null as any)),this.parentInjector.get(import11.NavController,(null as any)),this.parentInjector.get(import18.Config),new import19.ElementRef(this._el_3),this.renderer);
+    var compView_3:any = import14.viewFactory_Navbar0(this.viewUtils,this.injector(3),this._appEl_3);
+    this._Navbar_3_4 = new import14.Wrapper_Navbar(this.parentInjector.get(import20.App),this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import9.NavController,(null as any)),this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_3),this.renderer);
     this._appEl_3.initComponent(this._Navbar_3_4.context,([] as any[]),compView_3);
     this._text_4 = this.renderer.createText((null as any),'\n    ',(null as any));
     this._el_5 = this.renderer.createElement((null as any),'ion-title',(null as any));
     this._appEl_5 = new import3.AppElement(5,3,this,this._el_5);
-    var compView_5:any = import16.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(5),this._appEl_5);
-    this._ToolbarTitle_5_4 = new import16.Wrapper_ToolbarTitle(this.parentInjector.get(import18.Config),new import19.ElementRef(this._el_5),this.renderer,this.parentInjector.get(import21.Toolbar,(null as any)),this._Navbar_3_4.context);
+    var compView_5:any = import15.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(5),this._appEl_5);
+    this._ToolbarTitle_5_4 = new import15.Wrapper_ToolbarTitle(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_5),this.renderer,this.parentInjector.get(import21.Toolbar,(null as any)),this._Navbar_3_4.context);
     this._appEl_5.initComponent(this._ToolbarTitle_5_4.context,([] as any[]),compView_5);
     this._text_6 = this.renderer.createText((null as any),'\n      登录\n    ',(null as any));
     compView_5.create(this._ToolbarTitle_5_4.context,[([] as any[]).concat([this._text_6])],(null as any));
@@ -178,8 +178,8 @@ class _View_LoginPage0 extends import1.AppView<import0.LoginPage> {
     this._text_9 = this.renderer.createText(parentRenderNode,'\n\n',(null as any));
     this._el_10 = this.renderer.createElement(parentRenderNode,'ion-content',(null as any));
     this._appEl_10 = new import3.AppElement(10,(null as any),this,this._el_10);
-    var compView_10:any = import17.viewFactory_Content0(this.viewUtils,this.injector(10),this._appEl_10);
-    this._Content_10_4 = new import17.Wrapper_Content(this.parentInjector.get(import18.Config),new import19.ElementRef(this._el_10),this.renderer,this.parentInjector.get(import20.App),this.parentInjector.get(import22.Keyboard),this.parentInjector.get(import23.NgZone),this.parentInjector.get(import10.ViewController,(null as any)),this.parentInjector.get(import24.Tabs,(null as any)));
+    var compView_10:any = import16.viewFactory_Content0(this.viewUtils,this.injector(10),this._appEl_10);
+    this._Content_10_4 = new import16.Wrapper_Content(this.parentInjector.get(import17.Config),new import18.ElementRef(this._el_10),this.renderer,this.parentInjector.get(import20.App),this.parentInjector.get(import22.Keyboard),this.parentInjector.get(import23.NgZone),this.parentInjector.get(import19.ViewController,(null as any)),this.parentInjector.get(import24.Tabs,(null as any)));
     this._appEl_10.initComponent(this._Content_10_4.context,([] as any[]),compView_10);
     this._text_11 = this.renderer.createText((null as any),'\n\n \n        ',(null as any));
     this._text_12 = this.renderer.createText((null as any),'\n\n \n        ',(null as any));
@@ -355,6 +355,6 @@ class _View_LoginPage0 extends import1.AppView<import0.LoginPage> {
   }
 }
 export function viewFactory_LoginPage0(viewUtils:import4.ViewUtils,parentInjector:import5.Injector,declarationEl:import3.AppElement):import1.AppView<import0.LoginPage> {
-  if ((renderType_LoginPage === (null as any))) { (renderType_LoginPage = viewUtils.createRenderComponentType('',0,import12.ViewEncapsulation.Emulated,styles_LoginPage,{})); }
+  if ((renderType_LoginPage === (null as any))) { (renderType_LoginPage = viewUtils.createRenderComponentType('',0,import11.ViewEncapsulation.Emulated,styles_LoginPage,{})); }
   return new _View_LoginPage0(viewUtils,parentInjector,declarationEl);
 }

@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 import { LoginService } from './login.service';
-import { Location } from '@angular/common';
-import { ViewController, NavController } from 'ionic-angular';
+import { TabsPage } from '../tabs/tabs';
 export var LoginPage = (function () {
-    function LoginPage(loginService, location, viewCtrl, navCtrl) {
+    function LoginPage(loginService, navCtrl, storage) {
         this.loginService = loginService;
-        this.location = location;
-        this.viewCtrl = viewCtrl;
         this.navCtrl = navCtrl;
+        this.storage = storage;
     }
     LoginPage.prototype._login = function (account, password) {
-        this.loginService
-            .login(account, password);
-        if (this.loginService.isLoggedIn) {
-            this.navCtrl.pop();
+        this.loginService.login(account, password, callBack);
+        var _self = this;
+        function callBack(result) {
+            _self.storage.set("SESSION", result);
+            if (_self.loginService.isLoggedIn) {
+                // _self.navCtrl.pop();
+                _self.navCtrl.setRoot(TabsPage, { userParams: 3 });
+            }
         }
     };
     LoginPage.decorators = [
@@ -25,9 +29,8 @@ export var LoginPage = (function () {
     /** @nocollapse */
     LoginPage.ctorParameters = [
         { type: LoginService, },
-        { type: Location, },
-        { type: ViewController, },
         { type: NavController, },
+        { type: Storage, },
     ];
     return LoginPage;
 }());

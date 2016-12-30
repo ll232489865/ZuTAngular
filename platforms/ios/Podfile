@@ -1,4 +1,0 @@
-platform :ios, '7.0'
-target 'ZuTIonic' do
-pod "Qiniu", '~>7.1'
-end

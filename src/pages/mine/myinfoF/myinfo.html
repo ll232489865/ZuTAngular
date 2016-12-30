@@ -30,7 +30,7 @@
 
                         <span class="List_abs">
                             <!--<img src="../img/account-picture.png" class="res_icon" id="res_icon" alt="" />-->
-                            <img  src="source/img/5.png" class="head-img mui-action-preview res_icon" id="head-img1" style="margin-right: 10px" (click)="changePortrait()"/>
+                            <img  [src]="loadImage" class="head-img mui-action-preview res_icon" id="head-img1" style="margin-right: 10px" tappable (click)="uploadImage()"/>
                             <input type="hidden" id="avatarUrl" />
                             <input type="hidden" id="qiniuFileName" />
                             <input type="hidden" id="fileName" />

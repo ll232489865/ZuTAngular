@@ -9,8 +9,8 @@ import { ImagePicker } from 'ionic-native';
     templateUrl: 'myinfo.html'
 })
 export class MyInfoPage {
+  public base64Image: string;
     constructor(
-    // public platform: iOS,
     public actionsheetCtrl: ActionSheetController
   ) { }
     
@@ -27,15 +27,23 @@ export class MyInfoPage {
           handler: () => {
             // alert("点击相机");
             
-             Camera.getPicture().then((imageData) => {
+             Camera.getPicture({
+                quality : 75,
+                destinationType : Camera.DestinationType.DATA_URL,
+                sourceType : Camera.PictureSourceType.CAMERA,
+                allowEdit : true,
+                encodingType: Camera.EncodingType.JPEG,
+                targetWidth: 300,
+                targetHeight: 300,
+                saveToPhotoAlbum: false
+             }).then((imageData) => {
                 // imageData is either a base64 encoded string or a file URI
                 // If it's base64:
-                
-                let base64Image = 'data:image/jpeg;base64,' + imageData;
-                alert(base64Image);
+                let base64Image = "data:image/jpeg;base64," + imageData;
+                alert(base64Image);                
                 }, (err) => {
                 // Handle error
-                alert("打开相机失败了");
+                alert("ERROR -> " + JSON.stringify(err));
                 });
 
           }

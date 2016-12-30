@@ -27,7 +27,7 @@
 <div  style='width: 100%;display: inline-flex;'>
 	<div class="Grid_3" style="padding: 0 0;margin-left: 1.5rem;" *ngFor="let _img of _imgs">
 		<ion-card>
-		  <img class="img_RSD" id="img_rsdClick" src="{{_img}} "  (click)="rsdClick()"/>
+		  <img class="img_RSD" id="img_rsdClick" src="{{_img}} " tappable (click)="rsdClick()"/>
 		</ion-card>
 	</div>
 </div>
@@ -35,7 +35,7 @@
 <div style="display: inline-flex;">
 	<div  style='width: 50%'>
 		<ion-card>
-		  <img src="assets/img/advance-card-alaska.jpg" (click)="firstClick()"/>
+		  <img src="assets/img/advance-card-alaska.jpg" tappable (click)="firstClick()"/>
 		  <ion-card-content>
 		    <!-- <ion-card-title>
 		      Nine Inch Nails Live
@@ -48,7 +48,7 @@
 	</div>
 	<div  style='width: 50%'>
 		<ion-card>
-		  <img src="assets/img/advance-card-alaska.jpg" (click)="firstClick()"/>
+		  <img src="assets/img/advance-card-alaska.jpg" tappable (click)="firstClick()"/>
 		  <ion-card-content>
 		    <!-- <ion-card-title>
 		      Nine Inch Nails Live

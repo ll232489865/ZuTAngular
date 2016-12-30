@@ -3,9 +3,7 @@ import { ActionSheetController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { ImagePicker } from 'ionic-native';
 export var MyInfoPage = (function () {
-    function MyInfoPage(
-        // public platform: iOS,
-        actionsheetCtrl) {
+    function MyInfoPage(actionsheetCtrl) {
         this.actionsheetCtrl = actionsheetCtrl;
     }
     //更改头像
@@ -20,14 +18,23 @@ export var MyInfoPage = (function () {
                     //   icon: !this.platform.is('ios') ? 'trash' : null,
                     handler: function () {
                         // alert("点击相机");
-                        Camera.getPicture().then(function (imageData) {
+                        Camera.getPicture({
+                            quality: 75,
+                            destinationType: Camera.DestinationType.DATA_URL,
+                            sourceType: Camera.PictureSourceType.CAMERA,
+                            allowEdit: true,
+                            encodingType: Camera.EncodingType.JPEG,
+                            targetWidth: 300,
+                            targetHeight: 300,
+                            saveToPhotoAlbum: false
+                        }).then(function (imageData) {
                             // imageData is either a base64 encoded string or a file URI
                             // If it's base64:
-                            var base64Image = 'data:image/jpeg;base64,' + imageData;
+                            var base64Image = "data:image/jpeg;base64," + imageData;
                             alert(base64Image);
                         }, function (err) {
                             // Handle error
-                            alert("打开相机失败了");
+                            alert("ERROR -> " + JSON.stringify(err));
                         });
                     }
                 },

@@ -50,6 +50,14 @@ module.exports = [
         "runs": true
     },
     {
+        "file": "plugins/cordova-plugin-istudy/www/istudy.js",
+        "id": "cordova-plugin-istudy.Istudy",
+        "pluginId": "cordova-plugin-istudy",
+        "clobbers": [
+            "Istudy"
+        ]
+    },
+    {
         "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
         "id": "cordova-plugin-camera.Camera",
         "pluginId": "cordova-plugin-camera",
@@ -88,6 +96,14 @@ module.exports = [
         "clobbers": [
             "plugins.imagePicker"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-qiniu/www/qiniu.js",
+        "id": "cordova-plugin-qiniu.Qiniu",
+        "pluginId": "cordova-plugin-qiniu",
+        "clobbers": [
+            "Qiniu"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -99,9 +115,11 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.0",
     "cordova-plugin-whitelist": "1.3.0",
     "ionic-plugin-keyboard": "2.2.1",
+    "cordova-plugin-istudy": "1.0.0",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.3.1",
-    "com.synconset.imagepicker": "2.1.5"
+    "com.synconset.imagepicker": "2.1.7",
+    "cordova-plugin-qiniu": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

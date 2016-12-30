@@ -1,0 +1,95 @@
+    <style>
+        .orange_round{
+            background: #ff9100;
+            color: white;
+            border-radius: 0.2rem;
+            font-size: 0.8rem;
+            padding: 0.1rem 0;
+            width: 5rem;
+            display: inline-block;
+            line-height: normal;
+            text-align: center;
+        }
+        img{
+            height: 6rem;
+            width: 8.8rem;
+            border-radius: 0.3rem;
+        }
+        .mui-table-view{
+            line-height: normal;
+            max-width: none;
+            height: auto;
+            padding: 0 1rem;
+        }
+        .mui-table-view-cell{
+            padding: 1.25rem 0;
+        }
+        .mui-table-view .mui-media-object.mui-pull-left{
+            margin-right: 1rem;
+        }
+        .mui-table-view .mui-media-object {
+            line-height: normal;
+            max-width: none;
+            height: 6rem;
+        }
+        .title{
+            font-family: '方正清刻本悦宋简体';
+            font-size: 1.1rem;
+            color: #2d2d2d;
+        }
+        .abstract{
+            font-size: 1.0rem;
+            color: #999;
+            line-height: 2.5rem;
+         }
+        .cost{
+            font-family: '方正清刻本悦宋简体';
+            font-size: .9rem;
+            color: #ff9100;
+            line-height: 3rem;
+         }
+         .pct100H{
+            height: 100%;   
+         }
+         .pct33H{
+            height: 33%;    
+         }
+         .mui-table-view .mui-media-body{
+            height: 6rem;
+            padding: .1rem 0;
+         }
+         </style>  
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      账户
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+
+    <div class="mui-content bgwh" style="position:absolute; width:100%; height:100%;">
+        <div id="bg" style="margin: auto;margin-top: 30%; background:url(source/img/1_02.png) no-repeat; height: 315px; width: 133px;height: 100%; background-size:contain; display: none;"></div>
+        <!--<div class="Line"></div>-->
+        <ul id="list" class="mui-table-view mt0 Lc_middle">
+           <li class="mui-table-view-cell mui-media">
+                <img class="mui-media-object mui-pull-left" src="source/img/1_02.png">
+                <div class="mui-media-body">
+                    <div class="pct33H">
+                        <span class="title">大觉悟家庭</span>
+                        <div class="r">
+                            <span class="orange_round">进行中</span>
+                        </div>
+                    </div>
+                    <div class="abstract pct33H mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</div>
+                    <div class="cost pct33H">￥900.00</div>
+                    
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    </ion-content>

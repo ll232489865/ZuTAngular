@@ -39,6 +39,42 @@
                         {
                             "xml": "<feature name=\"Istudy\"><param name=\"ios-package\" value=\"CDVIstudy\" /></feature>",
                             "count": 1
+<<<<<<< HEAD
+                        },
+                        {
+                            "xml": "<feature name=\"Camera\"><param name=\"ios-package\" value=\"CDVCamera\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<preference name=\"CameraUsesGeolocation\" value=\"false\" />",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"ImagePicker\"><param name=\"ios-package\" value=\"SOSPicker\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Qiniu\"><param name=\"ios-package\" value=\"CDVQiniu\" /></feature>",
+                            "count": 1
+                        }
+                    ],
+                    "/widget": []
+                }
+            },
+            "*-Info.plist": {
+                "parents": {
+                    "NSCameraUsageDescription": [
+                        {
+                            "xml": "<string> </string>",
+                            "count": 1
+                        }
+                    ],
+                    "NSPhotoLibraryUsageDescription": [
+                        {
+                            "xml": "<string> </string>",
+                            "count": 2
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
                         }
                     ],
                     "/widget": []
@@ -66,6 +102,24 @@
             "PACKAGE_NAME": "io.ionic.starter"
         },
         "cordova-plugin-istudy": {
+<<<<<<< HEAD
+            "PACKAGE_NAME": "com.ionicframework.zutionic431082"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.zutionic431082"
+        },
+        "cordova-plugin-camera": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.zutionic431082"
+        },
+        "com.synconset.imagepicker": {
+            "PHOTO_LIBRARY_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.ionicframework.zutionic431082"
+        },
+        "cordova-plugin-qiniu": {
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
             "PACKAGE_NAME": "com.ionicframework.zutionic431082"
         }
     },
@@ -124,8 +178,59 @@
             "file": "plugins/cordova-plugin-istudy/www/istudy.js",
             "id": "cordova-plugin-istudy.Istudy",
             "pluginId": "cordova-plugin-istudy",
+<<<<<<< HEAD
             "clobbers": [
                 "Istudy"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
+            "id": "cordova-plugin-camera.Camera",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "Camera"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
+            "id": "cordova-plugin-camera.CameraPopoverOptions",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "CameraPopoverOptions"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/Camera.js",
+            "id": "cordova-plugin-camera.camera",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "navigator.camera"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
+            "id": "cordova-plugin-camera.CameraPopoverHandle",
+            "pluginId": "cordova-plugin-camera",
+            "clobbers": [
+                "CameraPopoverHandle"
+            ]
+        },
+        {
+            "file": "plugins/com.synconset.imagepicker/www/imagepicker.js",
+            "id": "com.synconset.imagepicker.ImagePicker",
+            "pluginId": "com.synconset.imagepicker",
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
+            "clobbers": [
+                "Istudy"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-qiniu/www/qiniu.js",
+            "id": "cordova-plugin-qiniu.Qiniu",
+            "pluginId": "cordova-plugin-qiniu",
+            "clobbers": [
+                "Qiniu"
             ]
         }
     ],
@@ -136,6 +241,14 @@
         "cordova-plugin-statusbar": "2.2.0",
         "cordova-plugin-whitelist": "1.3.0",
         "ionic-plugin-keyboard": "2.2.1",
+<<<<<<< HEAD
+        "cordova-plugin-istudy": "1.0.0",
+        "cordova-plugin-compat": "1.1.0",
+        "cordova-plugin-camera": "2.3.1",
+        "com.synconset.imagepicker": "2.1.7",
+        "cordova-plugin-qiniu": "1.0.0"
+=======
         "cordova-plugin-istudy": "1.0.0"
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
     }
 }

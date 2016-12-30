@@ -1,3 +1,15 @@
 {
+<<<<<<< HEAD
+    "libz.dylib": 1,
+    "ImageIO.framework": 1,
+    "CoreLocation.framework": 1,
+    "AVFoundation.framework": 1,
+    "Accelerate.framework": 1,
+    "Security.framework": 1,
+    "Photos.framework": 1,
+    "SystemConfiguration.framework": 1,
+    "QuartzCore.framework": 1
+=======
     "libz.dylib": 1
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 }

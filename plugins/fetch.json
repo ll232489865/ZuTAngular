@@ -64,9 +64,39 @@
         "variables": {}
     },
     "cordova-plugin-istudy": {
+<<<<<<< HEAD
         "source": {
             "type": "local",
             "path": "/Users/renlei/Desktop/cordova-plugin-istudy"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-camera": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-camera"
+        },
+        "is_top_level": true,
+        "variables": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+        }
+    },
+    "com.synconset.imagepicker": {
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
+        "source": {
+            "type": "local",
+            "path": "/Users/renlei/Desktop/cordova-plugin-istudy"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-qiniu": {
+        "source": {
+            "type": "local",
+            "path": "../Plugins/cordova-plugin-qiniu"
         },
         "is_top_level": true,
         "variables": {}

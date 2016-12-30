@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams, RequestOptions, Headers } from '@angular/http';
-
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
@@ -13,13 +12,14 @@ import { Storage } from '@ionic/storage'
 //model
 import { LoginHandshakeModel, model_loginResult } from './login-model'
 //plugin
-import { Device, Istudy } from 'ionic-native';
+import { Device, Istudy,Qiniu } from 'ionic-native';
 
 //md5
 declare var md5_obj;
 
 @Injectable()
 export class LoginService {
+  
   private Url_handshake = 'http://192.168.1.10:9090/zuting_api/handshake';
   private Url_login = 'http://192.168.1.10:9090/zuting_api/login';
   private Url_accountInfo = 'http://192.168.1.10:9090/zuting_api/account/info';
@@ -143,7 +143,6 @@ export class LoginService {
   logout(): void {
     this.isLoggedIn = false;
     this.storage.remove("SESSION");
-    this.storage.remove("ACCOUNTINFO");
   }
 
 
@@ -152,6 +151,7 @@ export class LoginService {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
+
 }
 
 

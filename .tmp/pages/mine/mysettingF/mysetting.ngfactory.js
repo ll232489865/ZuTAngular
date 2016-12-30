@@ -168,7 +168,6 @@ var _View_MySettingPage0 = (function (_super) {
         this._el_37 = this.renderer.createElement(this._el_35, 'span', null);
         this.renderer.setElementAttribute(this._el_37, 'class', 'Btn Btn_middle Btn_white Btn_radiusI');
         this.renderer.setElementAttribute(this._el_37, 'id', 'quit_app');
-        this.renderer.setElementAttribute(this._el_37, 'tappable', '');
         this._text_38 = this.renderer.createText(this._el_37, '退出登录', null);
         this._text_39 = this.renderer.createText(this._el_35, '\n        ', null);
         this._text_40 = this.renderer.createText(null, '\n\n', null);

@@ -2,12 +2,16 @@ import { Component } from '@angular/core';
 import { ActionSheetController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { ImagePicker } from 'ionic-native';
+import { MyinfoServer } from './myinfoF.server';
 export var MyInfoPage = (function () {
-    function MyInfoPage(actionsheetCtrl) {
+    function MyInfoPage(myinfoserver, actionsheetCtrl) {
+        this.myinfoserver = myinfoserver;
         this.actionsheetCtrl = actionsheetCtrl;
+        this.loadImage = "source/img/5.png";
     }
-    //更改头像
-    MyInfoPage.prototype.changePortrait = function () {
+    //上传图片
+    MyInfoPage.prototype.uploadImage = function () {
+        var _this = this;
         var actionSheet = this.actionsheetCtrl.create({
             title: '修改头像',
             cssClass: 'action-sheets-basic-page',
@@ -15,23 +19,22 @@ export var MyInfoPage = (function () {
                 {
                     text: '相机',
                     role: 'Camera',
-                    //   icon: !this.platform.is('ios') ? 'trash' : null,
                     handler: function () {
                         // alert("点击相机");
                         Camera.getPicture({
                             quality: 75,
-                            destinationType: Camera.DestinationType.DATA_URL,
+                            destinationType: Camera.DestinationType.FILE_URI,
                             sourceType: Camera.PictureSourceType.CAMERA,
-                            allowEdit: true,
+                            allowEdit: false,
                             encodingType: Camera.EncodingType.JPEG,
                             targetWidth: 300,
                             targetHeight: 300,
                             saveToPhotoAlbum: false
-                        }).then(function (imageData) {
-                            // imageData is either a base64 encoded string or a file URI
-                            // If it's base64:
-                            var base64Image = "data:image/jpeg;base64," + imageData;
-                            alert(base64Image);
+                        }).then(function (fileUrl) {
+                            _this.myinfoserver.qiniuImage(fileUrl, function (results) {
+                                _this.loadImage = results;
+                            });
+                            // alert(fileUrl);                
                         }, function (err) {
                             // Handle error
                             alert("ERROR -> " + JSON.stringify(err));
@@ -44,10 +47,14 @@ export var MyInfoPage = (function () {
                     handler: function () {
                         // alert("选择图片");
                         ImagePicker.getPictures({}).then(function (results) {
-                            for (var i = 0; i < results.length; i++) {
-                                console.log('Image URI: ' + results[i]);
-                                alert('Image URI: ' + results[i]);
-                            }
+                            // for (var i = 0; i < results.length; i++) {
+                            //     console.log('Image URI: ' + results[i]);
+                            //     alert('Image URI: ' + results[i]);
+                            // }
+                            // this.myinfoserver.qiniuImage(results[0],this.Callback);
+                            _this.myinfoserver.qiniuImage(results[0], function (results) {
+                                _this.loadImage = results;
+                            });
                         }, function (err) {
                             alert("选择图片失败");
                         });
@@ -63,6 +70,9 @@ export var MyInfoPage = (function () {
         });
         actionSheet.present();
     };
+    MyInfoPage.prototype.ionViewDidload = function () {
+        this.loadImage = "source/img/5.png";
+    };
     MyInfoPage.decorators = [
         { type: Component, args: [{
                     selector: 'my-component',
@@ -71,6 +81,7 @@ export var MyInfoPage = (function () {
     ];
     /** @nocollapse */
     MyInfoPage.ctorParameters = [
+        { type: MyinfoServer, },
         { type: ActionSheetController, },
     ];
     return MyInfoPage;

@@ -7,6 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { Storage } from '@ionic/storage';
+import { GroupChat } from '../pages/contact/group-chat/group-chat';
+import { Chat } from '../pages/contact/chat/chat';
 
 
 //server
@@ -48,6 +50,8 @@ import {UnlessDirective} from '../providers/unless.directive'
     ThirdShare,
     Discovery,
     LiveDetail,
+    GroupChat,
+    Chat,
 
     MinePage,
     LoginPage,
@@ -56,7 +60,7 @@ import {UnlessDirective} from '../providers/unless.directive'
     MyCoursePage,
     MyInfoPage,
     MySettingPage,
-
+    
     BestList,
     Details,
 
@@ -78,6 +82,8 @@ import {UnlessDirective} from '../providers/unless.directive'
     ThirdShare,
     Discovery,
     LiveDetail,
+    GroupChat,
+    Chat,
 
     MinePage,
     LoginPage,

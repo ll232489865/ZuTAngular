@@ -286,6 +286,7 @@ class _View_Discovery0 extends import1.AppView<import0.Discovery> {
     this._text_35 = this.renderer.createText(this._el_34,'\n		  ',(null as any));
     this._el_36 = this.renderer.createElement(this._el_34,'img',(null as any));
     this.renderer.setElementAttribute(this._el_36,'src','assets/img/advance-card-alaska.jpg');
+    this.renderer.setElementAttribute(this._el_36,'tappable','');
     this._text_37 = this.renderer.createText(this._el_34,'\n		  ',(null as any));
     this._el_38 = this.renderer.createElement(this._el_34,'ion-card-content',(null as any));
     this._CardContent_38_3 = new import17.Wrapper_CardContent(this.parentInjector.get(import18.Config),new import19.ElementRef(this._el_38),this.renderer);
@@ -306,6 +307,7 @@ class _View_Discovery0 extends import1.AppView<import0.Discovery> {
     this._text_50 = this.renderer.createText(this._el_49,'\n		  ',(null as any));
     this._el_51 = this.renderer.createElement(this._el_49,'img',(null as any));
     this.renderer.setElementAttribute(this._el_51,'src','assets/img/advance-card-alaska.jpg');
+    this.renderer.setElementAttribute(this._el_51,'tappable','');
     this._text_52 = this.renderer.createText(this._el_49,'\n		  ',(null as any));
     this._el_53 = this.renderer.createElement(this._el_49,'ion-card-content',(null as any));
     this._CardContent_53_3 = new import17.Wrapper_CardContent(this.parentInjector.get(import18.Config),new import19.ElementRef(this._el_53),this.renderer);
@@ -611,6 +613,7 @@ class _View_Discovery2 extends import1.AppView<any> {
     this._el_4 = this.renderer.createElement(this._el_2,'img',(null as any));
     this.renderer.setElementAttribute(this._el_4,'class','img_RSD');
     this.renderer.setElementAttribute(this._el_4,'id','img_rsdClick');
+    this.renderer.setElementAttribute(this._el_4,'tappable','');
     this._text_5 = this.renderer.createText(this._el_2,'\n		',(null as any));
     this._text_6 = this.renderer.createText(this._el_0,'\n	',(null as any));
     this._expr_1 = import7.UNINITIALIZED;

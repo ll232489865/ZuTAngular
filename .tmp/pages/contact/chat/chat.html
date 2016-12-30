@@ -1,0 +1,28 @@
+<ion-navbar *navbar>
+    <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Chat</ion-title>
+</ion-navbar>
+
+<ion-footer id="footbar">
+  <footer class="foot_area">
+      <div class="footer-left" id="footer-left" (click) = "clickFooterLeft(outPutUi)">
+          <!--<i id="msg-image" #outPutUi  [ngClass] = "setInfoModule()" class="mui-icon c_main"></i>-->
+          <ion-icon #outPutUi  [ngClass] = "setInfoModule()" [style.font-size]="fontSizeBoolean ? '16px' : '3rem'" ios="ios-camera-outline" md="md-camera"></ion-icon>
+      </div>
+      <div class="footer-center" [ngSwitch]="chatChoice">
+          <textarea id="msg-text" type="text" *ngSwitchCase="'text'" class="input-text"  #input (input) ="onInput(input)"  [(ngModel)]="value" (blur) = "setBlur(input)"></textarea> 
+          <!--(focus) ="setFocus(input)" -->
+          <button id="msg-sound" *ngSwitchCase="'vedio'"    #btn type="button" class="input-sound">按住说话</button>
+      </div>
+      <span  class="footer-right" (click) = "clickFooterRight(outPutBtn)">
+          <!--<i id="msg-type" #outPutBtn [ngClass] = "setTextVedio()" class="mui-icon  c_main"></i>-->
+
+          <ion-icon [ios]="leftIcon" md="md-mic" style="font-size: 2.4rem;" id="msg-type" #outPutBtn ></ion-icon> 
+          <!--[ngClass] = "setTextVedio()"-->
+      </span>
+  </footer>
+</ion-footer>
+
+

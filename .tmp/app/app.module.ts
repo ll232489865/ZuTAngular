@@ -7,11 +7,13 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { Storage } from '@ionic/storage';
+import { GroupChat } from '../pages/contact/group-chat/group-chat';
+import { Chat } from '../pages/contact/chat/chat';
 
 
 //server
 import { LoginService } from '../pages/mine/login.service';
-
+import { MyinfoServer } from '../pages/mine/myinfoF/myinfoF.server';
 //home
 import {PropagateInfo} from '../pages/home/propagate-info';
 import {PropagateService} from '../pages/home/propagate.service';
@@ -48,6 +50,8 @@ import {UnlessDirective} from '../providers/unless.directive'
     ThirdShare,
     Discovery,
     LiveDetail,
+    GroupChat,
+    Chat,
 
     MinePage,
     LoginPage,
@@ -56,7 +60,7 @@ import {UnlessDirective} from '../providers/unless.directive'
     MyCoursePage,
     MyInfoPage,
     MySettingPage,
-
+    
     BestList,
     Details,
 
@@ -78,6 +82,8 @@ import {UnlessDirective} from '../providers/unless.directive'
     ThirdShare,
     Discovery,
     LiveDetail,
+    GroupChat,
+    Chat,
 
     MinePage,
     LoginPage,
@@ -91,6 +97,6 @@ import {UnlessDirective} from '../providers/unless.directive'
     Details
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
-  PropagateService,LiveService,LoginService,Storage]
+  PropagateService,LiveService,LoginService,MyinfoServer,Storage]
 })
 export class AppModule {}

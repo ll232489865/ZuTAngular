@@ -35,18 +35,21 @@ export class TabsPage {
     if (this.params.get('userParams')) {
       this.tabCurrent = this.params.get('userParams');
     }
-
-
   }
-
-
 
   ionViewDidEnter() {
+    console.log('-----didEnter' + this.tabCurrent);
     if (this.tabCurrent != 999) {
       this.tabs.select(this.tabCurrent);
-      this.tabCurrent =999;
+      this.tabCurrent=999;
     }
   }
+
+
+
+
+
+
 
 
   onClassClick() {

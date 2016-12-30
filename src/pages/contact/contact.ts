@@ -7,8 +7,16 @@ import {LiveInfo} from './live-info';
 import {LiveDetail} from './live-detail';
 
 import { LoginService } from '../mine/login.service';
-
-import {LoginPage} from '../mine/login'
+import { GroupChat } from './group-chat/group-chat';
+import { Camera } from 'ionic-native';
+// declare var echarts
+// import echarts from 'echarts';
+// let aaa = require('../../../node_modules/echarts/echarts');
+// import  echarts  from 'echarts';
+//测试promise
+// import 'rxjs/add/operator/toPromise';
+// import {PropagateService} from '../home/propagate.service';
+// import {PropagateInfo} from '../home/propagate-info';
 
 @Component({
   selector: 'page-contact',
@@ -16,72 +24,70 @@ import {LoginPage} from '../mine/login'
 })
 export class ContactPage implements OnInit, DoCheck, 
               AfterContentChecked, AfterViewChecked{
-
+  
   liveInfo: LiveInfo[];
   item;
   loginCheck:string;
-  public htmlElement:HTMLElement;
+  private htmlElement:HTMLElement;
   loginStatus;
 
   constructor(public navCtrl: NavController,
-    public liveService:LiveService,
-    public params: NavParams,
-    public app: App,
-    public loginService: LoginService,
-       ) {
-      // this.item = params.data.item;
-      // this.loginCheck = 'hello';
+    private liveService:LiveService,
+    private params: NavParams,
+    private app: App,
+    private loginService: LoginService
+    // private propagateService: PropagateService
+    ) {
       console.log('-----console----' + this.loginCheck);
   }
-
+  propagateList = [];
+  goCHatUi(item){
+    // this.app.getRootNav().push(GroupChat);
+    this.app.getRootNav().push(GroupChat);
+  }
   ngOnInit():void {
-    // console.log("------OnInit------");
     this.getLiveList();
   }
-
-  getLiveList() {
-        this.liveService
-            .getPropagates()
-            .then(liveInfo => {
-              this.liveInfo = liveInfo});
-
+  textCamera(){
+    let options = {
+        quality: 80,
+        sourceType: Camera.PictureSourceType.CAMERA,
+        allowEdit: false,
+        encodingType: Camera.EncodingType.JPEG,
+        saveToPhotoAlbum: false,
+        targetWidth : 250,
+        targetHeight : 250
+      };
+    Camera.getPicture(options).then((imageData) => {
+    document.getElementById('textCamera').setAttribute('src', imageData);
+    }, (err) => {
+      alert(err)
+    });
   }
-
+  getLiveList() {
+    // this.liveService.getPropagates().then(liveInfo => {this.liveInfo = liveInfo});
+    this.liveService.getListInfo( result=>{ this.liveInfo = result});
+  }
+  
+ 
   ngDoCheck():void{
-      console.log("---1---ngDoCheck------");
+      // console.log("---1---ngDoCheck------");
   }
 
   ngAfterViewChecked():void{
-    console.log("---2---ngAfterViewChecked------"+this.loginCheck);
+    // console.log("---2---ngAfterViewChecked------"+this.loginCheck);
     
   }
 
   ngAfterContentChecked():void {
-    console.log("----3--ngAfterContentChecked------");
     this.loginStatus = this.loginService.isLoggedIn;
   }
 
   onLoginClick() {
-    alert("--4--onLoginClick----");
+    // console.log("--4--onLoginClick----");
   }
-
-
   openNavDetailsPage(item) {
-
     this.app.getRootNav().push(LiveDetail, { item: item });
   }
-
-
-
-testpush(){
-  this.app.getRootNav().push(LoginPage);
 }
 
-
-testdl(tel,pwd){
-  console.log(tel+'ttttttt'+pwd);
-  
-}
-
-
-}

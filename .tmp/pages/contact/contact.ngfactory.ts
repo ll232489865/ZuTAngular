@@ -139,6 +139,13 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
   _NgIf_15_6:import19.Wrapper_NgIf;
   _text_16:any;
   _text_17:any;
+  _text_18:any;
+  _text_19:any;
+  _text_20:any;
+  _text_21:any;
+  _text_22:any;
+  _text_23:any;
+  _text_24:any;
   /*private*/ _expr_0:any;
   /*private*/ _expr_1:any;
   /*private*/ _expr_2:any;
@@ -162,7 +169,7 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
     var compView_4:any = import17.viewFactory_ToolbarTitle0(this.viewUtils,this.injector(4),this._appEl_4);
     this._ToolbarTitle_4_4 = new import17.Wrapper_ToolbarTitle(this.parentInjector.get(import20.Config),new import21.ElementRef(this._el_4),this.renderer,this.parentInjector.get(import23.Toolbar,(null as any)),this._Navbar_2_4.context);
     this._appEl_4.initComponent(this._ToolbarTitle_4_4.context,([] as any[]),compView_4);
-    this._text_5 = this.renderer.createText((null as any),'\n      Contact\n    ',(null as any));
+    this._text_5 = this.renderer.createText((null as any),'\n      学苑\n    ',(null as any));
     compView_4.create(this._ToolbarTitle_4_4.context,[([] as any[]).concat([this._text_5])],(null as any));
     this._text_6 = this.renderer.createText((null as any),'\n  ',(null as any));
     compView_2.create(this._Navbar_2_4.context,[
@@ -184,22 +191,30 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
     var compView_9:any = import18.viewFactory_Content0(this.viewUtils,this.injector(9),this._appEl_9);
     this._Content_9_4 = new import18.Wrapper_Content(this.parentInjector.get(import20.Config),new import21.ElementRef(this._el_9),this.renderer,this.parentInjector.get(import11.App),this.parentInjector.get(import24.Keyboard),this.parentInjector.get(import25.NgZone),this.parentInjector.get(import22.ViewController,(null as any)),this.parentInjector.get(import26.Tabs,(null as any)));
     this._appEl_9.initComponent(this._Content_9_4.context,([] as any[]),compView_9);
-    this._text_10 = this.renderer.createText((null as any),'\n\n  ',(null as any));
+    this._text_10 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._anchor_11 = this.renderer.createTemplateAnchor((null as any),(null as any));
     this._appEl_11 = new import3.AppElement(11,9,this,this._anchor_11);
     this._TemplateRef_11_5 = new import27.TemplateRef_(this._appEl_11,viewFactory_ContactPage1);
     this._NgIf_11_6 = new import19.Wrapper_NgIf(this._appEl_11.vcRef,this._TemplateRef_11_5);
-    this._text_12 = this.renderer.createText((null as any),'\n\n  ',(null as any));
+    this._text_12 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._anchor_13 = this.renderer.createTemplateAnchor((null as any),(null as any));
     this._appEl_13 = new import3.AppElement(13,9,this,this._anchor_13);
     this._TemplateRef_13_5 = new import27.TemplateRef_(this._appEl_13,viewFactory_ContactPage2);
     this._NgIf_13_6 = new import19.Wrapper_NgIf(this._appEl_13.vcRef,this._TemplateRef_13_5);
-    this._text_14 = this.renderer.createText((null as any),'\n\n  ',(null as any));
+    this._text_14 = this.renderer.createText((null as any),'\n  ',(null as any));
     this._anchor_15 = this.renderer.createTemplateAnchor((null as any),(null as any));
     this._appEl_15 = new import3.AppElement(15,9,this,this._anchor_15);
     this._TemplateRef_15_5 = new import27.TemplateRef_(this._appEl_15,viewFactory_ContactPage3);
     this._NgIf_15_6 = new import19.Wrapper_NgIf(this._appEl_15.vcRef,this._TemplateRef_15_5);
-    this._text_16 = this.renderer.createText((null as any),'\n',(null as any));
+    this._text_16 = this.renderer.createText((null as any),'  	\n',(null as any));
+    this._text_17 = this.renderer.createText((null as any),'\n',(null as any));
+    this._text_18 = this.renderer.createText((null as any),'\n',(null as any));
+    this._text_19 = this.renderer.createText((null as any),'\n',(null as any));
+    this._text_20 = this.renderer.createText((null as any),'\n\n',(null as any));
+    this._text_21 = this.renderer.createText((null as any),'\n',(null as any));
+    this._text_22 = this.renderer.createText((null as any),'\n\n',(null as any));
+    this._text_23 = this.renderer.createText((null as any),'\n',(null as any));
+    this._text_24 = this.renderer.createText((null as any),'\n\n',(null as any));
     compView_9.create(this._Content_9_4.context,[
       ([] as any[]),
       ([] as any[]).concat([
@@ -209,13 +224,20 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
         this._appEl_13,
         this._text_14,
         this._appEl_15,
-        this._text_16
+        this._text_16,
+        this._text_17,
+        this._text_18,
+        this._text_19,
+        this._text_20,
+        this._text_21,
+        this._text_22,
+        this._text_23,
+        this._text_24
       ]
       ),
       ([] as any[])
     ]
     ,(null as any));
-    this._text_17 = this.renderer.createText(parentRenderNode,'\n',(null as any));
     this._expr_0 = import7.UNINITIALIZED;
     this._expr_1 = import7.UNINITIALIZED;
     this._expr_2 = import7.UNINITIALIZED;
@@ -237,7 +259,14 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
       this._text_14,
       this._anchor_15,
       this._text_16,
-      this._text_17
+      this._text_17,
+      this._text_18,
+      this._text_19,
+      this._text_20,
+      this._text_21,
+      this._text_22,
+      this._text_23,
+      this._text_24
     ]
     ,([] as any[]),([] as any[]));
     return (null as any);
@@ -252,7 +281,7 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
     if (((token === import30.NgIf) && (13 === requestNodeIndex))) { return this._NgIf_13_6.context; }
     if (((token === import27.TemplateRef) && (15 === requestNodeIndex))) { return this._TemplateRef_15_5; }
     if (((token === import30.NgIf) && (15 === requestNodeIndex))) { return this._NgIf_15_6.context; }
-    if (((token === import31.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 16)))) { return this._Content_9_4.context; }
+    if (((token === import31.Content) && ((9 <= requestNodeIndex) && (requestNodeIndex <= 24)))) { return this._Content_9_4.context; }
     return notFoundResult;
   }
   detectChangesInternal(throwOnChange:boolean):void {
@@ -260,13 +289,13 @@ class _View_ContactPage0 extends import1.AppView<import0.ContactPage> {
     this._Navbar_2_4.detectChangesInternal(this,this._el_2,throwOnChange);
     if (this._ToolbarTitle_4_4.detectChangesInternal(this,this._el_4,throwOnChange)) { this._appEl_4.componentView.markAsCheckOnce(); }
     if (this._Content_9_4.detectChangesInternal(this,this._el_9,throwOnChange)) { this._appEl_9.componentView.markAsCheckOnce(); }
-    const currVal_3:any = this.context.loginStatus;
+    const currVal_3:any = ((this.context.loginStatus && this.context.liveInfo) && !(this.context.liveInfo.length > 0));
     this._NgIf_11_6.check_ngIf(currVal_3,throwOnChange,false);
     this._NgIf_11_6.detectChangesInternal(this,this._anchor_11,throwOnChange);
     const currVal_4:boolean = !this.context.loginStatus;
     this._NgIf_13_6.check_ngIf(currVal_4,throwOnChange,false);
     this._NgIf_13_6.detectChangesInternal(this,this._anchor_13,throwOnChange);
-    const currVal_5:boolean = ((!this.context.loginStatus && this.context.liveInfo) && (this.context.liveInfo.length > 0));
+    const currVal_5:any = ((this.context.loginStatus && this.context.liveInfo) && (this.context.liveInfo.length > 0));
     this._NgIf_15_6.check_ngIf(currVal_5,throwOnChange,false);
     this._NgIf_15_6.detectChangesInternal(this,this._anchor_15,throwOnChange);
     this.detectContentChildrenChanges(throwOnChange);
@@ -522,7 +551,7 @@ class _View_ContactPage4 extends import1.AppView<any> {
   }
   createInternal(rootSelector:string):import3.AppElement {
     this._el_0 = this.renderer.createElement((null as any),'li',(null as any));
-    this._text_1 = this.renderer.createText(this._el_0,'\n      \n      ',(null as any));
+    this._text_1 = this.renderer.createText(this._el_0,'\n      ',(null as any));
     this._el_2 = this.renderer.createElement(this._el_0,'ion-item',(null as any));
     this.renderer.setElementAttribute(this._el_2,'class','item item-block');
     this._appEl_2 = new import3.AppElement(2,0,this,this._el_2);
@@ -636,7 +665,7 @@ class _View_ContactPage4 extends import1.AppView<any> {
   }
   private _handle_click_2_0($event:any):boolean {
     this.markPathToRootAsCheckOnce();
-    const pd_0:any = ((<any>this.parent.parent.context.openNavDetailsPage(this.context.$implicit)) !== false);
+    const pd_0:any = ((<any>this.parent.parent.context.goCHatUi()) !== false);
     return (true && pd_0);
   }
 }

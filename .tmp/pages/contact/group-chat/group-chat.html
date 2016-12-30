@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      groyp-chat
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding (click) = "closeKey()">
+      <!--<button id="sendImage" class="sendImage"  on-click = "chat.sentImg()">发送图片</button>-->
+      <!--[ngStyle] = chat.setHeight(chatroom) -->
+      <div #chatroom  [style.height]="chat.contentHeight" class="chatroom" style="overflow-y: auto;">
+          <div *ngIf="chat.chatMessage">
+            <div *ngFor="let messages of chat.chatMessage" class="fix  Chat_l mt2rem tl"  [style.text-align]="messages.direction =='right' ? 'right' : 'left'" >
+                <div [ngSwitch]="messages.messageType">
+                  <div *ngSwitchCase="'text'">
+                    <div class="Chat_time">
+                        <span class="Btn_20 Btn_gray Btn_radiusI">
+                            {{messages.sentTime}}
+                        </span>
+                    </div>
+                    <div class="Chat_nicknm">{{messages.nikeName}}</div>
+                    <div class="ml1rem"  [style.float]="messages.direction =='right' ? 'right' : 'left'" >
+                        <img src="source/img/logo.png" width="30" height="30" alt="" style="border-radius:15px; overflow:hidden" />
+                    </div>
+                    <div class="ovh mt5">
+                        <span class="talk_r talk_gray">
+                            {{messages.messageContent}}
+                        </span>
+                    </div>
+                  </div>
+                  <div *ngSwitchCase="'image'">
+                     <div class="Chat_time '+cfg.showTime+'">
+                       <span class="Btn_20 Btn_gray Btn_radiusI">{{messages.sentTime}}</span>
+                     </div>
+                     <div class="Chat_nicknm">{{messages.nikeName}}</div>
+                     <div class="l mr1rem">
+                       <img src="source/img/logo.png" width="30" height="30" alt="" style="border-radius:15px; overflow:hidden" />
+                     </div>
+                     <div class="ovh">
+                     <img class="chatimg" [src]="messages.imgSrc" style="max-width:160px; max-height:160px" />
+                     </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+</ion-content>
+<chat-component></chat-component>

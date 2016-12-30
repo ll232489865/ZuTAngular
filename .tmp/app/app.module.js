@@ -6,7 +6,10 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { Storage } from '@ionic/storage';
+import { GroupChat } from '../pages/contact/group-chat/group-chat';
+import { Chat } from '../pages/contact/chat/chat';
 import { LoginService } from '../pages/mine/login.service';
+import { MyinfoServer } from '../pages/mine/myinfoF/myinfoF.server';
 import { PropagateService } from '../pages/home/propagate.service';
 import { ThirdShare } from '../pages/third_share/third-share';
 import { Discovery } from '../pages/about/discovery';
@@ -36,6 +39,8 @@ export var AppModule = (function () {
                         ThirdShare,
                         Discovery,
                         LiveDetail,
+                        GroupChat,
+                        Chat,
                         MinePage,
                         LoginPage,
                         MyAccountPage,
@@ -60,6 +65,8 @@ export var AppModule = (function () {
                         ThirdShare,
                         Discovery,
                         LiveDetail,
+                        GroupChat,
+                        Chat,
                         MinePage,
                         LoginPage,
                         MyAccountPage,
@@ -71,7 +78,7 @@ export var AppModule = (function () {
                         Details
                     ],
                     providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler },
-                        PropagateService, LiveService, LoginService, Storage]
+                        PropagateService, LiveService, LoginService, MyinfoServer, Storage]
                 },] },
     ];
     /** @nocollapse */

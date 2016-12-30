@@ -105,7 +105,6 @@ export var LoginService = (function () {
     LoginService.prototype.logout = function () {
         this.isLoggedIn = false;
         this.storage.remove("SESSION");
-        this.storage.remove("ACCOUNTINFO");
     };
     LoginService.prototype.handleError = function (error) {
         console.error('An error occurred', error);

@@ -1,7 +1,13 @@
 import { Component } from '@angular/core';
+import { Qiniu } from 'ionic-native';
 export var Details = (function () {
     function Details() {
     }
+    Details.prototype.uploadImage = function () {
+        Qiniu.uploadImage().then(function (Qiniu) {
+            alert("七牛");
+        });
+    };
     Details.decorators = [
         { type: Component, args: [{
                     // moduleId:module.id,

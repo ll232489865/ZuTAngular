@@ -20,6 +20,7 @@ export var TabsPage = (function () {
         }
     }
     TabsPage.prototype.ionViewDidEnter = function () {
+        console.log('-----didEnter' + this.tabCurrent);
         if (this.tabCurrent != 999) {
             this.tabs.select(this.tabCurrent);
             this.tabCurrent = 999;

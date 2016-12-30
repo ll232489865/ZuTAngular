@@ -53,6 +53,7 @@ module.exports = [
         "file": "plugins/cordova-plugin-istudy/www/istudy.js",
         "id": "cordova-plugin-istudy.Istudy",
         "pluginId": "cordova-plugin-istudy",
+<<<<<<< HEAD
         "clobbers": [
             "Istudy"
         ]
@@ -61,40 +62,10 @@ module.exports = [
         "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
         "id": "cordova-plugin-camera.Camera",
         "pluginId": "cordova-plugin-camera",
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
         "clobbers": [
-            "Camera"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-        "id": "cordova-plugin-camera.CameraPopoverOptions",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "CameraPopoverOptions"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-camera/www/Camera.js",
-        "id": "cordova-plugin-camera.camera",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "navigator.camera"
-        ]
-    },
-    {
-        "file": "plugins/cordova-plugin-camera/www/ios/CameraPopoverHandle.js",
-        "id": "cordova-plugin-camera.CameraPopoverHandle",
-        "pluginId": "cordova-plugin-camera",
-        "clobbers": [
-            "CameraPopoverHandle"
-        ]
-    },
-    {
-        "file": "plugins/com.synconset.imagepicker/www/imagepicker.js",
-        "id": "com.synconset.imagepicker.ImagePicker",
-        "pluginId": "com.synconset.imagepicker",
-        "clobbers": [
-            "plugins.imagePicker"
+            "Istudy"
         ]
     },
     {
@@ -115,11 +86,15 @@ module.exports.metadata =
     "cordova-plugin-statusbar": "2.2.0",
     "cordova-plugin-whitelist": "1.3.0",
     "ionic-plugin-keyboard": "2.2.1",
+<<<<<<< HEAD
     "cordova-plugin-istudy": "1.0.0",
     "cordova-plugin-compat": "1.1.0",
     "cordova-plugin-camera": "2.3.1",
     "com.synconset.imagepicker": "2.1.7",
     "cordova-plugin-qiniu": "1.0.0"
+=======
+    "cordova-plugin-istudy": "1.0.0"
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 }
 // BOTTOM OF METADATA
 });

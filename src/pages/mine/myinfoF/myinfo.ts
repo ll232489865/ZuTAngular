@@ -1,13 +1,20 @@
 import { Component } from '@angular/core';
+<<<<<<< HEAD
 import { ActionSheetController } from 'ionic-angular';
 import { Camera } from 'ionic-native';
 import { ImagePicker } from 'ionic-native';
 import { MyinfoServer } from './myinfoF.server';
+=======
+
+
+
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 @Component({
     selector: 'my-component',
     templateUrl: 'myinfo.html'
 })
 export class MyInfoPage {
+<<<<<<< HEAD
     public base64Image: string;
      loadImage = "source/img/5.png";
 
@@ -89,6 +96,13 @@ export class MyInfoPage {
       this.loadImage = "source/img/5.png";
       
     }
+=======
+    constructor(
+     ){
+        // this.ac="首页";
+    }
+    // ac:any;
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 
 
 }

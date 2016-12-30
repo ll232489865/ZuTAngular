@@ -64,6 +64,7 @@
         "variables": {}
     },
     "cordova-plugin-istudy": {
+<<<<<<< HEAD
         "source": {
             "type": "local",
             "path": "/Users/renlei/Desktop/cordova-plugin-istudy"
@@ -83,10 +84,11 @@
         }
     },
     "com.synconset.imagepicker": {
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
         "source": {
-            "type": "git",
-            "url": "https://github.com/Telerik-Verified-Plugins/ImagePicker",
-            "subdir": "."
+            "type": "local",
+            "path": "/Users/renlei/Desktop/cordova-plugin-istudy"
         },
         "is_top_level": true,
         "variables": {}

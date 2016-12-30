@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, URLSearchParams, RequestOptions, Headers } from '@angular/http';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
@@ -7,12 +11,21 @@ import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/toPromise';
 
 import { Storage } from '@ionic/storage'
+<<<<<<< HEAD
 
 
 //model
 import { LoginHandshakeModel, model_loginResult } from './login-model'
 //plugin
 import { Device, Istudy,Qiniu } from 'ionic-native';
+=======
+
+
+//model
+import { LoginHandshakeModel, model_loginResult } from './login-model'
+//plugin
+import { Device, Istudy } from 'ionic-native';
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 
 //md5
 declare var md5_obj;
@@ -151,7 +164,10 @@ export class LoginService {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 }
 
 

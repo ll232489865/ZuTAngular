@@ -34,12 +34,15 @@
     </feature>
     <feature name="Istudy">
         <param name="ios-package" value="CDVIstudy" />
+<<<<<<< HEAD
     </feature>
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
     </feature>
     <feature name="ImagePicker">
         <param name="ios-package" value="SOSPicker" />
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
     </feature>
     <feature name="Qiniu">
         <param name="ios-package" value="CDVQiniu" />
@@ -72,7 +75,6 @@
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="lightcontent" />
-    <preference name="CameraUsesGeolocation" value="false" />
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="android-minSdkVersion" value="16" />

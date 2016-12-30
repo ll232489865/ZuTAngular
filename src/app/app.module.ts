@@ -91,6 +91,10 @@ import {UnlessDirective} from '../providers/unless.directive'
     Details
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},
+<<<<<<< HEAD
   PropagateService,LiveService,LoginService,MyinfoServer,Storage]
+=======
+  PropagateService,LiveService,LoginService,Storage]
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
 })
 export class AppModule {}

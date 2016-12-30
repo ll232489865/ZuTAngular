@@ -26,6 +26,7 @@
             "PACKAGE_NAME": "io.ionic.starter"
         },
         "cordova-plugin-istudy": {
+<<<<<<< HEAD
             "PACKAGE_NAME": "com.ionicframework.zutionic431082"
         },
         "cordova-plugin-camera": {
@@ -38,12 +39,10 @@
             "PACKAGE_NAME": "com.ionicframework.zutionic431082"
         },
         "cordova-plugin-qiniu": {
+=======
+>>>>>>> 7e1ee3ad5f2d80df1c3375b98f8d9f28309dda86
             "PACKAGE_NAME": "com.ionicframework.zutionic431082"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.ionicframework.zutionic431082"
-        }
-    }
+    "dependent_plugins": {}
 }
